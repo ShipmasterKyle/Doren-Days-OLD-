@@ -98,7 +98,7 @@
 		<</if>>
 		<<link [[Leave|Orphanage]]>><<endevent>><</link>>
 		<br>
-	<<elseif $hour gte 21 or $hour lte 6>>
+	<<elseif $hour gte 23 or $hour lte 6>>
 		Robin looks at the clock on the wall. "It's past my bed time," <<he>> says. <<He>> hugs you. "Goodnight."
 		<br><br>
 		<<if $robinromance is 1>>

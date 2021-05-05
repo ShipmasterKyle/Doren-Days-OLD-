@@ -661,7 +661,6 @@ Kylar watches your climax with awe.
 	<<if $kylarenglishstate is "active">>
 	<<npc Kylar>><<generates2>><<person2>>A <<person>> leans over your desk to chat across the room. You try to stop touching yourself, but you can't control your spasms. <<He>> sees what you're doing. <<His>> mouth gapes for a moment, then <<he>> smiles. "Wow, you're a real pervert," <<he>> whispers. "I should let everyone know. Unless," <<He>> shunts <<his>> desk closer to yours. "Unless you-"
 	<br><br>
-
 	<<Hes>> interrupted. Kylar lunges over your desk and drags <<him>> to the ground. <<person1>><<He>> straddles the <<person2>><<person>>, with one hand around <<his>> throat and the other clutching a knife. Someone screams.
 
 	"<<pShes>> mine," Kylar says, moving the knife closer to the <<persons>> face. "Mine."
@@ -692,7 +691,8 @@ Kylar watches your climax with awe.
 	<<link [[Refuse|English Rub Refuse]]>><<trauma 6>><<stress 6>><<detention 3>><<status -10>><</link>><<lcool>><<gdelinquency>><<gtrauma>><<gstress>>
 	<br>
 	<</if>>
-
+<<elseif if $timer lte 0 and $orgasmdown gte 2>>
+Doren notices you from the corner of <<his>> eye. You attempt to stop touching yourself but can't stop the spasms.
 <<else>>
 
 <<if $timer lte 0>>
@@ -705,6 +705,7 @@ Another student leans over your desk and starts chatting across the room. You co
 	Not wanting to risk it further, you rearrange your clothing and sit upright. "Y-you're so lewd," Kylar gulps. "And brave."
 	<<else>>
 	Not wanting to risk it further, you rearrange your clothing and sit upright. You don't think anyone noticed.
+		<</if>>
 	<</if>>
 <</if>>
 <br><br>
@@ -1474,9 +1475,11 @@ You plant a kiss on <<his>> lips. <<takeKissVirginity "Mason">><<He>> recoils wi
 <<if $timer lte 1>>
 <<link [[Continue|School Boy's Masturbation Caught]]>><</link>><<nexttext>>
 <br>
+'
 <<else>>
 <<link [[Continue|School Boy's Masturbation]]>><</link>><<nexttext>>
 <br>
+'
 <</if>>
 <<if $corruptionMasturbation isnot true and random(0,3) gt $orgasmcurrent and $corruption_slime gt ($willpower / 10)>>
 	<<link [[Stop|$passage]]>><<set $corruptionMasturbation to true>><</link>>
@@ -1486,9 +1489,9 @@ You plant a kiss on <<his>> lips. <<takeKissVirginity "Mason">><<He>> recoils wi
 	The slime in your ear will not allow you to stop.
 <</if>>
 <br>
-
+'
 :: School Boy's Masturbation Finish [nobr]
-
+'
 <<effects>>
 One of the boys glances in your direction. You back away from the door, your heart pounding.
 <br><br>

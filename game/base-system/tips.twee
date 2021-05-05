@@ -1,7 +1,7 @@
 :: Widgets Tips [widget]
 
 <<widget "tips">><<nobr>>
-<<set _maxTipCount = 133>>
+<<set _maxTipCount = 134>>
 <<if $args[0] is undefined>>
 	<<tipsList `random(0,_maxTipCount)`>>
 	<<unset _maxTipCount>>
@@ -278,7 +278,9 @@
 <<case 132>>
 	If you're having trouble with game performance or images not loading correctly, try disabling some images or animations in the settings.
 <<case 133>>
-	Access to food is not usually an issue. When it is, starvation can weaken your physique.
+	Theres a gym in Cliff Street. If you need to improve your physique then try it out!
+<<case 134>>
+	If you want to avoid Bailey try an Apartment!
 <</switch>>
 <</nobr>><</widget>>
 

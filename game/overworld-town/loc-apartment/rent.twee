@@ -1,0 +1,73 @@
+<!--Rent Stuff-->
+:: Mii Rent Pay
+<<npc Larry>><<person1>>
+<<He>> nods approvingly counting the money. "Thanks." <<He>> waves you goodbye as you leave.
+<<link [[Next|Flat Enterance]]>><<pass 2>><</link>>
+
+
+:: Mii Rent Showoff
+<<npc Larry>><<person1>>
+"II have something to show you." You say edging closer to <<if $pronoun is "m">> Larry <<else>> Lara <</if>>. <<He>> sits down allowing you to work your magic.
+You bend over and pull down your <<allBottoms>>. <<if $pronoun is "m">> Larry <<else>> Lara <</if>> gets an eyeful of your
+<<if $worn.under_lower.name is "naked" and $worn.genitals.type.includes("chastity")>>
+	$worn.genitals.name.
+	<<stress -6>><<arousal 300>>
+	<<exhibitionism3>>
+<<elseif $worn.under_lower.name is "naked">>
+	<<bottom>>.
+	<<stress -6>><<arousal 300>>
+	<<exhibitionism3>>
+<<else>>
+	$worn.under_lower.name.
+	<<stress -6>><<arousal 300>>
+	<<exhibitionism2>>
+<</if>>
+<br><br>
+<<He>> smiles not realizing wht your trying to do.
+"<<print either(
+    "Want some?"
+    "Ready?"
+    "Rent can wait right?"
+    "Lets have some fun first."
+    )>>"
+"Sure!" <<He>> looks elated. He leads you to a room in the back.
+<<link [[Next|Mii Rent Sex]]>><</link>>
+
+:: Mii Sex [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral 1>>
+<<maninit>>
+<<set $enemytrust += 500>><<npcexpose>><<set $speechdisable to 1>>
+<<set $enemyarousalmax to 500>>
+<</if>>
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>><<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $finish is 1>>
+	<span id="next"><<link [[Next|Mii Sex Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Mii Sex Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Mii Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Mii Sex]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Mii Sex Finish [nobr]
+Placeholder event for when I write something better.
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+     <<if $pronoun is "m">> Larry <<else>> Lara <</if>> smiles. "I suppose your rent is payed." You nod.
+<<elseif $enemyhealth lte 0>>
+    "You're preety rough" <<if $pronoun is "m">> Larry <<else>> Lara <</if>> laughs.
+<<else>>
+    <<if $pronoun is "m">> Larry <<else>> Lara <</if>> smiles. "I suppose your rent is payed." You nod.
+    <</if>>
+<</if>>
+<<link [[Next|Flat Enterance]]>><</link>>

@@ -3978,6 +3978,11 @@ __Map__<br>
 	<<set _i to $NPCNameList.indexOf("Great Hawk")>>
 	<<set $NPCName[_i].love = Math.clamp($NPCName[_i].love, 0, 100)>>
 	<<set $NPCName[_i].dom = Math.clamp($NPCName[_i].dom, 0, 100)>>
+	/* Adds Doren to the list*/
+	<<set _i to $NPCNameList.indexOf("Doren")>>
+	<<set $NPCName[_i].love = Math.clamp($NPCName[_i].love, 0, 100)>>
+	<<set $NPCName[_i].lust = Math.clamp($NPCName[_i].lust, 0, 100)>>
+	<<set $NPCName[_i].trust = Math.clamp($NPCName[_i].lust, 0, 100)>>
 <</nobr>><</widget>>
 
 <<widget "fringecheck">><<nobr>>

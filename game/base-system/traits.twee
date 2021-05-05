@@ -251,6 +251,11 @@
 <</if>>
 <br>
 
+<<if $home isnot "none">>
+	<span class="lblue">Freedom</span> - You're avoiding Bailey by running away from home. Erases all Bailey payments(except for robin).
+	<br>
+<</if>>
+
 <<if $sciencetrait is 1>>
 	<span class="blue">Passable Science</span> - Pain is slightly easier to cope with.
 	<br>

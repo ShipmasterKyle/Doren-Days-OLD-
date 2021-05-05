@@ -143,6 +143,7 @@
 	<<if $whitneymaths is "active">>
 		<<link [[Catch Whitney's rubber|Maths Exam]]>><<set $phase to 3>><</link>><<dancedifficulty 1 1000>>
 		<br>
+'
 	<<elseif $whitneymaths is "seat" and $promiscuity gte 35>>
 		<<npc Whitney>><<person1>>
 		<<if $NPCList[0].penis isnot "none">>
@@ -202,7 +203,7 @@ Embarrassed, you apologise and leave.
 You mock the teacher. "Sorry for interrupting <<sir>>, I'll let you get back to putting your class to sleep." Laughter erupts among the seated students.
 <br><br>
 
-River is not so amused. "You've made a mistake. Get out."
+River is not so amused. "You think you're funny? Get out my classroom."
 <<gdelinquency>>
 <br><br>
 <<detention 1>><<npcincr River love -1>>

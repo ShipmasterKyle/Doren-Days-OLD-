@@ -552,13 +552,17 @@ Your marked booklet skids in front of you,
 <<if _exam_success is true>>
 	<<if $englishtrait gte 4>>
 		<<school_skill_up english>>
-		<<school_mark english>> printed and circled on the front, with <span class="green">"Distinction"</span> written beside it in green ink.<<ggcontrol>><<control 25>>
+		<<school_mark english>> printed and circled on the front, with <span class="green">"Distinction"</span> written beside it in green ink.<<ggcontrol>><<control 25>><<span class="gold">> Doren is proud of you. <</span>><<npcincr Doren love 1>>
 		<<distinction_stat>>
 	<<else>>
 		<<school_skill_up english>>
-		<<school_mark english>> printed and circled on the front. <span class="green">You've improved your mark!</span>
+		<<school_mark english>> printed and circled on the front. <span class="green">You've improved your mark!</span> Doren smiles at you.<<npcincr Doren love 1>>
 		<br>
 		<<english_skill_up_text>>
+		<<if $english gte 400 and $NPCName[$NPCNameList.indexOf("Doren")].love gte 10 and $NPCName[$NPCNameList.indexOf("Doren")].trust gte 1>>
+		Doren taps you on the shoulder. "Come see me after classes today. I have something for you." <<he>> says.
+		<</if>>
+		<<set $doreninvite to 1>>
 	<</if>>
 <<else>>
 	<<school_mark english>> printed and circled on the front. The expected mark.

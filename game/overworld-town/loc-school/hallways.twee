@@ -94,6 +94,7 @@ The school hallways are empty.
 			<</if>>
 		<br>
 		<</if>>
+'
 
 	<<lockericon>><<link [[Lockers|School Lockers]]>><</link>>
 	<br><br>
@@ -124,7 +125,15 @@ Classrooms
 	<br>
 	<<mathicon>><<link [[Maths classroom (0:01)|Maths Classroom]]>><<pass 1>><</link>>
 	<br>
+	<<if $doreninvite is 1 and $schoolstate is "afternoon">>
+	Doren wans to see you in their classroom.
+	<<englishicon>><<link [[English classroom (0:01)|Doren Classroom]]>><<pass 1>><</link>>
+	<<elseif $schoolstate is "afternoon" and $delinquency lte 10 and $weekday is 2>>
+	Doren is in their classroom.
+	<<englishicon>><<link [[English classroom (0:01)|English Talk]]>><<pass 1>><</link>>
+	<<else>>
 	<<englishicon>><<link [[English classroom (0:01)|English Classroom]]>><<pass 1>><</link>>
+	<</if>>
 	<br>
 	<<historyicon>><<link [[History classroom (0:01)|History Classroom]]>><<pass 1>><</link>>
 	<br>
@@ -387,8 +396,10 @@ You shove them against a locker, giving you a chance to escape. <<tearful>> you 
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
 
 You slap the <<person>> before <<he>> can get away, wiping the smirk off <<his>> face.
+<<if $cool gte 350>>
+Your 'friends' laugh at <<him>>.
+<</if>>
 <br><br>
-
 <<link [[Next|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
 <br>
 
@@ -399,7 +410,7 @@ You slap the <<person>> before <<he>> can get away, wiping the smirk off <<his>>
 	<<if $schoolrep.herm gte 5>>
 		You make small talk. <<He>> seems nice enough, but when you turn to leave <<he>> grabs your arm. "I know a place we won't be disturbed," <<he>> says, running <<his>> eyes down your body and over your crotch. "I hear you have a secret."
 	<<elseif $schoolrep.crossdress gte 5 and $player.gender isnot $player.gender_appearance>>
-		You make small talk. <<He>> seems nice enough, but when you turn to leave <<he>> grabs your arm. "I know a place we won't be disturbed," <<he>> says, runnings <<his>> eyes down your body and over your crotch. "I hear you have a secret."
+		You make small talk. <<He>> seems nice enough, but when you turn to leave <<he>> grabs your arm. "I know a place we won't be disturbed," <<he>> says, running <<his>> eyes down your body and over your crotch. "I hear you have a secret."
 	<<else>>
 		You make small talk. <<He>> seems nice enough, but when you turn to leave <<he>> grabs your arm. "I know a place we won't be disturbed," <<he>> says, running <<his>> eyes down your body.
 	<</if>>

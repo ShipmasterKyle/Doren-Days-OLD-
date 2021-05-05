@@ -5,7 +5,11 @@
 <<earnAllFeats true>>
 <<set $noon_check to 0>>
 <<set $dawn_check to 0>>
+<<if $home is "none">>
 <<set $renttime -= 1>>
+<<else>>
+<<set $homerenttime -=1>>
+<</if>>
 <<set $motherwake to 0>>
 <<if $gamemode isnot "hard">>
 	<<set $exhibitionism -= 1>>

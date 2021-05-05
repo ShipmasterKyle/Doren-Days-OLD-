@@ -2,7 +2,7 @@
 <<widget "journal">><<nobr>>
 
 <h4>Journal</h4>
-<<if $rentday isnot undefined>>
+<<if $rentday isnot undefined and $home is "none">>
 	<<if $renttime lte 0>>
 		Bailey is looking for you, and wants <span class="gold">£<<print $rentmoney / 100>></span>.
 		<br>
@@ -18,6 +18,10 @@
 <<if $psych is 1>>
 	You have an appointment with Doctor Harper on Friday.
 	<br>
+<</if>>
+
+<<if $home is "apartment">>
+	Your rent is due <span class="blue"> the last saturday of every month. </span> Thats in <<print $homerenttime>> days.
 <</if>>
 
 <<if $edenasylumjournal is 1 and $hour lt 21>>
@@ -51,6 +55,10 @@
 	Landry wants you to retrieve a black box from the moor.
 	<br>
 <</if>>
+
+<<if $doreninvite gte 1>>
+	Doren asked to see you after school in their classroom. 
+<</if>>	
 
 <<if $police_hack is 1>>
 	Landry might be able to help you with the locked police computer.

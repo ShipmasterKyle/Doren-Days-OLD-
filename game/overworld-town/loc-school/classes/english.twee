@@ -89,7 +89,7 @@
 		<<link [[Apologise|English Classroom Apology]]>><<trauma 1>><<stress 1>><</link>><<gstress>><<gtrauma>>
 		<br>
 		<<if $trauma gte 1>>
-			<<link [[Mock|English Classroom Mock]]>><<status 1>><<stress -12>><</link>><<lstress>><<gcool>><<gdelinquency>>
+			<<link [[Mock|English Classroom Mock]]>><<status 1>><<stress -12>><<npcincr Doren love 1>><</link>><<glove>><<lstress>><<gcool>><<gdelinquency>>
 			<br>
 		<</if>>
 	<</if>>
@@ -177,6 +177,53 @@
 	<</if>>
 <</if>>
 
+:: Doren Classroom
+<<npc Doren>><<person1>>
+You walk into the classroom unsure of your reason for being here. "Hello <<lass>>. Have a seat."
+You sit down at a desk in front of Doren. <<He>> closes the door and hands you a binder. It contains all of your school work for the year.
+"You're an excellent student. Your grades in my class are evidence of that. So I have something for you." <<He>> turns to the last page which contains two tickets to 
+a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blushes. <<He>> seems nice <<span class="red">> but you should be careful if you want to be popular. <</span>> 
+<br><br>
+<<link[Go with Doren (0:05)|Doren Movies Intro]>><<pass 5>><<npcincr Doren love 2>><<set $doreninvite to 2>>
+<br>
+<<link[Refuse|Doren Movie Refuse]>><<npcincr Doren love -10>>
+
+:: Doren Movies Intro
+<<if $submissive gte 1150>>
+	"I-I'd love too." You say, blushing.
+<<elseif $submissive lte 850>>
+	"Sure." You say. You try to hide your blush.
+<<else>>
+	"Of course!" You say. You blush.
+<</if>>
+<br>
+<<link[Next|Doren Movies 1]>><<pass 120>><<npcincr Doren love 2>>
+
+:: Doren Movie Refuse
+<<if $submissive gte 1150>>
+	"I-I'd love too but,""
+<<elseif $submissive lte 850>>
+	"..."
+<<else>>
+	"Well..""
+<</if>>
+<br>
+"Its ok. I understand." Doren says sadly.
+<br>
+<span class = "red">Doren can no longer be claimed as your love interest.</span>
+
+:: English Talk
+<!-- Event for talking with Doren. Good for increasing love.-->
+"Need something?" Doren asks.
+<br><br>
+<<link [[Ask for help|English Doren Study]]>><</link>>
+<br><br>
+<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
+<<link [[Go somewhere|Doren Date Options]]>><</link>>
+<br><br>
+<</if>>
+<<link [[Nevermind|Hallways]]>><</link>>
+
 :: English Classroom Apology [nobr]
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 
@@ -192,9 +239,7 @@ You mock the teacher. "Sorry for interrupting <<sir>>, please don't eat me!" Lau
 <br><br>
 
 Doren also laughs. "Go to your class, or I just might!" <<He>> holds the door open for you.
-<<gdelinquency>>
 <br><br>
-<<detention 1>>
 <<link [[Next|Hallways]]>><<endevent>><</link>>
 
 :: English Lesson Focus [nobr]

@@ -853,6 +853,7 @@
 	<<set $sirris_penis_size to 2>>
 	<<set $whitney_penis_size to 2>>
 	<<set $winter_penis_size to 2>>
+	<<set $larry_penis_size to 2>>
 <</if>>
 
 <<if $breast_mod lt -12>>

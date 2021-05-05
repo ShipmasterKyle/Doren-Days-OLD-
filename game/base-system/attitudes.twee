@@ -766,6 +766,9 @@ __If consensual:__
 			<<if $syndromeeden is 1>>
 				<<run _potentialLoveInterests.push("Eden")>>
 			<</if>>
+			<<if $dorenromance is 1>>
+				<<run _potentialLoveInterests.push("Doren")>>
+			<</if>>
 			<<if $dateCount.Avery gte 3 and $NPCName[$NPCNameList.indexOf("Avery")].state isnot "dismissed">>
 				<<run _potentialLoveInterests.push("Avery")>>
 			<</if>>
