@@ -1,0 +1,205 @@
+:: Widgets Combat [widget]
+
+<<widget "takeVirginity">><<nobr>>
+<<if $args[1]>>
+	<<if $args[1] is "vaginal" or $args[1] is "penile">>
+		<<switch $args[0]>>
+			<<case "Robin">><<earnFeat "Robin the Lover">>
+			<<case "Kylar">><<earnFeat "Kylar the Obsessed">>
+			<<case "Eden">><<earnFeat "Eden the Lonely">>
+			<<case "Whitney">><<earnFeat "Whitney the Tsundere">>
+			<<case "Avery">><<earnFeat "Avery the Moneybags">>
+			<<case "Leighton">><<earnFeat "Leighton the Shady">>
+			<<case "Alex">><<earnFeat "Alex the Robust">>
+			<<case "Great Hawk">><<earnFeat "Great Hawk the Terror">>
+			<case "Doren">><<earnFeat "Doing Doren">>
+		<</switch>>
+	<</if>>
+	<<if $player.virginity[$args[1]] is true>>
+		<<if $args[0] isnot undefined and $args[0] isnot 0>>
+			<<set $player.virginity[$args[1]] to $args[0]>>
+		<<else>>
+			<<set $player.virginity[$args[1]] to false>>
+		<</if>>
+	<</if>>
+
+	<<if $player.virginity.temple is true and ($args[1] is "vaginal" or $args[1] is "penile")>>
+		<<set $player.virginity.temple to false>>
+	<</if>>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "takeHandholdingVirginity">><<nobr>>
+<<if $player.virginity.handholding is true>>
+	<<switch $args[1]>>
+		<<case "romantic">>
+			<span class="lewd">You aren't used to this kind of romantic handholding.</span><<arousal 2000>><<ggarousal>>
+		<<case "rape">>
+			<span class="red">You feel horrible, being forced to hold hands like this.</span><<stress 40>><<ggstress>>
+		<<default>>
+			<span class="blue">You feel nervous holding the hands of someone you're not close to.</span><<stress 20>><<gstress>>
+	<</switch>>
+	<<takeVirginity $args[0] "handholding">>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "takeKissVirginity">><<nobr>>
+<<if $player.virginity.kiss is true>>
+	<<switch $args[1]>>
+		<<case "loveInterest">>
+			<span class="lewd">You're happy your first kiss went to a love interest.</span><<arousal 3000>><<stress -12>><<trauma -12>><<ggarousal>><<llstress>>
+			<<earnFeat "First Kiss">>
+		<<case "romantic">>
+			<span class="lewd">You're happy your first kiss was taken in such a romantic way.</span><<arousal 1500>><<stress -6>><<trauma -6>><<garousal>><<lstress>>
+		<<case "rape">>
+			<span class="red">They stole your first kiss. You feel horrible.</span><<stress 40>><<gggstress>>
+		<<case "tentacle">>
+			<span class="lewd">You wonder what others would say about giving a tentacle your first kiss, if they would even believe you.</span><<arousal 3000>>
+		<<default>>
+			<span class="blue">You feel conflicted about giving them your first kiss.</span><<stress 20>><<ggstress>>
+	<</switch>>
+	<<takeVirginity $args[0] "kiss">>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "takeKissVirginityNamed">><<nobr>>
+<<switch $args[0]>>
+	<<case "Robin">>
+		<<if $robinromance is 1>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Whitney">>
+		<<if $whitneyromance is 1>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Kylar">>
+		<<if $kylarenglish gte 1>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Eden">>
+		<<if $syndromeeden is 1>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Avery">>
+		<<if $dateCount.Avery gte 3>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Black Wolf">>
+		<<if $syndromewolves is 1 and $deviancy gte 35>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Great Hawk">>
+		<<if $syndromebird is 1>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<case "Doren">>
+		<<if $english gte 400 and $doreninvite gte 2>>
+			<<set _loveInterest to true>>
+		<</if>>
+	<<default>>
+		<<set _loveInterest to false>>
+<</switch>>
+<<if _loveInterest is true and ($consensual is 1 or $args[2])>>
+	<<takeKissVirginity $args[0] "loveInterest">>
+<<elseif ($consensual is 1 or $args[2])>>
+	<<takeKissVirginity $args[0] "consensual">>
+<<else>>
+	<<takeKissVirginity $args[0] "rape">>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "setupMidOrgasm">><<nobr>>
+<<if $setupMidOrgasm isnot undefined and $enemyarousal gte $enemyarousalmax>>
+	<<set _midOrgasm to false>>
+	<<for _n to 0; _n lt $NPCList.length;_n++>>
+		<<if $NPCList[_n].maxOrgasms gt 1>>
+			<<set $NPCList[_n].orgasms++>>
+		<</if>>
+		<<if $NPCList[_n].orgasms lt $NPCList[_n].maxOrgasms>>
+			<<set _midOrgasm to true>>
+		<</if>>
+	<</for>>
+	<<if _midOrgasm is true>>
+		<<set $enemyarousal to $enemyarousalmax / 2>>
+		<<set $finish to 0>>
+		<<set $ejaculatingMid to true>>
+	<</if>>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "combatTrainAdvance">><<nobr>>/*For use after a beast/monster in a train is finished with their turn. Loads next in line into $NPCList[0]. Loads them all back into $NPCList if at the end of the train.*/
+<<clearnpc>>
+<<if $combatTrain.length gt 0>>
+	<<set $combatTrain.length-->>
+	<<set $combatTrain.active += 1>>
+	<<loadNPC 0 `"beast_" + $combatTrain.active`>>
+<<else>>
+	<<for _e_n to 0; _e_n lt $combatTrain.total_length + 1; _e_n++>>
+		<<loadNPC _e_n `"beast_" + _e_n`>>
+		<<clearNPC `"beast_" + _e_n`>>
+	<</for>>
+<</if>>
+<<set $active_enemy to 0>>
+<</nobr>><</widget>>
+
+<<widget "beastTrainGenerate">><<nobr>>/*Saves all beasts/monsters in $NPCList, then loads the first into slot 0.*/
+<<set _enemyno to $enemyno - 1>>
+<<set $combatTrain to {
+    length: _enemyno,
+    total_length: _enemyno,
+    active: 0,
+    pronouns: [],
+	monsters: [],
+    beastTypes: []
+}>>
+<<for _e_n to 0; _e_n lt $enemyno; _e_n++>>
+    <<saveNPC _e_n `"beast_" + _e_n`>>
+    <<set $combatTrain.beastTypes.push($NPCList[_e_n].type)>>
+    <<set $combatTrain.pronouns.push($NPCList[_e_n].pronoun)>>
+	<<set $combatTrain.monsters.push($NPCList[_e_n].monster)>>
+<</for>>
+<<clearnpc>>
+<<loadNPC 0 beast_0>>
+<</nobr>><</widget>>
+
+
+
+<<widget "leg_position">><<nobr>>
+<<if $machine>>
+	<<if $machine.tattoo>>
+		<<if $machine.tattoo.use is "left_thigh" or $machine.tattoo.use is "right_thigh">>
+			<<set _leg_position to "up">>
+		<<else>>
+			<<leg_position_basic>>
+		<</if>>
+	<<else>>
+		<<leg_position_basic>>
+	<</if>>
+<<else>>
+	<<leg_position_basic>>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "leg_position_basic">><<nobr>>
+<<if $anususe is "penis" or $vaginause is "penis" or $anususe is 1 or $vaginause is 1>>
+	<<set _leg_position to "up">>
+<<else>>
+	<<set _leg_position to "down">>
+<</if>>
+<</nobr>><</widget>>
+
+/* Should ideally only be used if you're sure one npc is in this position */
+/* Selects the NPC that has the given body part (chest, mouth, vagina) set to the given value */
+/* Useful when you know one of them is in a given position by looking at the PC, but aren't sure which */
+<<widget "selectNpcWithPartInPosition">><<nobr>>
+	<<if $args[0] and $args[1]>>
+		<<unset _npc>>
+		<<for _j = 0; _j lt $enemyno; _j++>>
+			<<if $NPCList[_j][$args[0]] is $args[1]>>
+				<<personselect _j>>
+				<<set _npc to $NPCList[_j]>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+<</nobr>><</widget>>

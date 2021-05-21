@@ -1,0 +1,316 @@
+:: Widgets Plant Objects [widget]
+<<widget "init_plant_objects">><<nobr>>
+
+<<set setup.plants to {
+
+	red_rose: {
+		index: 0,
+		name: "red_rose",
+		plural: "red roses",
+		plant_cost: 400,
+		difficulty: 1,
+		bed: "earth",
+		type: "flower",
+		days: 14,
+		multiplier: 1,
+		special: []
+		},
+
+	white_rose: {
+		index: 1,
+		name: "white_rose",
+		plural: "white roses",
+		plant_cost: 400,
+		difficulty: 1,
+		bed: "earth",
+		type: "flower",
+		days: 14,
+		multiplier: 1,
+		special: []
+		},
+
+	orchid: {
+		index: 2,
+		name: "orchid",
+		plural: "orchids",
+		plant_cost: 1000,
+		difficulty: 2,
+		bed: "earth",
+		type: "flower",
+		days: 28,
+		multiplier: 1,
+		special: []
+		},
+
+	daisy: {
+		index: 3,
+		name: "daisy",
+		plural: "daisies",
+		plant_cost: 100,
+		difficulty: 1,
+		bed: "earth",
+		type: "flower",
+		days: 7,
+		multiplier: 1,
+		special: []
+		},
+
+	tulip: {
+		index: 4,
+		name: "tulip",
+		plural: "tulips",
+		plant_cost: 200,
+		difficulty: 1,
+		bed: "earth",
+		type: "flower",
+		days: 12,
+		multiplier: 1,
+		special: []
+		},
+
+	lotus: {
+		index: 5,
+		name: "lotus",
+		plural: "lotus",
+		plant_cost: 300,
+		difficulty: 2,
+		bed: "water",
+		type: "flower",
+		days: 5,
+		multiplier: 1,
+		special: []
+		},
+
+	lily: {
+		index: 6,
+		name: "lily",
+		plural: "lilies",
+		plant_cost: 200,
+		difficulty: 1,
+		bed: "earth",
+		type: "flower",
+		days: 10,
+		multiplier: 1,
+		special: []
+		},
+
+	poppy: {
+		index: 7,
+		name: "poppy",
+		plural: "poppies",
+		plant_cost: 200,
+		difficulty: 2,
+		bed: "earth",
+		type: "flower",
+		days: 8,
+		multiplier: 1,
+		special: []
+		},
+
+	apple: {
+		index: 8,
+		name: "apple",
+		plural: "apples",
+		plant_cost: 50,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 7,
+		multiplier: 1,
+		special: []
+		},
+
+	orange: {
+		index: 9,
+		name: "orange",
+		plural: "oranges",
+		plant_cost: 45,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 6,
+		multiplier: 1,
+		special: []
+		},
+
+	banana: {
+		index: 10,
+		name: "banana",
+		plural: "bananas",
+		plant_cost: 70,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 9,
+		multiplier: 1,
+		special: []
+		},
+
+	lemon: {
+		index: 11,
+		name: "lemon",
+		plural: "lemons",
+		plant_cost: 120,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 12,
+		multiplier: 1,
+		special: []
+		},
+
+	blood_lemon: {
+		index: 12,
+		name: "blood_lemon",
+		plural: "blood lemons",
+		plant_cost: 400,
+		difficulty: 2,
+		bed: "earth",
+		type: "fruit",
+		days: 20,
+		multiplier: 1,
+		special: ["aphrodisiac"]
+		},
+
+	pear: {
+		index: 13,
+		name: "pear",
+		plural: "pears",
+		plant_cost: 80,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 10,
+		multiplier: 1,
+		special: []
+		},
+
+	strawberry: {
+		index: 14,
+		name: "strawberry",
+		plural: "strawberries",
+		plant_cost: 180,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 14,
+		multiplier: 1,
+		special: []
+		},
+
+	peach: {
+		index: 15,
+		name: "peach",
+		plural: "peaches",
+		plant_cost: 65,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 8,
+		multiplier: 1,
+		special: []
+		},
+
+	plum: {
+		index: 16,
+		name: "plum",
+		plural: "plums",
+		plant_cost: 80,
+		difficulty: 1,
+		bed: "earth",
+		type: "fruit",
+		days: 10,
+		multiplier: 1,
+		special: []
+		},
+
+	mushroom: {
+		index: 17,
+		name: "mushroom",
+		plural: "mushrooms",
+		plant_cost: 100,
+		difficulty: 1,
+		bed: "wood",
+		type: "shroom",
+		days: 14,
+		multiplier: 1,
+		special: []
+		},
+
+	wolfshroom: {
+		index: 18,
+		name: "wolfshroom",
+		plural: "wolfshrooms",
+		plant_cost: 300,
+		difficulty: 1,
+		bed: "wood",
+		type: "shroom",
+		days: 21,
+		multiplier: 1,
+		special: ["aphrodisiac"]
+		},
+
+	wild_honeycomb: {
+		index: 19,
+		name: "wild_honeycomb",
+		plural: "wild honeycombs",
+		plant_cost: 12000,
+		difficulty: 3,
+		bed: "hive",
+		type: "produce",
+		days: 7,
+		multiplier: 1,
+		special: ["large"]
+		},
+
+	wild_carrot: {
+		index: 20,
+		name: "wild_carrot",
+		plural: "carrots",
+		plant_cost: 40,
+		difficulty: 1,
+		bed: "earth",
+		type: "vegetable",
+		days: 10,
+		multiplier: 3,
+		special: []
+		},
+
+	onion: {
+		index: 21,
+		name: "onion",
+		plural: "onions",
+		plant_cost: 120,
+		difficulty: 1,
+		bed: "earth",
+		type: "vegetable",
+		days: 12,
+		multiplier: 3,
+		special: []
+		},
+
+	garlic_bulb: {
+		index: 22,
+		name: "garlic_bulb",
+		plural: "garlic bulbs",
+		plant_cost: 100,
+		difficulty: 2,
+		bed: "earth",
+		type: "vegetable",
+		days: 8,
+		multiplier: 3,
+		special: []
+		}
+
+}>>
+
+<<set setup.plot_base to {
+
+	plant: "none",
+	stage: 0,
+	days: 0,
+	water: 0,
+	till: 0,
+
+}>>
+<</nobr>><</widget>>

@@ -1,0 +1,1593 @@
+:: Eden Cabin [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>><<set $bus to "edencabin">><<set $edendays to 0>>
+
+You are in Eden's cabin.
+
+<<if $exposed gte 2 and $exhibitionism lte 74>>
+You don't want to be seen like this! You rush to your clothes.
+<br><br>
+
+<<link [[Next|Eden Wardrobe]]>><<endevent>><</link>>
+<br><br>
+<<elseif $exhibitionism lte 54 and $exposed gte 1>>
+You don't want to be seen like this! You rush to your clothes.
+<br><br>
+
+<<link [[Next|Eden Wardrobe]]>><<endevent>><</link>>
+<br><br>
+<<else>>
+
+<<if $exposed is 1 and $exhibitionism gte 55>>
+<span class="lewd">With your <<lewdness>> on display, you can't help but feel a primal thrill.</span>
+<br><br>
+<</if>>
+
+<<if $daystate is "night">>
+Embers burn in the hearth.
+<<elseif $daystate is "dawn">>
+
+<<elseif $daystate is "dusk">>
+
+<<else>>
+
+<</if>>
+
+<<if $weather is "clear">>
+
+<<elseif $weather is "overcast">>
+
+<<elseif $weather is "rain">>
+Droplets of rainwater seep through the wooden ceiling and patter on the ground.
+<<elseif $weather is "snow">>
+Snow settles on the window sills.
+<</if>>
+
+<br><br>
+
+<<if $hour lte 6>>
+
+Eden is fast asleep.
+<br><br>
+
+<<cabinactions>>
+
+<<elseif $hour lte 8>>
+
+<<if $edenbreakfast isnot 1>><<set $edenbreakfast to 1>>
+<<npc Eden>><<person1>>Eden lies on the bed. "Make me breakfast," <<he>> says.
+<br><br>
+
+<<link [[Make the usual breakfast (0:20)|Eden Breakfast]]>><<npcincr Eden love 1>><<npcincr Eden dom 1>><<pass 20>><<set $phase to 0>><</link>>
+<br>
+<<link [[Make something new (0:20)|Eden Breakfast]]>><<pass 20>><<set $phase to 1>><</link>>
+<br>
+	<<if $edengarden gte 3>>
+	<<link [[Use vegetables from the plot (0:20)|Eden Breakfast]]>><<pass 20>><<set $phase to 3>><</link>>
+	<br>
+	<</if>>
+	<<if $edenshrooms gte 3>>
+	<<link [[Use mushrooms from the barrel (0:20)|Eden Breakfast]]>><<pass 20>><<set $phase to 4>><</link>>
+	<br>
+	<</if>>
+<<link [[Refuse|Eden Breakfast]]>><<npcincr Eden love -1>><<npcincr Eden dom -1>><<set $phase to 2>><</link>>
+<br>
+
+<<else>>
+
+Eden is getting ready for the day.
+<br><br>
+
+<<cabinedenactions>>
+<<cabinactions>>
+
+<</if>>
+
+<<elseif $hour lte 16>>
+
+Eden is working hard outside.
+<br><br>
+
+<<cabinactions>>
+
+<<elseif $hour lte 17>>
+
+<<if $edenbath isnot 1>><<set $edenbath to 1>>
+
+<<npc Eden>><<person1>>Eden finishes running <<his>> bath and starts to strip. "Bath time," <<he>> says. "Come on, get in while the water's hot."
+<br><br>
+<<noClothingCheck>>
+<<if _nude is false>>
+	<<link [[Strip and get in (0:30)|Eden Bath]]>><<pass 30>><<npcincr Eden dom 1>><<npcincr Eden love 1>><<set $phase to 0>><<strip>><<set $clothes to true>><</link>>
+<<else>>
+	<<link [[Get in (0:30)|Eden Bath]]>><<pass 30>><<npcincr Eden dom 1>><<npcincr Eden love 1>><<set $phase to 0>><<strip>><</link>>
+<</if>>
+<br>
+<<link [[Refuse|Eden Bath]]>><<npcincr Eden dom -1>><<npcincr Eden love 1>><<set $phase to 1>><</link>>
+<br>
+
+<<else>>
+
+Eden is relaxing in the bath.
+<br><br>
+
+<<cabinedenactions>>
+<<cabinactions>>
+
+<</if>>
+
+<<elseif $hour lte 18 and $monthday is 25 and $christmas_gift_eden_given is 1 and $eden_christmas_dinner isnot 1>>
+
+<<npc Eden>><<person1>>Eden busies <<him>>self with gathering ingredients, preparing something. You roam around the cabin, trying to peek over <<his>> shoulder or at least help <<him>> out. Your efforts are for naught though, as <<he>> insists that you let <<him>> handle everything tonight. As <<he>> starts cooking, a mouth-watering scent fills the cabin, adding to the anticipation of the moment.
+<br><br>
+After what seems like an agonizingly long wait, <<he>> calls you over to to the table. A beautiful meal for two is laid out, looking as good as it smells. You look to Eden and <<he>> seems a bit worn out, but proud of <<him>>self. You think it's the most effort Eden's ever put into cooking before.
+<br><br>
+<<link [[Next|Eden Christmas Meal 2]]>><<pass 20>><<set $eden_christmas_dinner to 1>><</link>>
+
+<<elseif $hour lte 18 and $edendinner is 0>>
+
+<<if $edendinner isnot 1>><<set $edendinner to 1>>
+
+<<npc Eden>><<person1>>Eden finishes cooking and sets the table for dinner. "I ask you to make breakfast everyday," <<he>> says. "Only fair that I help out with dinner."
+<br><br>
+
+<<link [[Join Eden for dinner (0:20)|Eden Dinner]]>><<npcincr Eden love 1>><<npcincr Eden dom 1>><<pass 20>><<set $phase to 1>><</link>>
+<br>
+<<link [[Don't join Eden (0:20)|Eden Dinner]]>><<npcincr Eden love -1>><<npcincr Eden dom -1>><<set $phase to 2>><</link>>
+<br>
+
+<</if>>
+
+<<else>>
+
+	<<if $days % 2 is 0>>
+
+		<<npc Eden>><<person1>>Eden is cleaning <<his>> gun beside the fire.
+		<br><br>
+
+		<<link [[Cuddle (0:30)|Eden Cuddle]]>><<trauma -3>><<stress -3>><<pass 30>><<npcincr Eden love 1>><<npcincr Eden lust 1>><</link>><<glove>><<glust>><<ltrauma>><<lstress>>
+		<br>
+		<<if $eden_shoot gte 1>>
+			<<link [[Practise shooting (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
+			<br>
+		<<else>>
+			<<link [[Say you want to learn how to shoot (0:30)|Eden Shoot Ask]]>><<pass 5>><</link>>
+			<br>
+		<</if>>
+		<<if $edenradiointro is 2>>
+		<<link [[Ask Eden to dance (0:30)|Eden Dance]]>><<trauma -3>><<stress -3>><<danceskill 5>><<pass 30>><<npcincr Eden love 1>><<npcincr Eden lust 1>><</link>><<glove>><<glust>><<ltrauma>><<lstress>> | <span class="green">+ Dancing Skill</span>
+		<br>
+		<</if>>
+		<<cabinedenactions>>
+		<<cabinactions>>
+
+	<<else>>
+		<<npc Eden>><<person1>>Eden is reading beside the fire.
+		<br><br>
+
+		<<link [[Cuddle (0:30)|Eden Cuddle]]>><<trauma -3>><<stress -3>><<pass 30>><<npcincr Eden love 1>><<npcincr Eden lust 1>><</link>><<glove>><<glust>><<ltrauma>><<lstress>>
+		<br>
+		<<link [[Ask Eden to read to you (0:30)|Eden Read]]>><<trauma -3>><<pass 30>><<npcincr Eden love 1>><<set $phase to 0>><</link>><<glove>><<ltrauma>>
+		<br>
+		<<if $edenradiointro is 2>>
+		<<link [[Ask Eden to dance (0:30)|Eden Dance]]>><<trauma -3>><<stress -3>><<danceskill 5>><<pass 30>><<npcincr Eden love 1>><<npcincr Eden lust 1>><</link>><<glove>><<glust>><<ltrauma>><<lstress>> | <span class="green">+ Dancing Skill</span>
+		<br>
+		<</if>>
+		<<cabinedenactions>>
+		<<cabinactions>>
+	<</if>>
+
+<</if>>
+<</if>>
+
+:: Eden Cabin Punishment [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence 1>>
+<<neutral 1>>
+<<molested>>
+
+<<maninit>><<npcspank>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 200>>
+
+<</if>>
+
+<<effects>>
+
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Eden Cabin Punishment Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Eden Cabin Punishment Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyanger lte 0>>
+	<span id="next"><<link [[Next|Eden Cabin Punishment Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Eden Cabin Punishment]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Eden Cabin Punishment Finish [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+<<ejaculation>><<npcincr Eden lust -20>>
+<<He>> pants from the exertion. "I hope you've learnt your lesson."
+<br><br>
+
+<<tearful>> you avoid <<his>> gaze.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[Next|Eden Cabin]]>><</link>>
+<br>
+<<elseif $enemyhealth lte 0>>
+
+"You ungrateful slut," <<he>> says. "Maybe I should throw you out and leave you to the wolves!" <<He>> winces and holds <<his>> side. "I need to get something for this."
+<br><br>
+
+<<tearful>> you gather yourself.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[Next|Eden Cabin]]>><</link>>
+<br>
+<<elseif $enemyanger lte 0>>
+<<He>> looks mollified, and releases you. "I hope you've learnt your lesson."
+<br><br>
+
+<<tearful>> you avoid <<his>> gaze.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[Next|Eden Cabin]]>><</link>>
+<br>
+<</if>>
+
+:: Eden Cabin Bed [nobr]
+<<effects>>
+
+You snuggle under the covers.
+<br><br>
+
+<<if $sleeptrouble is 1 and $controlled is 0>>
+	<<link [[Sleep for 10 hours|Cabin Sleep]]>><<set $sleephour to 10>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 10>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 9 hours|Cabin Sleep]]>><<set $sleephour to 9>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 9>>)<<ltiredness>>
+	<br>
+<</if>>
+
+<<link [[Sleep for 8 hours|Cabin Sleep]]>><<set $sleephour to 8>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 8>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 7 hours|Cabin Sleep]]>><<set $sleephour to 7>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 7>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 6 hours|Cabin Sleep]]>><<set $sleephour to 6>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 6>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 5 hours|Cabin Sleep]]>><<set $sleephour to 5>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 5>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 4 hours|Cabin Sleep]]>><<set $sleephour to 4>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 4>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 3 hours|Cabin Sleep]]>><<set $sleephour to 3>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 3>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 2 hours|Cabin Sleep]]>><<set $sleephour to 2>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 2>>)<<ltiredness>>
+<br>
+<<link [[Sleep for 1 hours|Cabin Sleep]]>><<set $sleephour to 1>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 1>>)<<ltiredness>>
+<br><br>
+
+<<link [[Climb out of bed|Eden Cabin]]>><</link>>
+<br><br>
+
+:: Cabin Sleep [nobr]
+<<run Save.autosave.save(null, {"saveId":$saveId, "saveName":$saveName})>>
+<<if _preventUpdate is undefined>>
+	<<run setSaveDetail("autosave",{"saveId":$saveId,"saveName":$saveName})>>
+<</if>>
+<<sleep>><<effects>>
+
+<<if $nightmares gte 1 and $controlled is 0>>
+	You dream you are being hunted by something dark and terrible.
+<<else>>
+	<<if $specialClothesEffects.bimboTotal gte random(100,1000) or $arousal gte 9000>>
+		Your sleep is plagued by dirty dreams.
+		<<arousal `$specialClothesEffects.bimboTotal / 10 * $sleepHoursTotal`>>
+		<<arousal `100 * $sleepHoursTotal`>>
+		<<if $arousal gte $arousalmax>>
+			They push you over the edge.
+			<<orgasmpassage>><<set _orgasm to true>>
+		<<else>>
+			<br><br>
+		<</if>>
+	<<else>>
+		You sleep soundly.
+	<</if>>
+<</if>>
+
+<<sleepeffects>>
+
+<<if $schoolwake is 1>><<set $schoolwake to 0>>
+	<<npc Eden>><<person1>>
+	<<if _orgasm is true>>
+		Eden starts groping. <<He>> feels the moistness around your crotch. "I've been neglectful," <<he>> says, rubbing up against you.
+	<<else>>
+		You wake up to Eden's groping. <<He>> starts rubbing up against you.
+	<</if>>
+	<br><br>
+
+	<<link [[Let it happen|Eden Sleep Sex]]>><<set $sexstart to 1>><</link>><<promiscuous1>>
+	<br>
+	<<link [[Push away|Eden Sleep Push]]>><</link>>
+	<br>
+<<else>>
+	<br><br>
+
+	<<link [[Get out of bed|Eden Cabin]]>><</link>>
+	<br><br>
+<</if>>
+
+<<set $phase to 0>>
+
+:: Eden Sleep Sex [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral 1>>
+
+<<maninit>>
+<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
+<<promiscuity1>>
+
+<<elseif $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence 1>>
+<<neutral 1>>
+<<molested>>
+
+<<maninit>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 50>>
+
+<</if>>
+
+<<effects>>
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $finish is 1>>
+	<span id="next"><<link [[Next|Eden Sleep Sex Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Eden Sleep Sex Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Eden Sleep Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Eden Sleep Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Eden Sleep Push [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+You shove <<him>> away from you.
+<<npcincr Eden love -1>><<npcincr Eden dom -1>>
+
+<<if $NPCName[$NPCNameList.indexOf("Eden")].love - $NPCName[$NPCNameList.indexOf("Eden")].lust gte 1>>
+
+<<He>> grumbles something and rolls over. <<Hes>> asleep within moments.
+<br><br>
+
+<<link [[Back to sleep|Eden Cabin Bed]]>><<endevent>><</link>>
+<br>
+<<link [[Get up|Eden Cabin]]>><<endevent>><</link>>
+<br>
+
+<<else>>
+
+<<He>> starts groping more forcefully.
+<br><br>
+
+<<link [[Next|Eden Sleep Sex]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+<</if>>
+
+:: Eden Sleep Sex Finish [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<npcincr Eden lust -20>>
+
+<<He>> kisses you on the neck, rolls over, and goes to sleep.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<elseif $enemyhealth lte 0>>
+
+"You ungrateful slut," <<he>> says. "Maybe I should throw you out and leave you to the wolves!" <<He>> winces and holds <<his>> side. "I need to get something for this."
+<br><br>
+
+<<tearful>> you hide beneath the covers.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<elseif $finish is 1>>
+
+<<He>> rolls over. You hear <<him>> snore moments later.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<</if>>
+<br><br>
+<<link [[Next|Eden Cabin Bed]]>><</link>>
+
+:: Eden Bindings [nobr]
+<<effects>>
+
+<<if $submissive gte 1150>>
+"I-If it's no trouble, could you untie me please?" you ask.
+<<elseif $submissive lte 850>>
+"It may have escaped your notice, but I'm tied up. Could you help?" you ask.
+<<else>>
+"Can you untie me?" you ask.
+<</if>>
+
+Without a word, Eden picks up a knife and slashes your bindings.
+<br><br>
+
+<<if $bus is "edenclearing">>
+<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+<br>
+<<else>>
+<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+<br>
+<</if>>
+
+:: Eden Lake [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<npc Eden>><<person1>>You approach Eden. <<He>> glances at you curiously.
+<br><br>
+
+<<if $submissive gte 1150>>
+"Could you follow me to the lake please?" you ask.
+<<elseif $submissive lte 850>>
+"I feel like walking to the lake. Wanna come?" you ask.
+<<else>>
+"Want to join me for a walk to the lake?" you ask.
+<</if>>
+
+<<He>> considers for a moment, then shrugs. "Not like I had anything better planned anyway."
+<br><br>
+
+<<link [[Forest lake (0:30)|Eden Forest Lake]]>><<pass 30>><<set $edenlake to 1>><</link>>
+<br><br>
+
+
+:: Eden Search [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<npc Eden>><<person1>>You approach Eden. <<He>> looks up at you.
+<br><br>
+
+<<if $submissive gte 1150>>
+"Could you help me search the forest please?" you ask.
+<<elseif $submissive lte 850>>
+"I wanna search the forest. Feel like joining?" you ask.
+<<else>>
+"Want to help me search the forest?" you ask.
+<</if>>
+
+<<He>> thinks for a second, then nods. "Better than you going by yourself."
+<br><br>
+
+<<link [[Search the Forest (0:30)|Eden Forest Search]]>><<pass 30>><</link>>
+<br><br>
+
+:: Eden Clearing [nobr]
+<<set $outside to 1>><<set $location to "cabin">><<effects>><<set $bus to "edenclearing">><<set $edendays to 0>>
+
+You are in the clearing outside Eden's cabin. The surrounding trees are so huge that you have to crane your neck to see the sky. There's a small farm plot where Eden grows vegetables. Behind the cabin is a spring at the base of a cliff.
+<br><br>
+
+<<if $foresthunt gte 1>>
+<span class="lblue">You're safe at Eden's cabin. Whatever was hunting you will have given up.</span>
+<br><br>
+<<set $foresthunt to 0>>
+<</if>>
+
+<<if $exposed gte 2 and $exhibitionism lte 74>>
+You don't want to be seen like this! You rush to your clothes.
+<br><br>
+
+<<link [[Next|Eden Wardrobe]]>><<endevent>><</link>>
+<br><br>
+<<elseif $exhibitionism lte 54 and $exposed gte 1>>
+You don't want to be seen like this! You rush to your clothes.
+<br><br>
+
+<<link [[Next|Eden Wardrobe]]>><<endevent>><</link>>
+<br><br>
+<<else>>
+
+<<if $exposed is 1 and $exhibitionism gte 55>>
+<span class="lewd">With your <<lewdness>> on display, you can't help but feel a primal thrill.</span>
+<br><br>
+<</if>>
+
+<<if $weather is "rain">>
+	Rainwater drips from the branches above.
+	<br><br>
+<<elseif $weather is "snow">>
+	Snow weighs down the branches above.
+	<br><br>
+<</if>>
+
+<<if $hour gte 9 and $hour lte 10>>
+
+Eden is tending the crops.
+<br><br>
+
+<<clearingedenactions>>
+<<clearingactions>>
+
+<<elseif $hour gte 11 and $hour lte 14>>
+
+	<<if $edenhunting isnot 1>><<set $edenhunting to 1>>
+	<<npc Eden>><<person1>>Eden exits the cabin, gun in hand. "I'm going hunting. Stay near the cabin while I'm gone."
+	<br><br>
+
+	<<link [[Nod|Eden Hunting]]>><<set $phase to 0>><</link>>
+	<br>
+	<<link [[Ask to go along|Eden Hunting]]>><<set $phase to 1>><</link>>
+	<br>
+	<<else>>
+
+	Eden is out hunting.
+	<br><br>
+
+	<<clearingactions>>
+
+	<</if>>
+
+<<elseif $hour is 15>>
+
+Eden is skinning prey. The smell makes you queasy.
+<br><br>
+
+<<clearingedenactions>>
+<<clearingactions>>
+
+<<elseif $hour is 16>>
+
+	<<if $NPCName[$NPCNameList.indexOf("Eden")].lust gte 26 and $edenchoplust isnot 1>><<set $edenchoplust to 1>>
+	<<npc Eden>><<person1>>Eden is chopping firewood. <<He>> stretches <<his>> back and spots you watching <<him>>. "I could use a break," <<he>> says. <<He>> marches towards you, covered in sweat and axe still in hand. <<He>> probably doesn't realise how menacing <<he>> looks. <<He>> drops the axe and tries to pull you close to <<him>>.
+	<br><br>
+
+	<<link [[Allow it|Eden Firewood Sex]]>><<set $sexstart to 1>><<npcincr Eden love 1>><<npcincr Eden dom 1>><</link>>
+	<br>
+	<<link [[Refuse|Eden Firewood Refuse]]>><<npcincr Eden love -1>><<npcincr Eden dom -1>><</link>>
+	<br>
+
+	<<else>>
+
+	Eden is chopping firewood.
+	<br><br>
+
+	<<clearingedenactions>>
+	<<clearingactions>>
+
+	<</if>>
+
+<<else>>
+
+Eden is indoors.
+<br><br>
+
+<<clearingactions>>
+
+<</if>>
+<</if>>
+
+:: Eden Freedom [nobr]
+<<effects>>
+
+<<if $NPCName[$NPCNameList.indexOf("Eden")].love gte 20>><<set $edenfreedom to 1>><<set $edenshopping to 0>>
+
+<<npc Eden>><<person1>>"Why would you want to leave?" <<he>> asks. "You have everything you need here."
+<br><br>
+
+	<<if $submissive gte 1150>>
+	"B-but if I'm gone from town too long," you say. "People will come looking for me here."
+	<<elseif $submissive lte 850>>
+	"Do you think my absence isn't noticed?" you say. "They'll come looking for me here."
+	<br><br>
+	<<else>>
+	"If I keep missing school," you say. "People will start looking for me."
+	<</if>>
+	<br><br>
+
+<<He>> seems conflicted. "I suppose it was too much to hope you'd be content stuck here. Fine, you can go back to town. Make sure you get your little bottom back here though. <span class="gold">If you're gone longer than a day you'll worry me sick.</span> I'd have to come find you."
+<br><br>
+
+<<link [[Hug|Eden Freedom 2]]>><<set $phase to 0>><<npcincr Eden love 1>><</link>>
+<br>
+<<link [[Nod|Eden Freedom 2]]>><<set $phase to 1>><</link>>
+<br>
+
+<<else>>
+
+<<npc Eden>><<person1>>"Why would you want to leave?" <<he>> asks. "You have everything you need here."
+<br><br>
+
+	<<if $submissive gte 1150>>
+	"B-but if I'm gone from town too long," you say. "People will come looking for me here."
+	<<elseif $submissive lte 850>>
+	"Do you think my absence isn't noticed?" you say. "They'll come looking for me here."
+	<br><br>
+	<<else>>
+	"If I keep missing school," you say. "People will start looking for me."
+	<</if>>
+	<br><br>
+<<He>> shakes <<his>> head. "They won't find us. I know these woods, and will protect what's mine if necessary."
+<br><br>
+
+<i>If <<he>> liked you more <<he>> might be more amenable to your request.</i>
+<br><br>
+
+<<if $bus is "edenclearing">>
+<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+<br>
+<<else>>
+<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+<br>
+<</if>>
+
+<</if>>
+
+:: Eden Freedom 2 [nobr]
+<<effects>>
+
+<<if $phase is 0>>
+
+You hug Eden, taking <<him>> by surprise and almost knocking <<him>> over.
+<br><br>
+
+	<<if $submissive gte 1150>>
+	"Thank you," you say, pressing your face against <<him>>.
+	<<elseif $submissive lte 850>>
+	"It's not that I need your permission or anything," you say. "It's just easier this way."
+	<<else>>
+	"Thank you," you say.
+	<</if>>
+<br><br>
+<<He>> squeezes you back. "One more thing. I make weekly supply runs into town to pick up essentials. You might as well do it for me. I hate that place. Alright, you can let go now."
+<br><br>
+
+<<elseif $phase is 1>>
+
+"One more thing," <<he>> says. "I make weekly supply runs into town to pick up essentials. You may as well do it for me if you're going anyway. I hate that place."
+<br><br>
+
+<<else>>
+
+You hug Eden. <<He>> expects it and catches you.
+
+	<<if $submissive gte 1150>>
+	"Thank you," you say, pressing your face against <<him>>.
+	<<elseif $submissive lte 850>>
+	"It's not that I need your permission or anything," you say. "It's just easier this way."
+	<<else>>
+	"Thank you," you say.
+	<</if>>
+
+<<He>> squeezes you back.
+<br><br>
+<</if>>
+
+<<if $bus is "edenclearing">>
+<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+<br>
+<<else>>
+<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+<br>
+<</if>>
+
+:: Eden Cabin Escape [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+You walk to the edge of the clearing and gaze into the darkness of the forest. Are you sure you want to escape?
+<br><br>
+
+<<link [[Yes|Forest]]>><</link>>
+<br>
+<<link [[No|Eden Clearing]]>><</link>>
+<br>
+
+:: Eden Freedom 3 [nobr]
+<<effects>>
+
+<<if $NPCName[$NPCNameList.indexOf("Eden")].love gte 100>><<set $edenfreedom to 2>>
+
+<<npc Eden>><<person1>>"You already get a whole day," <<he>> says. "You want to sleep in someone else's bed, is that it?"
+<br><br>
+
+	<<if $submissive gte 1150>>
+	"N-no," you say. "You know I'm yours alone."
+	<<elseif $submissive lte 850>>
+	"I'm not a slut," you say. "But sometimes I need to be away for longer."
+	<br><br>
+	<<else>>
+	"No!" you say. "It's just that braving the woods every day for school is dangerous."
+	<</if>>
+	<br><br>
+
+<<He>> looks about to argue, but sighs in resignation. "Fine. I'm used to being alone. <span class="gold">You can leave for up to a week.</span> If you're gone longer, I'll hunt you down."
+<br><br>
+
+<<link [[Hug|Eden Freedom 2]]>><<set $phase to 2>><<npcincr Eden love 1>><</link>>
+<br>
+	<<if $bus is "edenclearing">>
+	<<link [[Nod|Eden Clearing]]>><<endevent>><</link>>
+	<br>
+	<<else>>
+	<<link [[Nod|Eden Cabin]]>><<endevent>><</link>>
+	<br>
+	<</if>>
+
+<<else>>
+
+<<npc Eden>><<person1>>"You already get a whole day," <<he>> says. "You want to sleep in someone else's bed, is that it?"
+<br><br>
+
+	<<if $submissive gte 1150>>
+	"N-no," you say. "You know I'm yours alone."
+	<<elseif $submissive lte 850>>
+	"I'm not a slut," you say. "But sometimes I need to be away for longer."
+	<br><br>
+	<<else>>
+	"No!" you say. "It's just that braving the woods every day for school is dangerous."
+	<</if>>
+	<br><br>
+
+<<He>> shakes <<his>> head. "That town is dangerous. The less time you spend there the better."
+<br><br>
+
+<i>If <<he>> liked you more <<he>> might be more amenable to your request.</i>
+<br><br>
+
+	<<if $bus is "edenclearing">>
+	<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+	<br>
+	<<else>>
+	<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+	<br>
+	<</if>>
+<</if>>
+
+:: Forest Cabin Return [nobr]
+<<set $outside to 1>><<set $location to "cabin">><<effects>>
+<<npc Eden>><<person1>>
+
+Eden leads you back to the safety of <<his>> cabin.
+<br><br>
+
+<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+<br>
+
+
+
+
+:: Eden Recaptured [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+Eden grabs your arm and pushes you in front of <<him>>. <<He>> pushes you through the forest and back to <<his>> cabin. Once inside, <<he>> shoves you to the floor.
+<br><br>
+
+"I trust you," <<he>> says. "So when you don't do as I say, it really hurts."
+<br><br>
+
+<<link [[Seduce|Eden Recaptured Seduction]]>><</link>><<promiscuous1>>
+<br>
+<<link [[Apologise|Eden Recaptured Apologise]]>><<npcincr Eden love 1>><<npcincr Eden dom 1>><</link>>
+<br>
+<<link [[Do nothing|Eden Recaptured Spank]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Eden Recaptured Seduction [nobr]
+<<effects>>
+
+<<set $seductiondifficulty to (10000 - ($NPCName[$NPCNameList.indexOf("Eden")].lust * 50))>>
+<<seductioncheck>>
+<br><br>
+<<if $seductionskill lt 1000>><span class="gold">You feel more confident in your powers of seduction.</span><</if>><<seductionskilluse>>
+<br><br>
+
+You climb to your knees.
+<<if $submissive gte 1150>>
+"I can make it up to you!" you say.
+<<elseif $submissive lte 850>>
+"I think I know what you need," you say.
+<<else>>
+"Let me make it up to you," you say.
+<</if>>
+
+<<if $pronoun is "f">>
+
+You lift up <<his>> skirt.
+<<promiscuity1>>
+<br><br>
+
+<<else>>
+
+You open <<his>> fly.
+<<promiscuity1>>
+<br><br>
+
+<</if>>
+
+<<if $seductionrating gte $seductionrequired>>
+
+"This is a good way to start making it up to me," <<he>> says, pressing a hand against the back of your head and pushing you closer.
+<br><br>
+
+<<link [[Next|Eden Recaptured Oral]]>><<set $sexstart to 1>><</link>>
+<br>
+
+<<else>>
+
+<<He>> shoves you back to the ground. "Oh no, you're not getting off that easy."
+<br><br>
+
+<<link [[Next|Eden Recaptured Spank]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+<</if>>
+
+:: Eden Recaptured Apologise [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+You climb to your knees and look up at <<him>>.
+
+<<if $submissive gte 1150>>
+"I'm very sorry," you say. "I know I've been bad." You bow your head.
+<<elseif $submissive lte 850>>
+"I didn't mean to worry you," you say.
+<<else>>
+"I'm sorry, I know I've been bad," you say.
+<</if>>
+<br><br>
+
+"I still need to punish you," Eden says. "Or you'll forget the lesson."
+<br><br>
+
+<<link [[Next|Eden Recaptured Spank]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Eden Recaptured Spank [nobr]
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>><<npcspank>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 200>>
+	<<if $phase is 1>>
+		<<set $enemyanger -= 75>>
+	<</if>>
+	<<He>> bends you over <<his>> knee.
+	<br><br>
+<</if>>
+
+<<effects>>
+
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Eden Recaptured Spank Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Eden Recaptured Spank Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyanger lte 0>>
+	<span id="next"><<link [[Next|Eden Recaptured Spank Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Eden Recaptured Spank]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Eden Recaptured Spank Finish [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+<<ejaculation>><<npcincr Eden lust -20>>
+<<He>> pants from the exertion. "I hope you've learnt your lesson. Don't disobey me again."
+<br><br>
+
+<<tearful>> you avoid <<his>> gaze.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[Next|Eden Cabin]]>><</link>>
+<br>
+<<elseif $enemyhealth lte 0>>
+
+"You ungrateful slut," <<he>> says. "Maybe I should throw you out and leave you to the wolves!" <<He>> winces and holds <<his>> side. "I need to get something for this."
+<br><br>
+
+<<tearful>> you gather yourself.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[Next|Eden Cabin]]>><</link>>
+<br>
+<<elseif $enemyanger lte 0>>
+<<He>> looks mollified, and releases you. "I hope you've learnt your lesson. Don't disobey me again."
+<br><br>
+
+<<tearful>> you avoid <<his>> gaze.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[Next|Eden Cabin]]>><</link>>
+<br>
+<</if>>
+
+:: Eden Recaptured Oral [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral 1>>
+
+<<maninit>><<npcoral>>
+<<set $enemytrust -= 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 80>>
+
+<</if>>
+
+<<effects>>
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $finish is 1>>
+	<span id="next"><<link [[Next|Eden Recaptured Oral Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Eden Recaptured Oral Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Eden Recaptured Oral Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Eden Recaptured Oral]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Eden Recaptured Oral Finish [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<npcincr Eden lust -20>><<npcincr Eden love 1>>
+
+"I can't stay mad at you," <<he>> gasps. "But don't you dare run off again."
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<elseif $enemyhealth lte 0>>
+
+"You ungrateful slut," <<he>> says. "Maybe I should throw you out and leave you to the wolves!" <<He>> winces and holds <<his>> side. "I need to get something for this."
+<br><br>
+
+<<tearful>> you climb out from under the table.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<elseif $finish is 1>>
+
+"Remember," <<he>> says. "I'm keeping an eye on you."
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<</if>>
+<br><br>
+<<link [[Next|Eden Cabin]]>><</link>>
+
+
+:: Street Eden [nobr]
+<<effects>>
+
+You cross the road. Eden spots you. "You think this is funny?" <<He>> shouts, marching towards you. "I've been worried half to death!" <<He>> grasps your arm. "I'm taking you home, and never letting you leave again. I'll keep you in a cage if I have to."
+<br><br>
+
+<<if $worn.neck.collared isnot 1>><<neckwear 1>>
+<<He>> fastens a collar around your neck.
+<br><br>
+<</if>>
+<<He>> grabs hold of your leash and pulls. "Come on. I'll punish you when we get home."
+<br><br>
+
+<<generate2>><<person2>>"You shouldn't treat <<phim>> like that," A <<person>> bravely interjects as Eden drags you by. Eden ignores <<him>>.
+<br><br>
+
+The sight of a <<girl>> being dragged along on a leash turns heads. People whisper to each other, but no one intervenes. A <<generatey3>><<person3>><<person>> laughs and pulls out <<his>> phone to record you. Eden ignores <<him>> too.
+
+Eden calms down a bit once you're in the forest.
+<br><br>
+
+<<endevent>><<npc Eden>><<person1>>
+<<link [[Next|Eden Recaptured]]>><</link>>
+<br>
+
+:: Street Eden Hide [nobr]
+<<effects>>
+
+<<if $rng gte 51>>
+	You hide behind a postbox. Eden continues bothering passers-by, unaware that you're so close. It looks like <<he>> doesn't intend to move on for a while, until <<he>> starts arguing with a <<generate2>><<person2>><<person>>. The argument becomes more intense until Eden storms off.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+
+<<else>>
+	You hide behind a postbox. Eden continues bothering passers-by, drawing ever closer. <<He>> stops a moment, and sniffs the air, before continuing.
+	<br><br>
+
+	Eden waits until <<hes>> right beside the postbox before striking, <span class="red">lunging around it and grasping your arm.</span>
+	<br><br>
+	"You think this is funny?" <<He>> shouts. "I've been worried half to death!" <<His>> grip is tight. "I'm taking you home, and never letting you leave again. I'll keep you in a cage if I have to."
+	<br><br>
+
+	<<if $worn.neck.collared isnot 1>><<neckwear 1>>
+	<<He>> fastens a collar around your neck.
+	<br><br>
+	<</if>>
+	<<He>> grabs hold of your leash and pulls. "Come on. I'll punish you when we get home."
+	<br><br>
+
+	<<generate2>><<person2>>"You shouldn't treat <<phim>> like that," A <<person>> bravely interjects as Eden drags you by. Eden ignores <<him>>.
+	<br><br>
+
+	The sight of a <<girl>> being dragged along on a leash turns heads. People whisper to each other, but no one intervenes. A <<generatey3>><<person3>><<person>> laughs and pulls out <<his>> phone to record you. Eden ignores <<him>> too.
+
+	Eden calms down a bit once you're in the forest.
+	<br><br>
+
+	<<endevent>><<npc Eden>><<person1>>
+	<<link [[Next|Eden Recaptured]]>><</link>>
+	<br>
+<</if>>
+
+
+:: Eden Asylum Rescue[nobr]
+<<effects>>
+
+<<npc Eden>><<person1>>
+After you enter the cabin, Eden shuts the door behind you and wraps you up in a big hug. Is <<he>> trembling?
+<br><br>
+"I was so, so worried." <<He>> says. You think you feel tears land on your shoulder, but Eden gathers <<him>>self before you can address it.
+<br><br>
+<<if $pain gte 10>>
+	The tightness of Eden's hold irritates your wounds, and you gently tap on <<his>> shoulder to notify <<him>>.
+	<br>
+	"You're hurt," <<he>> notes, pulling away and scanning you up and down.
+	<br><br>
+	Eden leads you to the dining table and treats you as best <<he>> can with a first aid kit. You notice a look of guilt on <<his>> face as <<he>> tends to you, almost as if <<he>>'s blaming <<him>>self for your injuries. 
+	After <<he>>'s done, <<he>> brings you a glass of water and some painkillers, which you down in one shot. <<He>> then pulls up a chair in front of you.
+	<<lllpain>><<lltrauma>><<llstress>><<trauma -20>><<pain -200>><<stress -20>>
+	<br><br>
+<</if>>
+"What happened?" <<He>> asks. Moreso demands. You tell <<him>> about the trauma that you suffered, and how you had been forced into the asylum for "treatment," and weren't allowed to leave. You also detail what Harper, the asylum staff and other patients subjected you to while you were there.
+<br><br>
+Eden's face twists in rage, guilt and horror through your story. When you're done, <<he>> slams <<his>> fist onto the table. 
+<br><br>
+"Damn bastards," <<he>> says. "Wish I could just shoot them all right now!"
+<br>
+You gently place your hand on <<his>> shoulder to calm <<him>> down. "I'm safe now," you say. "That's all that matters."
+<br>
+<<He>> grabs your hand in <<his>> own and pulls you into a much gentler embrace. "You're right," <<he>> says. "You're safe now."
+<br><br>
+After a while, you try to pull away from <<him>>, but <<he>> holds you down a second longer. "Please be more careful next time. I don't want you in danger again," <<he>> pleads. 
+<br><br>
+You tell <<him>> that you can't promise anything, but that you'll try to be safer in the future. Eden nods and throws you a wary, but gentle look as <<he>> stands.
+<br><br>
+<<link [[Next|Eden Cabin]]>><</link>>
+
+
+:: Eden Farm Rescue [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+The both of you don't stop until you reach the cabin, Eden making twists and turns to throw off anybody who might be on your trail.
+After entering, Eden shuts the door behind you and wraps you up in a big hug. Is <<he>> trembling?
+<br><br>
+"I was so, so worried." <<He>> says. You think you feel tears land on your shoulder, but Eden gathers <<him>>self before you can address it.
+<br><br>
+<<if $pain gte 10 or $edenwhip is 1>>
+	The tightness of Eden's hold irritates your wounds, and you gently tap on <<his>> shoulder to notify <<him>>.
+	<br>
+	"You're hurt," <<he>> notes, pulling away and scanning you up and down.
+	<br><br>
+	<<if $edenwhip is 1>>
+		<<His>> eyes stare in alarm the whip lashes covering your body.
+	<</if>>
+	<<if $skin.left_bottom.special is "cattle">>
+		<<He>> sees your cattle brand, and <<his>> eyebrows pull into a worried furrow.
+	<</if>>	
+	Eden leads you to the dining table and treats you as best <<he>> can with a first aid kit. You notice a look of guilt on <<his>> face as <<he>> tends to you, almost as if <<he>>'s blaming <<him>>self for your injuries. 
+	<<if $skin.left_bottom.special is "cattle">>
+		<<He>> also helps remove the cattle brand from you.
+		<<bodywriting_clear left_bottom>>
+	<</if>>	
+	After <<he>>'s done, <<he>> brings you a glass of water and some painkillers, which you down in one shot. <<He>> then pulls up a chair in front of you.
+	<<lllpain>><<lltrauma>><<llstress>><<trauma -20>><<pain -200>><<stress -20>>
+	<br><br>
+<</if>>
+<<if $skin.left_bottom.special is "cattle">>
+		<<He>> sees your cattle brand, and <<his>> eyebrows pull into a worried furrow. Eden sits you at the dining table and works to remove the brand from your body.
+		<<bodywriting_clear left_bottom>>
+<</if>>	
+<<if ($edenwhip is 1 or $skin.left_bottom.special is "cattle")>>
+	"Who did this to you?" Eden asks.
+	<br>
+	"Remy," you say.
+		<<if $edenshoutrescue is 1>>
+			"The one you punched in the face."
+			<br>
+			"That one?" <<He>> asks. "Should have done more while I was there."
+		<</if>>
+<<else>>
+	"What happened?" <<He>> asks. Moreso demands. 
+<</if>>
+<br><br>
+You tell <<him>> about how you were brought to Remy's farm, and talk about how you were forced into animal films and "experiments". 
+<<if ($edenwhip is 1)>>
+	You also detail the torture Remy inflicted on you should you have refused any demands. 
+<</if>>
+Eden's face twists in rage, guilt and horror through your story. When you're done, <<he>> slams <<his>> fist onto the table. 
+<br><br>
+"Damn bastards," <<he>> says. "Wish I could just shoot them all right now!"
+<br>
+You gently place your hand on <<his>> shoulder to calm <<him>> down. "I'm safe now," you say. "That's all that matters."
+<br>
+<<He>> grabs your hand in <<his>> own and pulls you into a much gentler embrace. "You're right," <<he>> says. "You're safe now."
+<br><br>
+After a while, you try to pull away from <<him>>, but <<he>> holds you down a second longer. "Please be more careful next time. I don't want you in danger again," <<he>> pleads. 
+<br><br>
+You tell <<him>> that you can't promise anything, but that you'll try to be safer in the future. Eden nods and throws you a wary, but gentle look as <<he>> stands.
+<br><br>
+<<if $edenshoutrescue is 1>>
+	"Wait," you say. You bring out the hat you managed to swipe before leaving the barn and give it to Eden. <<He>> looks shocked for a moment, then chuckles.
+	<br>
+	"Seems like I don't give you enough credit. You saved me a shopping trip!" <<He>> kisses your cheek in thanks and walks away from the table.
+<</if>>
+<<set $edenshoutrescue to 0>>
+<<set $edenwhip to 0>>
+<br><br>
+<<link [[Next|Eden Cabin]]>><</link>>
+
+:: Eden Supplies [nobr]
+<<effects>>
+
+<<set $edenshopping to 1>>
+You shop for the things Eden can't make or do without. Tools and medical supplies mostly.
+<br><br>
+
+<<if $edenradio is 0 and $money gte 2500>>
+<<npc Eden>><<person1>>
+	As you're shopping, your eyes land on a simple tabletop radio. It makes you think of Eden. There's not a lot to do at the cabin, so maybe <<he>>'d appreciate it.
+	<br><br>
+	<<link [[Buy it (£25)|Eden Radio Buy]]>><<set $money -= 2500>><</link>>
+	<br>
+	<<link [[Don't buy it|Eden Radio Don't Buy]]>><</link>>
+<<else>>
+	<<link [[Next|Shopping Centre]]>><</link>>
+<</if>>
+<br>
+
+:: Eden Radio Buy [nobr]
+<<effects>>
+<<set $edenradio to 1>>
+<<set $edenradiointro to 1>>
+You decide to take a chance and buy the radio. Who knows? Maybe Eden will enjoy it.
+<br><br>
+<<link [[Next|Shopping Centre]]>><</link>>
+<br>
+
+:: Eden Radio Don't Buy [nobr]
+<<effects>>
+You decide against buying the radio. Maybe next time.
+<br><br>
+<<link [[Next|Shopping Centre]]>><</link>>
+<br>
+
+:: Eden Radio Intro [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+<<set $edenradiointro to 2>><<npcincr Eden love 10>>
+You place the radio on the table before calling Eden over to see it. 
+<br><br>
+"A radio?" <<He>> asks, scratching <<his>> head. "Not that I don't appreciate the gesture, but why the sudden purchase?"
+<br><br>
+<<if $submissive gte 1150>>
+"I-I just thought you'd enjoy it," you say.
+<<elseif $submissive lte 850>>
+"Oh come on, live a little," you say. "Haven't you ever made an impulse buy before?"
+<<else>>
+"I thought you'd like a little background noise," you say.
+<</if>>
+<br><br>
+You turn the dials on the radio, trying to find a signal. A few tries later, you hear music. It seems to be a love song.
+<br><br>
+<<link [[Look at Eden|Eden Radio Intro 2]]>><</link>>
+<br>
+
+:: Eden Radio Intro 2 [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+When you turn to Eden, <<he>> blushes and avoids your gaze. For a moment, you're surprised that someone as tough as <<him>> would act so bashful, until you realize how close you're standing. 
+You're both suddenly aware of the tension building in the cabin.
+<br><br>
+The love song continues playing, the both of you unsure of what to do. Eden repeatedly glances at your waist, seemingly trying to build up the courage for something, but stops at the last second everytime. 
+<<He>> looks oddly frustrated with <<himself>>.
+<br><br>
+Taking the initiative, you gently grasp Eden's hands and lead them to your waist. <<He>> seems hesitant at first, but slowly wraps <<his>> arms around you. You wind yours around <<his>> neck in return.
+<br><br>
+<<link [[Next|Eden Radio Intro 3]]>><<npcincr Eden love 1>><</link>>
+<br>
+
+:: Eden Radio Intro 3 [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+The song leads you two into a slow waltz. You stare into Eden's eyes and feel a calming warmth settle in you.
+<br><br>
+Eden seems to have trouble maintaining your gaze, but holds you tight nonetheless. You can feel the nervousness settle in <<his>> shoulders, causing them to feel stiff at your touch.
+In fact, the vulnerability of the moment seems to have exposed <<him>>, somehow. Let you see the part of <<him>> that <<he>> tries so hard to hide from the world.
+<br><br>
+You feel glad that <<he>>'s showing this to you now, even if it's through uncertain and awkward movements. Maybe, that's what makes it special.
+<br><br>
+<<He>>'s certainly no expert at dancing and stumbles more than a few times, but it's nice. You're suddenly struck with the realization that even if life with Eden isn't perfect, <<he>> really does try for you.
+<br><br>
+Like <<he>>'s trying right now.
+<br><br>
+<<link [[Next|Eden Radio Intro 4]]>><<npcincr Eden love 1>><</link>>
+<br>
+
+:: Eden Radio Intro 4 [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+Far too soon, the song comes to an end. Eden seems disappointed, but doesn't move. You wait to see if <<he>> does something, but <<he>> just looks away from you, making a conflicted expression.
+Disappointed, you reluctantly pull away from <<him>>, but <<he>> stops you before you can.
+<br><br>
+"Wait," <<he>> says. You turn back to ask <<him>> what was wrong, but are interrupted by a kiss. This one seems different, somehow. 
+It's full of everything that Eden feels for you; genuine, raw, and expressed in the only way that <<he>> knows how.
+<br><br>
+"Thanks for the radio," <<he>> says, pulling you in for a hug.
+<br><br>
+Three special words are silently exchanged between the two of you.
+<br><br>
+<span class = "gold">You can now use the radio to dance with Eden in the cabin at night!</span>
+<br><br>
+<<link [[Next|Eden Cabin]]>><<npcincr Eden love 1>><<endevent>><</link>>
+<br>
+
+:: Eden Supplied [nobr]
+<<effects>>
+<<set $edenshopping to 2>><<npcincr Eden love 5>>
+<<if $submissive gte 1150>>
+"I got these for you," you say, putting the supplies on the table.
+<<elseif $submissive lte 850>>
+"I did your chore for you," you say, putting the supplies on the table.
+<<else>>
+"I got your supplies from town," you say, putting the supplies on the table.
+<</if>>
+<br><br>
+
+"Good job," Eden says. "How much were they? I'll give you the money."
+<br><br>
+
+<<link [[I don't need money|Eden Supplied 2]]>><<set $phase to 0>><<npcincr Eden love 1>><<npcincr Eden dom 1>><</link>>
+<br>
+<<link [[£50|Eden Supplied 2]]>><<set $phase to 1>><</link>>
+<br>
+<<set $skulduggerydifficulty to 200>>
+<<link [[£200|Eden Supplied 2]]>><<set $phase to 2>><</link>><<skulduggerydifficulty>>
+<br>
+
+:: Eden Supplied 2 [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+<<if $phase is 0>>
+
+"What's yours is mine anyway," Eden says. "Thanks though."
+<br><br>
+
+	<<if $bus is "edenclearing">>
+	<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+	<br>
+	<<else>>
+	<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+	<br>
+	<</if>>
+
+<<elseif $phase is 1>>
+
+"Sounds about right," <<he>> reaches into <<his>> pouch. "Here you go."
+<br><br>
+
+You've gained <<moneyGain 50>>.
+<br><br>
+
+	<<if $bus is "edenclearing">>
+	<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+	<br>
+	<<else>>
+	<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+	<br>
+	<</if>>
+
+<<else>>
+
+<<skulduggerycheck>>
+	<<if $skulduggerysuccess is 1>>
+
+	"Two hundred?" Eden looks annoyed. "You got ripped off." <<He>> reaches into <<his>> pouch. "Still, worth me not doing it. Here you go."
+	<br><br>
+
+You've gained <<moneyGain 200>>.
+<br><br>
+
+		<<if $skulduggery lte ($skulduggerydifficulty + 100)>>
+		<<skulduggeryskilluse>>
+		<<else>>
+		<span class="blue">That was too easy. You didn't learn anything.</span>
+		<br><br>
+		<</if>>
+
+		<<if $bus is "edenclearing">>
+		<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+		<br>
+		<<else>>
+		<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+		<br>
+		<</if>>
+
+	<<else>>
+
+	"I'm not gonna fall for that," Eden says. "You can pay out of your own pocket."
+	<br><br>
+
+		<<if $skulduggery lte ($skulduggerydifficulty + 100)>>
+		<<skulduggeryskilluse>>
+		<<else>>
+		<span class="blue">That was too easy. You didn't learn anything.</span>
+		<br><br>
+		<</if>>
+
+		<<if $bus is "edenclearing">>
+		<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+		<br>
+		<<else>>
+		<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+		<br>
+		<</if>>
+
+	<</if>>
+
+<</if>>
+
+:: Cabin Settings [nobr]
+<<set $settingsExitPassage to "Eden Cabin">>
+<<settings>>
+
+:: Eden Fix [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+You fix Eden's clothes, which are full of rips and tears from <<his>> hunting trips. 
+<<if $hour lte 6>>
+You decide to leave them on the table as to not disturb <<his>> rest.
+<<elseif $hour gte 11 and $hour lte 14>>
+You decide to leave them on the table until <<he>> comes back.
+<<else>>
+Eden seems grateful when you give them back to <<him>>.
+<</if>>
+<br><br>
+<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+
+:: Eden Stock [nobr]
+<<effects>>
+<<npc Eden>><<person1>>
+You take stock of Eden's supplies, noting what needs to be replenished and how much it would cost.<<gmaths>><<mathsskill>>
+<br><br>
+<<link [[Next|Eden Cabin]]>><<endevent>><</link>>
+
+:: Eden Mirror [nobr]
+
+<<effects>>
+<<link [[Step away|Eden Cabin]]>><<unset $mirrorMenu>><</link>>
+<br>
+<<mirror>>
+<br><br>
+
+:: Eden Plots [nobr]
+<<effects>>
+
+<<plot_effects>>
+
+<<if $eden_plot_intro is 1>><<unset $eden_plot_intro>>
+	<<plots_init eden 3 earth 2 medium>>
+<</if>>
+
+<<display_plot eden>>
+
+<<if !$plants_known.includes("poppy")>>
+	<<link [[Search for seeds (0:30)|Eden Plots Seeds]]>><<set $plants_known.push("poppy")>><<pass 30>><</link>>
+	<br>
+<</if>>
+<br>
+
+<<link [[Leave|Eden Clearing]]>><</link>>
+<br>
+
+<<unset $event_trigger>>
+
+:: Eden Plots Seeds [nobr]
+<<effects>>
+You search the clearing for wild flowers, and find a number of poppies growing among the grass. You gather some seeds.
+<br><br>
+
+<span class="gold">You can now grow poppies.</span>
+<br><br>
+
+<<link [[Next|Eden Clearing]]>><<endevent>><</link>>
+<br>
+
+
+
+:: Eden Recaptured Resist [nobr]
+<<effects>>
+<<if $fightstart is 1>>
+<<set $fightstart to 0>>
+
+<<neutral 1>>
+
+<<maninit>>
+<<set $enemytrust -= 100>>
+<<set $enemyanger += 200>>
+<<npcidlegenitals>>
+<<set $NPCList[0].righthand to "throat">><<set $NPCList[0].lefthand to "throat">><<set $neckuse to "hand">>
+
+"I don't want to do this," Eden says as <<he>> shifts <<his>> hands over your throat. <span class="red">You're being strangled!</span>
+<br><br>
+
+<</if>>
+
+<<effects>>
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Eden Recaptured Resist Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Eden Recaptured Resist Finish]]>><</link>></span><<nexttext>>
+<<elseif $pain gte 100 and $willpowerpain is 0>>
+	<span id="next"><<link [[Next|Eden Recaptured Resist Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Eden Recaptured Resist]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Eden Recaptured Resist Finish [nobr]
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>><<if $foresthunt gte 1>><<set $foresthunt to 0>><</if>>
+	<<ejaculation>>
+	Eden collapses against a nearby tree.
+	<br><br>
+	<<tearful>> you seize the chance, and escape into the woods.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[Next|Forest]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+
+<<elseif $enemyhealth lte 0>><<if $foresthunt gte 1>><<set $foresthunt to 0>><</if>>
+	Eden falls against a nearby tree.
+	<br><br>
+	<<tearful>> you seize the chance, and escape into the woods.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[Next|Forest]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+
+<<else>>
+	Eden chokes you until your consciousness fades.
+	<br><br>
+
+	<<endcombat>>
+	<<link [[Next|Eden Recaptured 2]]>><<clotheson>><</link>>
+	<br>
+<</if>>
+
+
+
+:: Eden Recaptured 2 [nobr]
+<<effects>>
+
+<<npc Eden>><<person1>>
+
+<<if $rng gte 51>>
+	You awaken, and find yourself slumped over Eden's shoulder. You're in the clearing outside <<his>> cabin. <<He>> tosses you to the floor once inside.
+	<br><br>
+
+	"I trust you," <<he>> says. "So when you don't do as I say, it really hurts."
+	<br><br>
+
+
+
+<<else>>
+	You're jolted awake by Eden nudging you with <<his>> boot. You're on the cabin floor.
+	<br><br>
+
+	"I trust you," <<he>> says. "So when you don't do as I say, it really hurts."
+	<br><br>
+
+<</if>>
+
+
+<<link [[Seduce|Eden Recaptured Seduction]]>><</link>><<promiscuous1>>
+<br>
+<<link [[Apologise|Eden Recaptured Apologise]]>><<npcincr Eden love 1>><<npcincr Eden dom 1>><</link>>
+<br>
+<<link [[Do nothing|Eden Recaptured Spank]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Eden Cabin Rescued [nobr]
+<<set $outside to 0>><<effects>>
+
+Time passes. You experience a confused jumble of movement, the feel of a jacket under your body, the sounds of the forest and quiet footsteps. You slip in and out of consciousness.
+<br><br>
+
+You wake up some time later on a bed. It feels familiar. You look around, and realize that you are in the cabin in the forest. You spot Eden drinking out of a teacup, glancing over at you. <<He>> notices you looking and puts down <<his>> cup, coming over to you.
+<br><br>
+
+"You're awake! I was so worried." <<he>> seems genuinely relieved as <<he>> reaches you, folding you in a firm hug. <<He>> holds you for what feels like minutes, as you come to terms with what's happened. You hug <<him>> back, weak from your exertions.
+<br><br>
+
+<<if $submissive gte 1150>>
+	"Thank you! I don't know what would've happened to me if you didn't rescue me."
+<<elseif $submissive lte 850>>
+	"Thanks. I appreciate the help. I owe you one."
+<<else>>
+	"Thank you! I really appreciate you bringing me back."
+<</if>>
+<br><br>
+
+"You're safe here now. You're home. It's alright." Eden reassures you, releasing you and looking you over. "No long term harm done. I think you'll live." <<he>> gives a small smile, standing up.
+<br><br>
+
+[[Next|Eden Cabin]]

@@ -1,0 +1,226 @@
+:: My Bedroom [nobr]
+
+<<bedclotheson>>
+<<set $outside to 0>><<set $location to "town">><<home_effects>><<effects>>
+You are inside your room.
+<br><br>
+<!--WIP Stuff for when Robin can stay in the PC's rooom
+    <<if $robinbed is 1>>
+	<<set $robinbed to 0>>
+	<<npc Robin>><<person1>>Robin yawns and heads to <<his>> own room.<<endevent>>
+	<br><br>
+<</if>>
+-->
+<<if $unbind is 1>>
+	<<set $unbind to 0>>
+	You rub your bindings against your desk. It takes some effort, but eventually the material yields, freeing your limbs.
+	<br><br>
+<</if>>
+<!--Event for passing out at home
+<<if $stress gte 10000>>
+	<<passoutflat>>
+<<else>>
+-->
+<<if $leftarm is "bound" or $rightarm is "bound" or $feetuse is "bound">>
+	<<link [[Undo your bindings (0:10)|My Bedroom]]>><<set $unbind to 1>><<pass 10>><<unbind>><</link>>
+	<br><br>
+<</if>>
+<<if $robinpaid is 1 and $robinnote isnot 1 and $NPCName[$NPCNameList.indexOf("Robin")].lust gte 10 and $NPCName[$NPCNameList.indexOf("Robin")].love gte 60 and $NPCName[$NPCNameList.indexOf("Robin")].trauma lt 10>>
+	<span class="gold">There's a note by the window.</span>
+	<br>
+	<<link [[Read it|Robin Note]]>><<set $robinnote to 1>><</link>>
+	<br><br>
+<</if>>
+<!--<<projectoptions>> <- Project Stuff-->
+Your room is much larger than it was at the apartment. Your bed faces your dresser with its back to one wall.
+<<if $slimeEvent is undefined>>
+		<br>
+		<<link [[Strip and get in bed|MyBed]]>><<undress "bed">><</link>>
+		<br>
+		<<listsleepoutfits>>
+	<<else>>
+		<br>
+		<span class="red">The slime wants you to <<print $slimeEvent>> before you can go to bed.</span>
+		<br>
+	<</if>>
+	<<roomoptions>>
+	<br>
+	<<if $arousal gte 2000 and !$worn.genitals.type.includes("chastity") and $homemasturbationtest is 1>>
+		<<link [[Masturbate (0:05)|Flat Masturbation]]>><<pass 5>><<set $masturbationstart to 1>><</link>>
+	<</if>>
+	<br>
+	A large dresser houses your clothes.
+	<br>
+	<<link [[Wardrobe|Mii Wardrobe]]>><</link>>
+	<br>
+	<<if $hour is 3 and $hallucinations gte 2 and $mirrortentacles isnot 1 and $tentacledisable is "f">>
+		<br>
+		<span class="purple">An eerie light spills from your mirror.</span>
+		<br>
+		<<link [[Mirror|Mii Eerie Mirror]]>><<set $mirrortentacles to 1>><<set $phase to 0>><</link>>
+		<br>
+	<<else>>
+		<<link [[Mirror|Mii Mirror]]>><</link>>
+		<br><br>
+	<</if>>
+	A radio sits on your dresser.
+	<br>
+	<<link [[Radio|Watch TV]]>><<pass 1>><</link>>
+	<br><br>
+The hallway outside connects to the rest of your apartment.
+<br><br>
+<<link [[Living Room (0:01)|Living Room]]>><</link>>
+<br>
+<<link [[Bathroom (0:01)|Mii Bathroom]]>><</link>>
+<br>
+
+<!--Options-->
+
+:: MyBed [nobr]
+
+<<set $wardrobe_location to "bed">>
+<<effects>>
+<<wearoutfit>>
+<<if $robinbed is 1>>
+You snuggle under the covers with Robin.
+<br><br>
+<<else>>
+	<<if $location is "town" and $corruption_slime gte ($willpower / 20) and random(0,100) lt 3 and ($daystate is "night" and ($hour gte 20 or $hour lte 1)) and $slimeSleepEvent is 0 and $slimeEvent is undefined>>
+		<<set $slimeSleepEvent to 4>>
+		<<slimeNoSleep>>
+		<<set _skip to true>>
+	<<else>>
+	You snuggle under the covers.
+	<</if>>
+	<br><br>
+<</if>>
+<<if _skip isnot true>>
+	<<if $sleeptrouble is 1 and $controlled is 0>>
+		<<link [[Sleep for 10 hours|Mii Sleep]]>><<set $sleephour to 10>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 10>>)<<ltiredness>>
+		<br>
+		<<link [[Sleep for 9 hours|Mii Sleep]]>><<set $sleephour to 9>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 9>>)<<ltiredness>>
+		<br>
+	<</if>>
+
+	<<link [[Sleep for 8 hours|Mii Sleep]]>><<set $sleephour to 8>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 8>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 7 hours|Mii Sleep]]>><<set $sleephour to 7>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 7>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 6 hours|Mii Sleep]]>><<set $sleephour to 6>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 6>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 5 hours|Mii Sleep]]>><<set $sleephour to 5>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 5>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 4 hours|Mii Sleep]]>><<set $sleephour to 4>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 4>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 3 hours|Mii Sleep]]>><<set $sleephour to 3>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 3>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 2 hours|Mii Sleep]]>><<set $sleephour to 2>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 2>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 1 hours|Mii Sleep]]>><<set $sleephour to 1>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 1>>)<<ltiredness>>
+	<br><br>
+
+	<<link [[Climb out of bed|My Bedroom]]>><<storeon "bed">><<set $wardrobe_location to "wardrobe">><<endevent>><</link>>
+	<br><br>
+<<else>>
+	<<unset _skip>>
+<</if>>
+
+
+:: Mii Bathroom [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+You are in the bathroom.
+<br><br>
+<<if $stress gte 10000>>
+	<<passouthome>>
+<<else>>
+	<<link [[Have a bath (0:30)|Mii Bath]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
+<</if>>
+
+:: Mii Sleep [nobr]
+<<run Save.autosave.save(null, {"saveId":$saveId, "saveName":$saveName})>>
+<<if _preventUpdate is undefined>>
+	<<run setSaveDetail("autosave",{"saveId":$saveId,"saveName":$saveName},Story.get($passage).description())>>
+<<else>>
+	
+<</if>>
+<<sleep>><<effects>>
+<<sleepeffects>>
+<<if $robindebtwake is 1>>
+	<<set $robindebtwake to 0>><<set $robindebtknown to 1>><<set $schoolwake to 0>>
+	<<npc Robin>><<person1>>You're awoken by a knock on your door. You tiptoe downstairs and look through the peephole. Its Robin.
+    <br>
+    You open the door. "Can I come in?" <<he>> asks. You nod.
+    <br>
+    <<he>> sits down in a sofa and you next to <<him>>.
+    <br>
+    "I hope I didn't wake you," <<he>> says. "I'm frightened. Bailey makes me pay <<endevent>><<npc Bailey>><<him>>,<<endevent>><<npc Robin>><<person1>> but it's so much and it keeps getting higher." <<Hes>> on the verge of tears. You lean forward and hug <<him>>. "I don't know what to do."
+    <br>
+    You hold <<him>> for a few minutes until <<he>> pulls away from you. "Sorry. I just needed to tell someone. Goodnight." <<he>> wipes <<his>> eyes with <<his>> sleeve. <<He>> walks out the door and quietly closes it. After locking up you head back to bed.
+	<br>
+	<<gstress>><<stress 6>>
+	<br>
+	<<endevent>>
+	<<link [[Next|MyBed]]>><</link>>
+	<br>
+<br>
+
+:: Mii Bath [nobr]
+You wash until you're squeaky clean.<<wash>>
+<br><br>
+<<link [[Get out|Bath Done]]>><</link>>
+<br>
+<<link [[Masturbate|Bath Masturbation]]>><<set $masturbationstart to 1>><</link>>
+<br>
+
+:: Bath Done [nobr]
+<<effects>><<set $location to "town">><<set $outside to 0>>
+
+Your skin is still damp.
+<br><br>
+<<link [[Dress as you were|My Bathroom]]>><<clotheson>><</link>>
+<br>
+<<link [[Wrap yourself in a towel|Bathroom]]>>
+	<<if $player.gender == "f" or $breastsize > 0>>
+		<<set $wear_upper = "large_towel">>
+	<<else>>
+		<<set $wear_lower = "towel">>
+	<</if>>
+	<<returnCarried>>
+	<<wardrobewear>>
+<</link>>
+
+<<if $wardrobe.upper.findIndex(x => x.name == "bathrobe") >= 0 or $carried.upper.name == "bathrobe">>
+	<br>
+	<<link [[Put on a bathrobe|Bathroom]]>>
+		<<returnCarried>>
+		<<set $wear_upper = $wardrobe.upper.findIndex(x => x.name == "bathrobe")>>
+		<<wardrobewear>>
+	<</link>>
+<</if>>
+
+:: Living Room [nobr]
+You stand in your living room.
+<br>
+<<link [[Bedroom (0:01)|My Bedroom]]>><<pass 1>><</link>>
+<br>
+<<link [[Bathroom (0:01)|Mii Bathroom]]>><<pass 1>><</link>>
+<br>
+A TV sits on a table.
+<br>
+[[Watch TV]]
+<br>
+<<link [[Leave|Flat Enterance]]>><<pass 1>><</link>>
+
+:: Watch TV [nobr]
+Coming Soon
+<br><br>
+<<link [[Next|My Bedroom]]>><</link>>
+
+:: Mii Mirror [nobr]
+<<effects>>
+
+<<link [[Step away|My Bedroom]]>><<unset $mirrorMenu>><</link>>
+<br>
+
+<<mirror>>
+<br><br>

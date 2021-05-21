@@ -1,0 +1,4 @@
+:: Town Hall [nobr]
+The building is still under construction.
+<br>
+<<link [[Leave|Oxford Street]]>><<pass 3>><</link>>

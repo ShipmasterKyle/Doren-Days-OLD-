@@ -1,0 +1,15 @@
+:: Widgets Version Info [widget]
+<<widget "versioninfo">><<nobr>>
+
+<br><br>
+
+Degrees of Lewdity <<print StartConfig.version>>
+<br><br>
+
+"Doren Days" edition
+<br><br>
+
+Updates and more information can be found at the DoL Modding Discord
+<br><br>
+
+<</nobr>><</widget>>
