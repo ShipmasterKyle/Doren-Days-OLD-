@@ -102,7 +102,7 @@ You are on Connudatus Street. The numerous clubs, bars and restaurants make it t
 			<br>
 		<</if>>
 		<<if $daystate isnot "day" and $awareness gte 250>>
-		<ind><<link [[Sex Toy Shop|Bad Dragon]]>><<pass 2>><</link>>
+		<ind><<link [[Sex Toy Shop|Bad Dragon]]>><<pass 2>><</link>></ind>
 		<</if>>
 		<br>
 		<<if $exposed gte 1 and $daystate isnot "night">>

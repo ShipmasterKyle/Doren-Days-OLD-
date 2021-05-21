@@ -10,7 +10,7 @@
 		Bailey wants <span class="gold">£<<print $rentmoney / 100>></span> on <<rentday>>
 		<br>
 	<</if>>
-<<else>>
+<<elseif $home is "none">>
 	Bailey wants <span class="gold">£<<print $rentmoney / 100>></span>.
 	<br>
 <</if>>
@@ -21,7 +21,7 @@
 <</if>>
 
 <<if $home is "apartment">>
-	Your rent is due <span class="gold"> on <<print $month>> <<print $miirentday>> </span> <<if $money lte 50000>> You have <<print $miirentday - $homerenttime>> left. <</if>>
+	Your rent is due on <span class="gold"> <<month>> <<print $miirentday>>th </span>
 <</if>>
 
 <<if $edenasylumjournal is 1 and $hour lt 21>>

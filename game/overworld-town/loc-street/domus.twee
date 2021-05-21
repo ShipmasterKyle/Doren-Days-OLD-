@@ -97,7 +97,8 @@ You are on Domus Street. The orphanage is here. The street is dominated by small
 			<<ind>><<link [[Check out the building (0:02)|Landlord Intro]]>><<pass 2>><</link>>
 			<br>
 			<<else>>
-			A building is underconstruction. It looks like it might be some sort of subdivision.
+			A building is under construction. It looks like it might be some sort of subdivision.
+			<br>
 			<</if>>
 			<<if $daystate is "night">>
 				<<ind>><<link [[Approach one of the houses (0:02)|Domus House Lock]]>><<pass 2>><</link>>

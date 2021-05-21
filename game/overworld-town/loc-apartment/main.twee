@@ -32,7 +32,7 @@ You are inside your room.
 	<br><br>
 <</if>>
 <!--<<projectoptions>> <- Project Stuff-->
-Your room is much larger than it was at the apartment. Your bed faces your dresser with its back to one wall.
+Your room is much larger than it was at the orphanage. Your bed faces your dresser with its back to one wall.
 <<if $slimeEvent is undefined>>
 		<br>
 		<<link [[Strip and get in bed|MyBed]]>><<undress "bed">><</link>>
@@ -160,6 +160,7 @@ You are in the bathroom.
 	<<gstress>><<stress 6>>
 	<br>
 	<<endevent>>
+<</if>>
 	<<link [[Next|MyBed]]>><</link>>
 	<br>
 <br>

@@ -43,6 +43,7 @@ You are on Nightingale Street. It is dominated by the civic hospital but there a
 			<br>
 		<<else>>
 			<<link [[Empty Building|Photo Studio]]>><<pass 1>><</link>>
+			<br>
 		<</if>>
 		<<foresticon>><<link [[Forest (0:10)|Forest]]>><<set $eventskip to 1>><<pass 10>><<set $forest to 0>><</link>>
 		<br><br>
