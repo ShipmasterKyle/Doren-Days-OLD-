@@ -1,40 +1,41 @@
-:: My Bedroom
-<!-- This is the players new bedroom. I'll eventually add a feature to add more furniture.-->
+:: My Bedroom [nobr]
+
 <<bedclotheson>>
-<<set $outside to 0>><<set $location to "home">><<home_effects>><<effects>>
-You are in your bedroom.
-You are in your bedroom.
+<<set $outside to 0>><<set $location to "town">><<home_effects>><<effects>>
+You are inside your room.
 <br><br>
-<<if $robinbed is 1>>
+<!--WIP Stuff for when Robin can stay in the PC's rooom
+    <<if $robinbed is 1>>
 	<<set $robinbed to 0>>
 	<<npc Robin>><<person1>>Robin yawns and heads to <<his>> own room.<<endevent>>
 	<br><br>
 <</if>>
+-->
 <<if $unbind is 1>>
 	<<set $unbind to 0>>
 	You rub your bindings against your desk. It takes some effort, but eventually the material yields, freeing your limbs.
 	<br><br>
 <</if>>
+<!--Event for passing out at home
 <<if $stress gte 10000>>
-	<<passouthome>>
-<<elseif $christmas is 1 and $monthday is 25 and $christmas_robin_visit is undefined and $christmas_robin_gift_received is undefined and $daystate isnot "night" and $NPCName[$NPCNameList.indexOf("Robin")].init is 1>>
-	<<set $christmas_robin_visit to true>>
-	<<christmas_robin_visit>>
+	<<passoutflat>>
 <<else>>
-	<<if $leftarm is "bound" or $rightarm is "bound" or $feetuse is "bound">>
-		<<link [[Undo your bindings (0:10)|Bedroom]]>><<set $unbind to 1>><<pass 10>><<unbind>><</link>>
-		<br><br>
-	<</if>>
-	<<if $robinpaid is 1 and $robinnote isnot 1 and $NPCName[$NPCNameList.indexOf("Robin")].lust gte 10 and $NPCName[$NPCNameList.indexOf("Robin")].love gte 60 and $NPCName[$NPCNameList.indexOf("Robin")].trauma lt 10>>
-		<span class="gold">There's a note by the window.</span>
-		<br>
-		<<link [[Read it|Robin Note]]>><<set $robinnote to 1>><</link>>
-		<br><br>
-	<</if>>
-	<<projectoptions>>
+-->
+<<if $leftarm is "bound" or $rightarm is "bound" or $feetuse is "bound">>
+	<<link [[Undo your bindings (0:10)|My Bedroom]]>><<set $unbind to 1>><<pass 10>><<unbind>><</link>>
+	<br><br>
+<</if>>
+<<if $robinpaid is 1 and $robinnote isnot 1 and $NPCName[$NPCNameList.indexOf("Robin")].lust gte 10 and $NPCName[$NPCNameList.indexOf("Robin")].love gte 60 and $NPCName[$NPCNameList.indexOf("Robin")].trauma lt 10>>
+	<span class="gold">There's a note by the window.</span>
+	<br>
+	<<link [[Read it|Robin Note]]>><<set $robinnote to 1>><</link>>
+	<br><br>
+<</if>>
+<!--<<projectoptions>> <- Project Stuff-->
+Your room is much larger than it was at the apartment. Your bed faces your dresser with its back to one wall.
 <<if $slimeEvent is undefined>>
 		<br>
-		<<link [[Strip and get in bed|Bed]]>><<undress "bed">><</link>>
+		<<link [[Strip and get in bed|MyBed]]>><<undress "bed">><</link>>
 		<br>
 		<<listsleepoutfits>>
 	<<else>>
@@ -45,93 +46,105 @@ You are in your bedroom.
 	<<roomoptions>>
 	<br>
 	<<if $arousal gte 2000 and !$worn.genitals.type.includes("chastity") and $homemasturbationtest is 1>>
-		<<link [[Masturbate (0:05)|Apartment Masturbation]]>><<pass 5>><<set $masturbationstart to 1>><</link>>
+		<<link [[Masturbate (0:05)|Flat Masturbation]]>><<pass 5>><<set $masturbationstart to 1>><</link>>
 	<</if>>
 	<br>
-The small TV that Larry gave you sits on the wall.
-<<link [[Watch TV (0:01)|Watch TV]]>><<pass 1>><</link>>
-<br>
-<!-- Home Init stuff. Still a WIP. This is mostly here for a later event at the Orphanage.
-<<if $homeinit is 1>>
-A small dresser sits in the corner of your room. Its currently empty. <span class = "gold"> You should probably go get them from the orphange. </span>
-<<else>>
--->
-A small dresser sits in the corner of your room.
-<br>
-[[Wardrobe]]
-<</if>>
-<br><
+	A large dresser houses your clothes.
+	<br>
+	<<link [[Wardrobe|Mii Wardrobe]]>><</link>>
+	<br>
 	<<if $hour is 3 and $hallucinations gte 2 and $mirrortentacles isnot 1 and $tentacledisable is "f">>
 		<br>
 		<span class="purple">An eerie light spills from your mirror.</span>
 		<br>
-		<<link [[Mirror|The Eerie Mirror]]>><<set $mirrortentacles to 1>><<set $phase to 0>><</link>>
+		<<link [[Mirror|Mii Eerie Mirror]]>><<set $mirrortentacles to 1>><<set $phase to 0>><</link>>
 		<br>
 	<<else>>
-		[[Mirror]]
-		<br>
+		<<link [[Mirror|Mii Mirror]]>><</link>>
+		<br><br>
 	<</if>>
-
-
-
-<<if $sexStats.anus.pregnancy.seenDoctor gte 2>>
-		<<set $container.lastLocation to $location>>
-		<<if $container[$location].kylarFed is true>>
-			<<print '<<link [[Check ' + $container[$location].name + ' (0:05)|Kylar Parasites Feed]]>><<pass 5>><</link>>'>>
-		<<else>>
-			<<print '<<link [[Check ' + $container[$location].name + ' (0:05)|Containers]]>><<pass 5>><</link>>'>>
-		<</if>>
-		<br>
-	<</if>>
+	A radio sits on your dresser.
 	<br>
-The Hallway connects your room to the rest of your apartment.
-<<if $exposed gte 2>>
-    The thought of going out with your <<genitals>> on display excites you. You're the only one here so nothing bad should happen.
-    <br>
-    <<link [[Bathroom (0:02)| My Bathroom]]>><<pass 2>><</link>>
-    <br>
-    <<link [[Living Room(0:04)| My Living Room]]>><<pass 4>><</link>>
-    <br>
-<<elseif $exposed gte 1>>
-    The thought of going out in such a lewd state of dress excites you. You're the only one here so nothing bad should happen though.
-     <br>
-    <<link [[Bathroom (0:02|My Bathroom)]]>><<pass 2>><</link>>
-    <br>
-    <<link [[Living Room(0:04)|My Living Room]]>><<pass 4>><</link>>
-    <br>
+	<<link [[Radio|Watch TV]]>><<pass 1>><</link>>
+	<br><br>
+The hallway outside connects to the rest of your apartment.
+<br><br>
+<<link [[Living Room (0:01)|Living Room]]>><</link>>
+<br>
+<<link [[Bathroom (0:01)|Mii Bathroom]]>><</link>>
+<br>
+
+<!--Options-->
+
+:: MyBed [nobr]
+
+<<set $wardrobe_location to "bed">>
+<<effects>>
+<<wearoutfit>>
+<<if $robinbed is 1>>
+You snuggle under the covers with Robin.
+<br><br>
 <<else>>
-	<<link [[Bathroom (0:02|My Bathroom)]]>><<pass 2>><</link>>
-    <br>
-    <<link [[Living Room(0:04)|My Living Room]]>><<pass 4>><</link>>
-    <br>
-<</if>>
-	<<link [[Settings]]>><<set $settingsExitPassage to "Bedroom">><</link>>
-	<br>
-	<<attitudesControlCheck>>
-	<<if $attitudesControl.showGoldLink is true>>
-		<span class="goldLink"><<link [[Attitudes]]>><<set $attitudesExitPassage to $passage>><</link>>  </span><span class="red">!!</span>
+	<<if $location is "town" and $corruption_slime gte ($willpower / 20) and random(0,100) lt 3 and ($daystate is "night" and ($hour gte 20 or $hour lte 1)) and $slimeSleepEvent is 0 and $slimeEvent is undefined>>
+		<<set $slimeSleepEvent to 4>>
+		<<slimeNoSleep>>
+		<<set _skip to true>>
 	<<else>>
-		<<link [[Attitudes]]>><<set $attitudesExitPassage to $passage>><</link>>
+	You snuggle under the covers.
 	<</if>>
+	<br><br>
+<</if>>
+<<if _skip isnot true>>
+	<<if $sleeptrouble is 1 and $controlled is 0>>
+		<<link [[Sleep for 10 hours|Mii Sleep]]>><<set $sleephour to 10>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 10>>)<<ltiredness>>
+		<br>
+		<<link [[Sleep for 9 hours|Mii Sleep]]>><<set $sleephour to 9>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 9>>)<<ltiredness>>
+		<br>
+	<</if>>
+
+	<<link [[Sleep for 8 hours|Mii Sleep]]>><<set $sleephour to 8>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 8>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 7 hours|Mii Sleep]]>><<set $sleephour to 7>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 7>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 6 hours|Mii Sleep]]>><<set $sleephour to 6>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 6>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 5 hours|Mii Sleep]]>><<set $sleephour to 5>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 5>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 4 hours|Mii Sleep]]>><<set $sleephour to 4>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 4>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 3 hours|Mii Sleep]]>><<set $sleephour to 3>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 3>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 2 hours|Mii Sleep]]>><<set $sleephour to 2>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 2>>)<<ltiredness>>
+	<br>
+	<<link [[Sleep for 1 hours|Mii Sleep]]>><<set $sleephour to 1>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 1>>)<<ltiredness>>
+	<br><br>
+
+	<<link [[Climb out of bed|My Bedroom]]>><<storeon "bed">><<set $wardrobe_location to "wardrobe">><<endevent>><</link>>
+	<br><br>
+<<else>>
+	<<unset _skip>>
 <</if>>
 
-:: Watch TV
-Coming Soon
-<<link [[Next|My Bedroom]]>><</link>>
 
-:: Sleep Apartment [nobr]
-<!-- The actual sleep stuff for the apartments-->
-<!-- Autosaves the game.-->
+:: Mii Bathroom [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+You are in the bathroom.
+<br><br>
+<<if $stress gte 10000>>
+	<<passouthome>>
+<<else>>
+	<<link [[Have a bath (0:30)|Mii Bath]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
+<</if>>
+
+:: Mii Sleep [nobr]
 <<run Save.autosave.save(null, {"saveId":$saveId, "saveName":$saveName})>>
 <<if _preventUpdate is undefined>>
 	<<run setSaveDetail("autosave",{"saveId":$saveId,"saveName":$saveName},Story.get($passage).description())>>
 <<else>>
 	
 <</if>>
-<!-- Fires the sleep events-->
 <<sleep>><<effects>>
 <<sleepeffects>>
-<!-- Robin's event is moved here with slight changes.-->
 <<if $robindebtwake is 1>>
 	<<set $robindebtwake to 0>><<set $robindebtknown to 1>><<set $schoolwake to 0>>
 	<<npc Robin>><<person1>>You're awoken by a knock on your door. You tiptoe downstairs and look through the peephole. Its Robin.
@@ -149,509 +162,65 @@ Coming Soon
 	<<endevent>>
 	<<link [[Next|MyBed]]>><</link>>
 	<br>
+<br>
 
-:: My Bathroom
-<!-- The bathroom code ported to here except for the random events.-->\<<set $outside to 0>><<set $location to "home">><<effects>>
-You are in the bathroom.
-<br><br>
-<<if $stress gte 10000>>
-	<<passouthome>>
-<<else>>
-	<<link [[Have a bath (0:30)->Bath]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
-	<br>
-	<!-- Check if there's any hair-->
-	<<if $pbdisable is "f" and ($pblevel gte 2 or $pbstrip gte 1 or $pblevelballs gte 2)>>
-		<<link [[Groom pubic hair->Shave]]>><</link>>
-		<br>
-	<</if>>
-	<br>
-
-	<<link [[Bedroom (0:01)|My Bedroom]]>><<pass 1>><</link>>
-	<br>
-	<<link [[Living Room (0:01)| My Living Room]]>><<pass 1>><</link>>
-	<br>
-<</if>>
-
-:: Take Bath
-<<effects>><<set $location to "home">><<set $outside to 0>>
-
-<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
-<<if $danger gte (9900 - $allure / 3) and $hallucinations gte 2 and $slimedisable is "f" and $controlled is 0>>
-
+:: Mii Bath [nobr]
 You wash until you're squeaky clean.<<wash>>
 <br><br>
+<<link [[Get out|Bath Done]]>><</link>>
+<br>
+<<link [[Masturbate|Bath Masturbation]]>><<set $masturbationstart to 1>><</link>>
+<br>
 
-As you remove the plug to drain the water, you feel something probe your <<genitals>>. You look between your legs, but you don't see anything abnormal. When you try to stand up however, translucent tendrils rise from the water and force you back down.
+:: Bath Done [nobr]
+<<effects>><<set $location to "town">><<set $outside to 0>>
+
+Your skin is still damp.
 <br><br>
-
-<<link [[Next|MyBath Slime]]>><<set $molestationstart to 1>><</link>>
-
-<<else>> 
-You wash until you're squeaky clean.<<wash>>
-<br><br>
-
-<<link [[Get out->Bath Finish]]>><</link>>
+<<link [[Dress as you were|My Bathroom]]>><<clotheson>><</link>>
 <br>
-<<link [[Masturbate|MyBath Masturbation]]>><<set $masturbationstart to 1>><</link>>
-<br>
-<</if>>
-
-
-:: Shave- [nobr]
-<<effects>>
-<<dontHideForNow>><<shavestrip>>
-You take off your clothes and look at your <<genitals>>.
-<br>
-<<if $worn.genitals.name is "chastity belt">>
-The belt fits snug against your body and it seems that reaching pubes with a razor is almost impossible.
-<br>
-<<link [[Dress up->Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-<<else>>
-<<if $worn.genitals.name is "chastity cage">>
-Your penis is locked inside the cage. Shaving around it will be a bit more tricky, but that's not a big deal.
-<br>
-<</if>>
-<<if $pblevel gte 2 or $pbstrip gte 1 or $pblevelballs gte 2>>
-	<<link [[Shave clean (0:15)->Shave clean-]]>><<pass 15>><<arousal 100>><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pblevelballs to 0>><<set $pbgrowthballs to 0>><<set $pbstrip to 0>><<set $makeup.pbcolour to 0>><</link>>
-	<br>
-<</if>>
-<<if $pblevel gte 5 or $pbstrip gte 2 or ($pbstrip is 1 and $pblevel gte 2)>>
-	<<link [[Form a landing strip (0:15)->Shave strip-]]>><<pass 15>><<arousal 100>><<set $pbstripName to "neat landing strip">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 1>><</link>>
-	<br>
-<</if>>
-<<if $pblevel gte 5 or $pbstrip gte 3 or ($pbstrip gte 2 and $pblevel gte 2)>>
-	<<link [[Form a heart (0:15)->Shave strip-]]>><<pass 15>><<arousal 100>><<set $pbstripName to "cute heart shape">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 2>><</link>>
-	<br>
-<</if>>
-<<if $pblevel gte 5 or $pbstrip gte 4 or ($pbstrip gte 3 and $pblevel gte 2)>>
-	<<link [[Form a triangle (0:15)->Shave strip-]]>><<pass 15>><<arousal 100>><<set $pbstripName to "neat triangle">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 3>><</link>>
-	<br>
-<</if>>
-<<if $player.ballsExist is true>>
-	<<if $pblevel gte 2 or $pbstrip gte 1>>
-		<<link [[Shave only pubis (0:10)->Shave pubis-]]>><<pass 10>><<arousal 50>><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 0>><<if $pblevelballs is 0>><<set $makeup.pbcolour to 0>><</if>><</link>>
-		<br>
+<<link [[Wrap yourself in a towel|Bathroom]]>>
+	<<if $player.gender == "f" or $breastsize > 0>>
+		<<set $wear_upper = "large_towel">>
+	<<else>>
+		<<set $wear_lower = "towel">>
 	<</if>>
-	<<if $pblevelballs gte 3>>
-		<<link [[Shave only balls (0:05)->Shave balls-]]>><<pass 5>><<arousal 50>><<set $pblevelballs to 0>><<set $pbgrowthballs to 0>><<if $pblevel is 0 and $pbstrip is 0>><<set $makeup.pbcolour to 0>><</if>><</link>>
-		<br>
-	<</if>>
-<</if>>
-<<if $pblevel gt 5 or $pblevelballs gt 5>>
-	<<link [[Trim short (0:10)->Shave trim-]]>><<pass 10>><<arousal 100>>
-		<<if $pblevel gte 5>>
-			<<set $pblevel to 5>><<set $pbgrowth to 7>><<set $pbstrip to 0>>
-		<</if>>
-		<<if $pblevelballs gte 5>>
-			<<set $pblevelballs to 5>><<set $pbgrowthballs to 10>>
-		<</if>>
+	<<returnCarried>>
+	<<wardrobewear>>
+<</link>>
+
+<<if $wardrobe.upper.findIndex(x => x.name == "bathrobe") >= 0 or $carried.upper.name == "bathrobe">>
+	<br>
+	<<link [[Put on a bathrobe|Bathroom]]>>
+		<<returnCarried>>
+		<<set $wear_upper = $wardrobe.upper.findIndex(x => x.name == "bathrobe")>>
+		<<wardrobewear>>
 	<</link>>
-	<br>
 <</if>>
-<<if $worn.genitals.name isnot "chastity belt">>
-	<<link [[Dye pubic hair->Dye pubic hair-]]>><</link>><br>
-<</if>>
-<<link [[Don't shave anything->Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-<</if>>
-' <!-- Fixes Formating-->
 
-:: Shave clean- [nobr]
-<<effects>>
-
-You pick up some shaving cream, a razor and sit down.
+:: Living Room [nobr]
+You stand in your living room.
 <br>
-You spread your legs and start carefully shaving your pubes. After a few minutes you are done and your <<genitals_are 2>> now smooth and clean.
+<<link [[Bedroom (0:01)|My Bedroom]]>><<pass 1>><</link>>
+<br>
+<<link [[Bathroom (0:01)|Mii Bathroom]]>><<pass 1>><</link>>
+<br>
+A TV sits on a table.
+<br>
+[[Watch TV]]
+<br>
+<<link [[Leave|Flat Enterance]]>><<pass 1>><</link>>
+
+:: Watch TV [nobr]
+Coming Soon
 <br><br>
-<<link [[Next|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
+<<link [[Next|My Bedroom]]>><</link>>
 
-:: Shave pubis- [nobr]
+:: Mii Mirror [nobr]
 <<effects>>
 
-You pick up some shaving cream and a razor.
+<<link [[Step away|My Bedroom]]>><<unset $mirrorMenu>><</link>>
 <br>
-You start carefully shaving hair. After a few minutes you are done and your pubis is now smooth and clean.
+
+<<mirror>>
 <br><br>
-<<link [[Next|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-
-:: Shave balls- [nobr]
-<<effects>>
-
-You pick up some shaving cream, a razor.
-<br>
-You prop one leg on a bathtub and start carefully shaving your balls. After a few minutes you are done and your testicles are now smooth and clean.
-<br><br>
-<<link [[Next|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-
-:: Shave strip- [nobr]
-<<effects>>
-
-You pick up some shaving cream, a razor and sit down.
-<br>
-You spread your legs and start carefully shaving your pubes. After a few minutes you are done and your <<genitals_are 2>> now smooth and clean with a <<print $pbstripName>> adorning your pubis.
-<br><br>
-<<link [[Next|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-
-:: Shave trim- [nobr]
-<<effects>>
-
-You pick up a comb with scissors and sit down.
-<br>
-You spread your legs and start carefully trimming your pubes. After a few minutes you are done and hair around your <<genitals 2>> is now neatly trimmed.
-<br><br>
-<<link [[Next|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-
-:: Dye pubic hair- [nobr]
-<<effects>>
-
-<<set _ownedColours = $makeup.owned.hairdye.filter(x => x.count > 0)>>
-<<if _ownedColours.length == 0>>
-	You don't own any hair dyes. Maybe you should visit a cosmetics shop to buy some.<br>
-<<else>>
-	What colour will it be?<br>
-	<<set _choice = _ownedColours[0].colour>>
-	<<for _i, _item range _ownedColours>>
-		<label><span class="grey-shadow"><span @class="'hair-' + _item.colour.replace(/ /g, '-')"><span class="colour-hair"><span style="color:#FD6064;">_item.colour</span></span></span></span>&nbsp;<<print '<<radiobutton "_choice" "'+_item.colour+'" ' + (_choice is _item.colour ? "checked" : "") + '>>'>></label>
-		&nbsp;×&nbsp;_item.count | 
-	<</for>>
-
-	<br><br>
-	<<link [[Dye pubic hair using selected colour (0:30)|Dye pubic hair Finish-]]>><<pass 30>><<set $makeup.owned.hairdye.find(x => x.colour == _choice).count -= 1>><<set $makeup.pbcolour = _choice>><</link>>
-<</if>>
-<br>
-<<link [[Back|Shave]]>><</link>>
-
-:: Dye pubic hair Finish- [nobr]
-<<effects>>
-
-You treat your most sensitive parts with petroleum jelly and then prepare the hair dye.<br>
-Using a small brush you carefully apply chemicals to your pubes and wait for them to soak in.<br>
-<<arousal 100>>
-<br>
-After several minutes you rinse your private area with water and behold your <<genitals 2>> with $makeup.pbcolour pubic hair.
-<br><br>
-<<link [[Next|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
-
-
-
-:: Flat Enterance
-<!-- Serves as the main hall. When or if I add other unnamed npcs here Their rooms will be here.-->
-You stand in the main room of the building. There are randomly placed expensive items.
-<br>
-<<link [[Go to your apartment (0:02)|My Living Room]]>><<pass 2>><</link>>
-<br>
-<<npc Larry>><<person1>> 
-<<if $pronoun is "m">>
-Larry's office is here.
-<br>
-<<link [[Go to his office|Landlord Office]]>><</link>>
-<<else>>
-Lara's office is here.
-<br>
-<<link [[Go to her office|Landlord Office]]>><</link>>
-<</if>>
-<br>
-<<link [[Leave|Domus Street]]>><</link>>
-
-
-:: My Living Room 
-<!-- This will serve as the Player's home once they agree to pay rent for it. Rent will be a set pay. About $500. the PC will be able to bring their love interests over for dates and such.-->
-You stand in at the door of your apartment.
-<br>
-<<if $homeinit gte 2>>
-You carry your clothes and other things in the suitcase. <span class="gold"> perhaps you should put them in your room. </span>
-<</if>>
-
-<<link [[Go to your bedroom (0:02)|My Bedroom]]>><<pass 2>><</link>>
-<br>
-<<link [[Go to your bathroom (0:02)|My Bathroom]]>><<pass 2>><</link>>
-<br>
-<<link [[Leave (0:02)|Domus Street]]>><<pass 2>><</link>>
-<br>
-
-:: Landlord Intro
-<!-- Intro Event for Larry(Ace Attorney Reference but no one will notice lol)-->
-
-<<npc Larry>><<person1>> 
-You open the door and walk into a large room with several people walking in and out. The building looks complete from the outside but the inside still has some wooden frames. 
-<<if $pronoun is "m">>
-A man walks up to you. He wears an orange suit with a light blue tie which matches his brown hair. "Hello and welcome to my building! I'm Larry. How can I help you today?"
-<<else>>
-A woman walks up to you. She wears an yellow sundress with a light blue bow which somehow offsets her brown hair. "Hello and welcome to my building. I'm Lara. How can I help you today?"
-<</if>>
-<br>
-<<link[[Inquire about apartments (0:02)|Apartment Info]]>><<pass 2>><</link>>
-
-:: Apartment Info
-<!-- Basically advertises Apartments to the player.-->
-"Well," <<he>> starts, "Its rather expensive. Its $500 a month and you have to pay first three months rent upfront. The apartments are extremely nice however. We offer many services
-such as a free membership to the Spa on Danube Street and the Gym on Cliff Street(coming soon). We also have a pool and we provide furniture. You bring your rent money to me <span class="blue"> the last saturday of every month. </span>
-Rent is a solid price of $500 and never changes. I think I've explained everything. Want to rent a place?"
-<br>
-<<if $money gte 150000>> <!-- Thats $1500-->
-<<link [[Get an Apartment|Apartment Buy]]>><<set $money -= 150000>><</link>>
-<br>
-<</if>>
-<<link[[Nevermind|Domus Street]]>><</link>>
-
-:: Apartment Buy
-<<npc Larry>><<person1>> 
-<<set $home to "apartment">>
-<<if $pronoun is "m">>
-Larry carefully examines the money. "Thank you. Allow me to show you your room."
-<<else>>
-Lara carefully examines the money. "Thank you. Allow me to show you your room."
-<</if>>
-<br>
-<<if $robinromance is 1>>
-<<set $rentmoney to 2000>>
-<<else>>
-<<set $rentmoney to 0>>
-<</if>>
-<<set $homeinit to 1>>
-<<set $homerenttime to 30>>
-<<link [[Next|My Living Room]]>><<pass 2>><</link>>
-
-:: Landlord Office
-<!-- Main event for Larry. With high Submissiveness and allure you can skip out on rent payments.-->
-<<npc Larry>><<person1>> 
-<<if $pronoun is "m">>
-"Hello again." Larry says.
-<<else>>
-"Hello again" Lara says.
-<</if>>
-<br>
-<<if $homerenttime is 0>>
-<<link [[Pay Rent|Mii Rent Pay]]>><<pass 1>><</link>>
-<br>
-<<if $exhibitionism gte 75>>
-<<link [[Seduce|Mii Rent Showoff]]>><<exhibitionist5>><</link>>
-<</if>>
-<</if>>
-<<link [[Leave|Flat Enterance]]>><</link>>
-
-:: MyBed [nobr]
-
-<<set $wardrobe_location to "bed">>
-<<effects>>
-<<wearoutfit>>
-<<if $robinbed is 1>>
-You snuggle under the covers with Robin.
-<br><br>
-<<else>>
-	<<if $location is "home" and $corruption_slime gte ($willpower / 20) and random(0,100) lt 3 and ($daystate is "night" and ($hour gte 20 or $hour lte 1)) and $slimeSleepEvent is 0 and $slimeEvent is undefined>>
-		<<set $slimeSleepEvent to 4>>
-		<<slimeNoSleep>>
-		<<set _skip to true>>
-	<<else>>
-	You snuggle under the covers.
-	<</if>>
-	<br><br>
-<</if>>
-
-<<if _skip isnot true>>
-	<<if $sleeptrouble is 1 and $controlled is 0>>
-		<<link [[Sleep for 12 hours|Sleep]]>><<set $sleephour to 12>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 12>>)<<ltiredness>>
-		<br>
-		<<link [[Sleep for 11 hours|Sleep]]>><<set $sleephour to 11>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 11>>)<<ltiredness>>
-		<br>
-		<<link [[Sleep for 10 hours|Sleep]]>><<set $sleephour to 10>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 10>>)<<ltiredness>>
-		<br>
-		<<link [[Sleep for 9 hours|Sleep]]>><<set $sleephour to 9>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 9>>)<<ltiredness>>
-		<br>
-	<</if>>
-
-	<<link [[Sleep for 8 hours|Sleep]]>><<set $sleephour to 8>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 8>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 7 hours|Sleep]]>><<set $sleephour to 7>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 7>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 6 hours|Sleep]]>><<set $sleephour to 6>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 6>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 5 hours|Sleep]]>><<set $sleephour to 5>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 5>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 4 hours|Sleep]]>><<set $sleephour to 4>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 4>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 3 hours|Sleep]]>><<set $sleephour to 3>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 3>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 2 hours|Sleep]]>><<set $sleephour to 2>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 2>>)<<ltiredness>>
-	<br>
-	<<link [[Sleep for 1 hours|Sleep]]>><<set $sleephour to 1>><<set $saveDetails.auto.count++>><</link>> (<<timeAfterXHours 1>>)<<ltiredness>>
-	<br><br>
-
-	<<link [[Climb out of bed|My Bedroom]]>><<storeon "bed">><<set $wardrobe_location to "wardrobe">><<endevent>><</link>>
-	<br><br>
-<<else>>
-	<<unset _skip>>
-<</if>>
-
-:: Robin Sleepover
-<!-- This is for the event where Robin stays in your room and is their primary sex scene. So I changed it so it makes sense.-->
-<<set $NPCName[$NPCNameList.indexOf("Robin")].lovewake to 0>><<set $robinbed to 1>><<set $schoolwake to 0>>
-<<if $NPCName[$NPCNameList.indexOf("Robin")].dom lte 79>>
-You lead Robin to your room.
-<<elseif $NPCName[$NPCNameList.indexOf("Robin")].dom gte 80>>
-Robin kisses you. <<He>> takes your arm and slowly leads you to your room.
-<</if>>
-<<link [Next|MyBed Robin Sex]>><<set $sexstart to 1>><</link>>
-
-<!-- Everything below is WIP code to make events for the apartments-->
-
-
-<!--
-    <<elseif $baileyrapewake is 1>>
-	<<set $baileyrapewake to 0>><<set $schoolwake to 0>>
-	<<generate1>><<person1>>You awaken to a shape looming over you and hands pulling off your covers. It's a <<person>>. "Don't struggle," <<he>> says.
-	<<if $robinbed is 1>>
-		"We wouldn't want to wake up your friend." Robin lays beside you, still asleep.
-	<</if>>
-	"You looked so cute, cosy and safe sleeping. I couldn't help myself."
-	<br><br>
-	Bailey leans against the door frame, counting money.
-	<br><br>
-	<<link [[Next|Sleep Rape]]>><<set $molestationstart to 1>><</link>>
-	<br>
-<<elseif $location is "home" and $slimeWake is 1>>
-	<<set $slimeWake to 0>>
-	<<set _newLocations to ["Residential alleyways", "Commercial alleyways", "Park", "Industrial alleyways"]>>
-	<<set _newLocation to _newLocations[random(0,3)]>>
-	<<set $eventskip to 1>><<set $slimeSleepEvent to 3>>
-	<<if $hour lt 24 and $hour gt 12>>
-		<<set $slimeSleepEvent += 1>>
-	<</if>>
-	You wake up in confused and disoriented state. The last thing you recall is getting into bed like normal, however, you clearly not in it anymore. You have a feeling that the slime in your ear is involved in some way.
-	<br><br>
-	<<set _coveredIn to "">>
-	<<if random(0,100) gt 80>>
-		<<set _coveredIn to "slime">>
-		<<if $penisexist is 1 and $player.virginity.penile isnot true and !$worn.genitals.type.includes("chastity")>>
-			<<set $penisgoo += random(1,3)>>
-		<</if>>
-		<<if $vaginaexist is 1 and $player.virginity.vaginal isnot true and !$worn.genitals.type.includes("chastity")>>
-			<<set $vaginagoo += random(1,3)>>
-		<</if>>
-		<<if $player.virginity.anal isnot true and $worn.genitals.anal_shield isnot 1 and $analdisable is "f">>
-			<<set $anusgoo += random(1,3)>>
-		<</if>>
-		<<if $player.virginity.oral isnot true>>
-			<<set $mouthgoo += random(1,3)>>
-		<</if>>
-		<<set $hairgoo += random(1,3)>>
-		<<set $facegoo += random(1,3)>>
-		<<set $neckgoo += random(1,3)>>
-		<<set $chestgoo += random(1,3)>>
-		<<set $leftarmgoo += random(1,3)>>
-		<<set $rightarmgoo += random(1,3)>>
-		<<set $thighgoo += random(1,3)>>
-		<<set $feetgoo += random(1,3)>>
-	<</if>>
-	<<if random(0,100) gt 80>>
-		<<if _coveredIn is "slime">>
-			<<set _coveredIn += " and semen">>
-		<<else>>
-			<<set _coveredIn to "semen">>
-		<</if>>
-		<<if $penisexist is 1 and $player.virginity.penile isnot true and !$worn.genitals.type.includes("chastity")>>
-			<<set $penissemen += random(1,3)>>
-		<</if>>
-		<<if $vaginaexist is 1 and $player.virginity.vaginal isnot true and !$worn.genitals.type.includes("chastity")>>
-			<<set $vaginasemen += random(1,3)>>
-		<</if>>
-		<<if $player.virginity.anal isnot true and $worn.genitals.anal_shield isnot 1 and $analdisable is "f">>
-			<<set $anussemen += random(1,3)>>
-		<</if>>
-		<<if $player.virginity.oral isnot true>>
-			<<set $mouthsemen += random(1,3)>>
-		<</if>>
-		<<set $hairsemen += random(1,3)>>
-		<<set $facesemen += random(1,3)>>
-		<<set $necksemen += random(1,3)>>
-		<<set $chestsemen += random(1,3)>>
-		<<set $leftarmsemen += random(1,3)>>
-		<<set $rightarmsemen += random(1,3)>>
-		<<set $thighsemen += random(1,3)>>
-		<<set $feetsemen += random(1,3)>>
-	<</if>>
-	<<if _coveredIn isnot "">>
-		<<set $slimeSleepEvent += 2>>
-		On top of this predicament, you find yourself covered in <<print _coveredIn>>. If this was the slime's doing, it clearly had its fun with your body while you slept.
-		<br><br>
-	<</if>>
-	Having a look round your surroundings, you think that you've somehow been relocated to the <<print _newLocation.toLocaleLowerCase()>>.
-	<br><br>
-	<<link [[Next|_newLocation]]>><</link>>
-<<else>>
-	<<if $nightmares is 1 and $controlled is 0>>
-		<<if $schoolwake is 1>>
-			<<set $schoolwake to 0>>
-			<<if $motherwake is 1>>
-				You try to go back to sleep, but Bailey knocks again, reminding you to get up.
-			<<else>>
-				You dream you are being hunted by something dark and terrible. The nightmares are interrupted by a hammering on your door. It's Bailey, waking you for school.
-			<</if>>
-			<br><br>
-			<<set $motherwake to 1>>
-		<<else>>
-			You dream you are being hunted by something dark and terrible. You quickly forget the specifics, but the sense of dread lingers.
-			<br><br>
-		<</if>>
-	<<else>>
-		<<if $schoolwake is 1>>
-			<<set $schoolwake to 0>>
-			<<if $motherwake is 1>>
-				You try to go back to sleep, but Bailey knocks again, reminding you to get up.
-			<<else>>
-				You sleep soundly, but are awoken early by a hammering on your door. It's Bailey, waking you for school.
-			<</if>>
-			<br><br>
-			<<set $motherwake to 1>>
-		<<else>>
-			<<if $specialClothesEffects.bimboTotal gte random(100,1000) or $arousal gte 9000>>
-				Your sleep is plagued by dirty dreams.
-				<<arousal `$specialClothesEffects.bimboTotal / 10 * $sleepHoursTotal`>>
-				<<arousal `100 * $sleepHoursTotal`>>
-				<<if $arousal gte $arousalmax>>
-					They push you over the edge.
-					<<orgasmpassage>><<set _orgasm to true>>
-				<<else>>
-					<br><br>
-				<</if>>
-			<<else>>
-				You sleep soundly, and wake up refreshed.
-				<br><br>
-			<</if>>
-		<</if>>
-	<</if>>
-	<<if $robinbed is 1>>
-		<<set $robinbed to 0>>
-		<<npc Robin>><<person1>>
-		<<if _orgasm is true>>
-			<<if $exposed gte 2>>
-				Robin cuddles you. "I'll leave you to get-" <<he>> pauses, noticing the moisture on their body and yours. Blushing, <<he>> gathers tissues for both of you.
-				<<if $rng gte 71>>
-					"I-It's okay," <<he>> says.
-				<<elseif $rng gte 31>>
-					"This might be my fault," <<he>> says.
-				<<else>>
-					"I-I might need a bath," <<he>> says.
-				<</if>>
-			<<else>>
-				Robin cuddles you. "I'll leave you to get-" <<he>> pauses, noticing the moist patch around your crotch. Blushing, <<he>> passes you a tissue.
-				"I-It's okay," <<he>> says.
-			<</if>>
-		<<else>>
-			Robin cuddles you. "I'll leave you to get dressed," <<he>> says.
-		<</if>>
-		<<endevent>>
-		<br><br>
-	<</if>>
-	<<radiooutfits>>
-	<br><br>
-	<<if $renttime lte 0>><<set $bus to "home">>
-		<<link [[Get out of bed|Bedroom Bailey]]>><</link>>
-		<br><br>
-	<<else>>
-		<<link [[Get out of bed|Bedroom]]>><</link>>
-		<br><br>
-	<</if>>
-<</if>>
-<<set $phase to 0>>
--->

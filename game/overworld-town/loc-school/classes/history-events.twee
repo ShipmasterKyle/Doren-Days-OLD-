@@ -217,9 +217,24 @@ You <<nervously>> walk out from behind the screen. The class falls silent as the
 		<br>
 		<<link [[Leave it|History Events Leave]]>><<stress 2>><<detention 2>><</link>><<gdelinquency>><<gstress>>
 		<br>
+		<<if $cool gte 350>>
+		<<link [[Use your popularity|Histry Events Convince]]>><<tramua -2>><<stress -2>><<ltrauma>><<lstress>><</link>>
+		<</if>>
 	<</if>>
 
 <</if>>
+
+:: Histry Events Convince [nobr]
+You give the <<person>> a pissed look. As if that wasn't enough your posse start looking in your direction with you visibly pissed at <<him>>.
+<<His>> smirk vanishes and <<he>> rushes to pick up the books before Winter comes back.
+<<if $submissive gte 1150>>
+You watch <<him>> for a few moments before deciding to help him.
+"Don't ever do that again ok?"
+<<He>> quickly nods.
+<</if>>
+<br><br>
+<<link [[Next|History Lesson]]>><<endevent>><</link>>
+<br>
 
 :: History Events Pick [nobr]
 

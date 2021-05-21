@@ -131,7 +131,7 @@ You successfully pick the locks.
 	<<link [[Leave|School Lockers]]>><</link>>
 	<br>
 	<</if>>
-
+<</if>>
 <</if>>
 
 :: School Lockers Apology [nobr]
@@ -151,9 +151,9 @@ The <<person>> is not impressed, but doesn't seem as angry. "Just piss off," <<h
 
 "Oh hey! Just using your locker for a sec hope you don't mind." You say turning to the <<person>>.
 <br>
-Two of your 'friends' come to your side. The <<person>> looks annoyed but says nothing. <<He>> walks off and says nothing else.
+Two of your 'friends' come to your side. The <<person>> looks annoyed but says nothing. <<He>> walks off.
 
-<<span class="green">> It feels good to be popular. <</span>><<gwillpower>><<willpower 10>>
+<span class="green"> It feels good to be popular. </span><<gwillpower>><<willpower 10>>
 <br><br>
 
 <<link [[Next|School Lockers]]>><<endevent>><</link>>

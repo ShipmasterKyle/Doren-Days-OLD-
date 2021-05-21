@@ -18,6 +18,7 @@
 		<br>
 	<<elseif $pub_hack_job is 3 and $hacker_tasks.length gte 2>>
 		<<link [[Pass on the hacker's message|Pub Hack]]>><<set $pub_hack_job to 4>><</link>>
+		'
 		<br>
 	<<elseif $police_hack is 4>>
 		<<link [[Ask for updated police password (£300)|Pub Hack]]>><<set $money -= 30000>><</link>>
@@ -70,6 +71,10 @@
 	<br>
 	<<link [[Go with them|Pub Accost]]>><<set $phase to 1>><</link>>
 	<br>
+<<elseif $hour is 22 and $weekday is 6>>
+Doren sits at a table drinking some beer. He doesm't seem to be paying much attention to anything.
+<<link [[Talk to them|Doren Pub]]>><<pass 1>><</link>>
+<br>
 <<else>>
 	<<link [[Ask for Landry|Pub Landry]]>><<endevent>><</link>>
 	<br>

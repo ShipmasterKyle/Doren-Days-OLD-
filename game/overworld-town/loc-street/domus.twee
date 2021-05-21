@@ -89,13 +89,15 @@ You are on Domus Street. The orphanage is here. The street is dominated by small
 			<<homeicon>><<link [[Go to the Orphanage (0:01)->Orphanage]]>><<pass 1>><</link>>
 			<br>
 			<<if $home is "apartment">>
-			<<homeicon>><<link [[Go to your Apartment (0:02)|Flat Enterance]]>><<pass 1>><</link>>
+			<<dorenflaticon>><<link [[Go to your Apartment (0:02)|Flat Enterance]]>><<pass 1>><</link>>
 			<br>
 			<<elseif $days gte 1>> <!-- Should be 14 but I changed it to 1 to test it.-->
-			The subdivsion across the street is having a Grand Reopening. Its fancy but not too expensive.
+			The subdivsion across the street is having its Grand Reopening. Its fancy but not too expensive.
 			<br>
 			<<ind>><<link [[Check out the building (0:02)|Landlord Intro]]>><<pass 2>><</link>>
 			<br>
+			<<else>>
+			A building is underconstruction. It looks like it might be some sort of subdivision.
 			<</if>>
 			<<if $daystate is "night">>
 				<<ind>><<link [[Approach one of the houses (0:02)|Domus House Lock]]>><<pass 2>><</link>>

@@ -32,18 +32,18 @@ Doren pulls away from you and smiles. "I need to get back to school or I'll be i
 <<set $outside to 0>><<set $location to "town">><<effects>>
 You talk with Doren over a variety of topics. <<He>> soon takes over the conversation, regaling you with personal stories. <<He>> seems to live an adventurous life.
 <br><br>
-<<He>> smiles at you. "I need to get back to school or I'll be in trouble." You look at the clock on the wall and realise a whole hour has passed. "I'm not home often, but if you visit between four and five in the afternoon I should be here. Visit as often as you like. Every day if you want. I mean it."
+<<He>> smiles at you. "I need to get back to school or I'll be in trouble." You look at the clock on the wall and realise a whole hour has passed. "I'm not home often, but if you visit around four in the afternoon I should be here. Visit as often as you like. Every day if you want. I mean it."
 <br><br>
 <<He>> drives you back to school. You feel guilty for having spent so much of <<his>> time, but <<he>> doesn't seem to mind.
 <br><br>
 <<endevent>>
-<<link [[Return to school (0:05)|School Front Playground]]>><<pass 5>><</link>>
+<<link [[Return to school (0:30)|School Front Playground]]>><<pass 30>><</link>>
 <br>
 
 :: Doren Entrance [nobr]
 
 <<set $outside to 0>><<set $location to "town">><<effects>>
-<<if $hour is 16>>
+<<if $hour gte 16 or $hour lte 5>>
 	You climb to Doren's flat and knock on the door. <<npc Doren>><<person1>><<He>> answers it, smiling. "Glad to see you! Come on in." You enter the flat and sit on the sofa. "What would you like to do?" <<he>> says.
 	<br><br>
 	<<link [[Cry (1:00)|Doren Cry]]>><<trauma -6>><<stress -12>><<npcincr Doren love 1>><<npcincr Doren dom 1>><<pass 1 hour>><</link>><<gcontrol>><<ltrauma>><<lstress>>
@@ -130,6 +130,8 @@ You continue to jog through town, and end up back at Barb Street. You stop outsi
 <br>
 <<link [[Say goodbye|Doren Shower Refuse]]>><</link>>
 <br>
+<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
+<<link [[Invite Doren to take a shower with you (0:20)|Doren Shower Sex]]>><<pass 1>><</link>>
 
 :: Doren Shower [nobr]
 
@@ -140,6 +142,7 @@ You enter the bathroom and strip. You notice there's only one towel on the rack.
 <br><br>
 <<strip>>
 <<link [[That's not a problem|Doren Shower 1]]>><</link>>
+'
 <br>
 <<link [[Dress and ask for a fresh one|Doren Shower 2]]>><</link>>
 <br>
@@ -217,7 +220,7 @@ Doren smiles at you on the way out. "Come back tomorrow if you like."
 <<link [[Next|Barb Street]]>><<clothesontowel>><</link>>
 <br>
 
-:: Doren Movies 1
+:: Doren Movies 1 [nobr]
 You and Doren leave the school.
 <<if $detention gte 1>>
 A guard stands at the gate <<span class="green">>but pays no mind to you as you leave.<</span>>
@@ -257,11 +260,80 @@ You leave the theatre and Doren takes your hand. <<takeHandholdingVirginity "Dor
 <<He>> waves you goodbye before driving off.
 <<link[Next|Domus Street]>><</link>>
 
-:: Doren Closet
+:: Doren Shower Sex [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral 1>>
+
+<<maninit>>
+<<set $enemytrust += 500>><<npcexpose>><<set $speechdisable to 1>>
+<<set $enemyarousalmax to 800>>
+
+<</if>>
+
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $finish is 1>>
+	<span id="next"><<link [[Next|Doren Shower Sex Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[Next|Doren Shower Sex Finish]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[Next|Doren Shower Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Doren Shower Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Doren Shower Sex Finish [nobr]
+<<set $outside to 0>><<set $location to "town">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+Doren smiles. "I hope you enjoyed that." <<He>> says.
+<br><br>
+
+<<elseif $enemyhealth lte 0>>
+
+"Ow!" Doren says. <<Hes>> still smiling.
+<br><br>
+
+<<elseif $finish is 1>>
+
+Doren smiles. "I hope you enjoyed that." <<He>> says.
+<br><br>
+
+<</if>>
+<<link [[Next|]]>>
+<<He>> gazes into your eyes. "I love you." <<He>> kisses you.
+<span class = "blue">
+Silver Note:
+(Yeah I'm sorry I just reused some lines from Robin's code and changed it up a bit.)
+<</span>>
+
+:: Doren Closet [nobr]
 <!-- Closet Sex Scene-->
 
-:: Doren Shopping
+:: Doren Shopping [nobr]
 <!-- Shopping Date with Doren. Suggested by 𝓝𝓮𝓹𝓱ʚɞ-->
+"I'm not sure. What do you want to do?" You ask. Doren opens the fridge. <<He>> frowns before turning to you. 
+"Well I need to get some groceries. My fridge is almost empty."
+<<if $submissive gte 1150>>
+	"Ok. Lets go." You say
+<<elseif $submissive lte 850>>
+	"Alright, lets go." You reply.
+<<else>>
+	"Ok! Lets go" You ask.
+<</if>>
+Its not far. <<He>> says holding out <<his>> hand.
+<<link [[Take their arm|Doren Date 2]]>><<npcincr Doren love 1>><<set $dorendatetime to 30>><</link>>
 
 :: Doren Park [nobr]
 <!-- Park date with Doren. Suggested by LaffyTaffy-->
@@ -272,7 +344,7 @@ You leave the theatre and Doren takes your hand. <<takeHandholdingVirginity "Dor
 <<else>>
 	"How about we go to the park?" You ask.
 <</if>>
-"Yea sure. Shall we go?" He says holding out his hand.
+"Yea sure. Shall we go?" <<He>> says holding out <<his>> hand.
 <<link [[Take their arm|Doren Date 1]]>><<npcincr Doren love 1>><<set $dorendatetime to 20>><</link>>
 
 
@@ -314,7 +386,7 @@ Doren buys you some candy.
 <<else>>
 <<link [[Next|Doren Date 1 End]]>><</link>>
 
-:: Doren Walk 1
+:: Doren Walk 1 [nobr]
 You and Doren walk around the park. What should you do next?
 <<if $season is "spring">>
 <<link [[Look at the flowers(0:01)|Doren Flowers]]>><<pass 1>><<set $dorendatetime -= 1>></link>>
@@ -325,24 +397,307 @@ You and Doren walk around the park. What should you do next?
 <<link [[Continue walking (0:02)|Doren Walk 1]]>><<pass 2>><<set $dorendatetime -= 2>><</link>>
 <br><br>
 
-:: Doren Date 1 End
+:: Doren Date 1 End [nobr]
 <<npc Doren>><<person1>>
 Doren looks at <<his>> watch. "It looks like I need to go. I won't finish grading these papers if I don't." <<He>> says. <<He drives you back home.>>
 <<link [[Next|Domus Street]]>><</link>>
 
+:: Doren Date 2 [nobr]
+You're at the grocery store. What should you do?
+<<link [[Help Doren with the Shopping (0:05)|Doren Date 2 Shopping]]>><<pass 5>><<set $dorendatetime -= 5>><</link>>
+<br>
+<<link [[Mess around (0:03)|Doren Date 2 Joke]]>><<pass 3>><<set $dorendatetime -= 3>><</link>>
+<br>
+<<link [[Talk (0:02)|Doren Date 2 Talk]]>><<pass 2>><<set $dorendatetime -= 2>><</link>>
+<br>
 
-:: Doren Soup
+:: Doren Date 2 Shopping [nobr]
+<<if $submissive gte 1150>>
+	"Can I help?" You ask.
+<<elseif $submissive lte 850>>
+	"Let me help." You say.
+<<else>>
+	"Can I help?" You ask.
+<</if>>
+"Sure." <<He>> gives you a peice of paper.
+"Try and find these." <<He>> says tapping the paper with a pen.
+<<link [[Start|Item Hide and Seek]]>><<pass 1>><</link>>
+
+:: Doren Date 2 Joke [nobr]
+You tell Doren a joke. <<He>> laughs.
+<br>
+<<if $dorendatetime lt 1>>
+<<link [[Next|Doren Date 2 End]]>><</link>>
+<<else>>
+<<link [[Next|Doren Date 2]]>><</link>>
+<</if>>
+
+:: Doren Date 2 Talk [nobr]
+<<set $rng to random(1,4)>>
+<<if $rng is 1>>
+You talk to Doren about a book you read.
+<<if $rng is 2>>
+You talk to Doren about your favorite food.
+<<if $rng is 3>>
+You talk to Doren about your favorte song.
+<<else>>
+You talk to Doren.
+<</if>>
+<<if $dorendatetime lt 1>>
+<<link [[Next|Doren Date 2 End]]>><</link>>
+<<else>>
+<<link [[Next|Doren Date 2]]>><</link>>
+<</if>>
+
+:: Item Hide and Seek [nobr]
+<<set $list to random(1,4)>>
+<<if $list is 1>>
+Shopping List
+Eggs
+Milk 
+Bread
+<<elseif $list is 2>>
+Shopping List
+Cheese
+Milk 
+Ham
+<<elseif $list is 3>>
+Shopping List
+Crackers
+Sausages
+Bread
+<<elseif $list is 4>>
+Shopping List
+Cheese
+Sausages
+Bread
+<</if>>
+<<set $eggsfound to 0>>
+<<set $milkfound to 0>>
+<<set $breadfound to 0>>
+<<set $cheesefound to 0>>
+<<set $hamfound to 0>>
+<<set $crackersfound to 0>>
+<<set $sausefound to 0>>
+<<set $itemsfound to 0>>
+<br>
+<<link[[Search the Deli (0:01)|Deli]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Bakery (0:01)|Bakery]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dairy Section (0:01)|Dairy]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Freezers (0:01)|Freezer]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+
+:: Deli [nobr]
+You walk over to the Deli counter.
+<<generate1>><<person1>> A <<person>> at the counter greets you.
+<br>
+<<if $list is 2 or $list is 4>>
+<<link [[Order some Cheese|Cheese Get]]>><</link>>
+<br>
+<</if>>
+<<link[[Search the Bakery (0:01)|Bakery]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dairy Section (0:01)|Dairy]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Freezers (0:01)|Freezer]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+
+:: Bakery [nobr]
+You walk over to the Bakery.
+<<generate1>><<person1>> A <<person>> at the counter greets you.
+<br>
+<<if $list is 1 or $list is 3 or $list is 4>>
+<<link [[Order some Bread|Bread Get]]>><</link>>
+<br>
+</if>
+<<link[[Search the Deli (0:01)|Deli]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dairy Section (0:01)|Dairy]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Freezers (0:01)|Freezer]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+
+:: Dairy [nobr]
+You walk over to the Dairy Section.
+<br>
+<<if $list is 1 or $list is 2>>
+<<link[[Get Milk|Milk Get]]>><</link>>
+<br>
+<</if>>
+<<if $list is 2 or $list is 4>>
+<<link[[Get Cheese|Cheese Get]]>><</link>>
+<br>
+<</if>>
+<<link[[Search the Deli (0:01)|Deli]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Bakery (0:01)|Bakery]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Freezers (0:01)|Freezer]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+
+:: Aisle [nobr]
+You walk over to one of the aisles
+<br>
+<<if $list is 3>>
+<<link[[Get some Crackers|Crackers Get]]>><</link>>
+<br>
+<</if>>
+<<link[[Search the Deli (0:01)|Deli]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Bakery (0:01)|Bakery]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dairy Section (0:01)|Dairy]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Freezers (0:01)|Freezer]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+
+:: Freezer [nobr]
+You walk to the freezers.
+<br>
+<if list is 3 or $list is 4>
+<<link [[Get Sausages|Sause Get]]>><</link>>
+<br>
+<</if>>
+<<link[[Search the Deli (0:01)|Deli]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Bakery (0:01)|Bakery]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dairy Section (0:01)|Dairy]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+
+:: Cheese Get [nobr]
+You order some Cheese.
+<<set $cheesefound to 1>>
+<<set $itemsfound += 1>>
+<<link [[Next|Item Hide And Seek Menu]]>><</link>>
+
+:: Bread Get [nobr]
+You order some Bread.
+<<set $breadfound to 1>>
+<<set $itemsfound += 1>>
+<<link [[Next|Item Hide And Seek Menu]]>><</link>>
+
+:: Milk Get [nobr]
+You order some Bread.
+<<set $milkfound to 1>>
+<<set $itemsfound += 1>>
+<<link [[Next|Item Hide And Seek Menu]]>><</link>>
+
+:: Crackers Get [nobr]
+You pick up a box of crackers.
+<<set $crackersfound to 1>>
+<<set $itemsfound += 1>>
+<<link [[Next|Item Hide And Seek Menu]]>><</link>>
+
+:: Sause Get [nobr]
+You order some Bread.
+<<set $sausefound to 1>>
+<<set $itemsfound += 1>>
+<<link [[Next|Item Hide And Seek Menu]]>><</link>>
+
+:: Item Hide And Seek Menu [nobr]
+<<if $list is 1>>
+Shopping List
+<<if $eggsfound is 0>>
+Eggs
+<</if>>
+<<if $milkfound is 0>>
+Milk 
+<</if>>
+<<if $breadfound is 0>>
+Bread
+<</if>>
+<<elseif $list is 2>>
+Shopping List
+<<if $cheesefound is 0>>
+Cheese
+<<if>>
+<<if $milkfound is 0>>
+Milk 
+<</if>> 
+<<if $hamfound is 0>>
+Ham
+<</if>>
+<<elseif $list is 3>>
+Shopping List
+<<if $crackersfound is 0>>
+Crackers
+<</if>>
+<<if $sausefound is 0>>
+Sausages
+<</if>>
+<<if $breadfound is 0>>
+Bread
+<</if>>
+<<elseif $list is 4>>
+Shopping List
+<<if $cheesefound is 0>>
+Cheese
+<<if>>
+<<if $sausefound is 0>>
+Sausages
+<</if>>
+<<if $breadfound is 0>>
+Bread
+<</if>>
+<</if>>
+<<if not $itemsfound gte 3>>
+<<link[[Search the Deli (0:01)|Deli]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Bakery (0:01)|Bakery]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dairy Section (0:01)|Dairy]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Dry Food Section (0:01)|Aisle]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<link[[Search the Freezers (0:01)|Freezer]]>><<pass 1>><<set $dorendatetime -= 1>><</link>>
+<br>
+<<else>>
+<br>
+<<link [[Bring it to Doren|Item Hide and Seek Done]]>><</link>>
+<</if>>
+
+:: Item Hide and Seek Done [nobr]
+<<npc Doren>><<person1>>
+You bring Doren the items. <<He>> seems pleased. "Thank you <<lass>>."
+<<if $dorendatetime lt 1>>
+<<link [[Next|Doren Date 2 End]]>><</link>>
+<<else>>
+<<link [[Next|Doren Date 2]]>><</link>>
+<</if>>
+
+:: Doren Date 2 End [nobr]
+"Looks like thats everything." <<He>> says looking at the shopping list.
+<<He>> pays for the groceries.
+<<link [[Next|Domus Street]]>><<pass 10>><</link>>
+
+:: Doren Soup [nobr]
 <!-- Soup Kitchen Event with Doren. Suggested by Mild Macosist-->
+Coming Soon
+<<link [[Back|Doren Date Options]]>><</link>>
 
 
-:: Doren Date Options
+:: Doren Date Options [nobr]
 <!-- Functions simular to Robin's date menu. Difference is its more progressive. I also plan to make the other npcs' dates like this. -->
 <<npc Doren>><<person1>>
 You both walk to Doren's apartment. <<He>> sets <<his>> briefcase down on a nearby table.
 "So what do you want to do love?" <<He>> asks.
 <<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
-<br><br>
+<br>
 <<foresticon>><<link [[Go to the park|Doren Park]]>><</link>>
 <br>
 <<ind>><<link [[Go to the Soup Kitchen|Doren Soup]]>><</link>>
+<</if>>
+<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 10>>
+<br>
+<ind><<link [[Go Shopping|Doren Shopping]]>>
 <</if>>

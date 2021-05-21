@@ -33,6 +33,12 @@
 				"Great Hawk" : {
 					important : true,
 				},
+				"Doren" : {
+					important : true,
+					love : { maxValue : 100 },
+					lust : { maxValue : 100 },
+					trust : { maxValue : 100 }
+				},
 				"Mason" : {
 					love : { maxValue : 50 }
 				},
@@ -41,6 +47,7 @@
 					lust : { maxValue : 50 },
 					dom : { maxValue : 50 }
 				},
+				
 				"Darryl" : {
 					love : { maxValue : 50 }
 				},
@@ -53,7 +60,7 @@
 			};
 
 			/*This list is backwards due to the method used to sort via index, with unimportant NPCs being assigned -1*/
-			State.temporary.importantNpcOrder = [ "Great Hawk", "Avery", "Kylar", "Eden", "Whitney", "Robin"];
+			State.temporary.importantNpcOrder = [ "Great Hawk", "Avery", "Kylar", "Eden", "Whitney", "Robin", "Doren"];
 
 			/*Clones the NPC list, and orderes it by important first, then by alphabetical order*/
 			State.temporary.orderedNPCs = State.variables.NPCName.slice().sort(function(a, b) {

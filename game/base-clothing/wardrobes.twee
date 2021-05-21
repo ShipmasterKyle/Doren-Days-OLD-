@@ -1008,6 +1008,16 @@ Comfortable warmth range: <<print ($chill + 1)>> - <<print Math.trunc(($chill * 
 You look in your wardrobe.
 <br><br>
 <<wardrobewear>>
+<<link [[Close wardrobe|My Bedroom]]>><<unset $saveColor>><<unset $wardrobeRepeat>><<unset $tempDisable>><<set $delete_outfit to "none">><</link>>
+<br><br>
+<<wardrobe>>
+
+:: Mii Wardrobe [nobr]
+<<effects>>
+<<set $wardrobe_location to "wardrobe">>
+You look in your wardrobe.
+<br><br>
+<<wardrobewear>>
 <<link [[Close wardrobe|Bedroom]]>><<unset $saveColor>><<unset $wardrobeRepeat>><<unset $tempDisable>><<set $delete_outfit to "none">><</link>>
 <br><br>
 <<wardrobe>>

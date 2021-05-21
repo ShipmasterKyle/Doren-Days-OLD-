@@ -44,7 +44,7 @@ You are in the strip club on Connudatus Street. <<if $daystate isnot "day" and $
 		"I'm going to have to ask you for an ID." You tell <<him>> you don't have an ID. "Then get one. Until then, no entry." You are steered firmly toward the door.
 		<br><br>
 		<<endevent>><<if $stripclubfailed isnot 0>><<set $stripclubfailed to 1>><</if>>
-	<<else>>
+	<<elseif $id is 1>>
 		"I'm going to have to ask you for an ID." You hand <<him>> your fake ID. <<He>> examines it for a moment, then hands it back to you. "Welcome. Please enjoy yourself, but remember to keep your hands to yourself on the main floor. No second chances." <<He>> looks you up and down. "We're also hiring. Positions are open for bartenders and dancers."
 		<<set $stripclubintro to 1>>
 		<br><br>
@@ -91,6 +91,7 @@ You are in the strip club on Connudatus Street. <<if $daystate isnot "day" and $
 <br><br>
 <</if>>
 <br>
+
 
 <<if $stripclubfailed is 1>>
 [[Leave|Strip Club Proposition]]

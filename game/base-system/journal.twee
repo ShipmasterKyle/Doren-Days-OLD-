@@ -21,7 +21,7 @@
 <</if>>
 
 <<if $home is "apartment">>
-	Your rent is due <span class="blue"> the last saturday of every month. </span> Thats in <<print $homerenttime>> days.
+	Your rent is due <span class="gold"> on <<print $month>> <<print $miirentday>> </span> <<if $money lte 50000>> You have <<print $miirentday - $homerenttime>> left. <</if>>
 <</if>>
 
 <<if $edenasylumjournal is 1 and $hour lt 21>>

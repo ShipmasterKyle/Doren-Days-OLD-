@@ -1681,6 +1681,33 @@ Avery rage: <span id="statsaveryrage"><<print Math.trunc($NPCName[0].rage)>></sp
  | <<link ">>>">><<npcincr Avery rage 100>><<clamp>><<replace "#statsaveryrage">><<print Math.trunc($NPCName[0].rage)>><</replace>><</link>> (100 = full)
 <br><br>
 
+<<link "<<<">><<npcincr Doren love -100>><<clamp>><<replace "#statsDorenlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>><</replace>><</link>> |
+<<link "<<">><<npcincr Doren love -10>><<clamp>><<replace "#statsDorenlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>><</replace>><</link>> |
+<<link "<">><<npcincr Doren love -1>><<clamp>><<replace "#statsDorenlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>><</replace>><</link>> |
+Doren love: <span id="statsDorenlove"><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>></span>
+ | <<link ">">><<npcincr Doren love 1>><<clamp>><<replace "#statsDorenlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>><</replace>><</link>>
+ | <<link ">>">><<npcincr Doren love 10>><<clamp>><<replace "#statsDorenlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>><</replace>><</link>>
+ | <<link ">>>">><<npcincr Doren love 100>><<clamp>><<replace "#statsDorenlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].love)>><</replace>><</link>> (100 = full)
+<br>
+
+<<link "<<<">><<npcincr Doren lust -100>><<clamp>><<replace "#statsDorenlust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>><</replace>><</link>> |
+<<link "<<">><<npcincr Doren lust -10>><<clamp>><<replace "#statsDorenlust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>><</replace>><</link>> |
+<<link "<">><<npcincr Doren lust -1>><<clamp>><<replace "#statsDorenlust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>><</replace>><</link>> |
+Doren lust: <span id="statsDorenlust"><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>></span>
+ | <<link ">">><<npcincr Doren lust 1>><<clamp>><<replace "#statsDorenlust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>><</replace>><</link>>
+ | <<link ">>">><<npcincr Doren lust 10>><<clamp>><<replace "#statsDorenlust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>><</replace>><</link>>
+ | <<link ">>>">><<npcincr Doren lust 100>><<clamp>><<replace "#statsDorenlust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].lust)>><</replace>><</link>> (100 = full)
+<br>
+
+<<link "<<<">><<npcincr Doren trust -100>><<clamp>><<replace "#statsDorentrust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>><</replace>><</link>> |
+<<link "<<">><<npcincr Doren trust -10>><<clamp>><<replace "#statsDorentrust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>><</replace>><</link>> |
+<<link "<">><<npcincr Doren trust -1>><<clamp>><<replace "#statsDorentrust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>><</replace>><</link>> |
+Doren trust: <span id="statsDorentrust"><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>></span>
+ | <<link ">">><<npcincr Doren trust 1>><<clamp>><<replace "#statsDorentrust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>><</replace>><</link>>
+ | <<link ">>">><<npcincr Doren trust 10>><<clamp>><<replace "#statsDorentrust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>><</replace>><</link>>
+ | <<link ">>>">><<npcincr Doren trust 100>><<clamp>><<replace "#statsDorentrust">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Doren")].trust)>><</replace>><</link>> (100 = full)
+<br><br>
+
 <<link "<<<">><<npcincr Mason love -100>><<clamp>><<replace "#statsmasonlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Mason")].love)>><</replace>><</link>> |
 <<link "<<">><<npcincr Mason love -10>><<clamp>><<replace "#statsmasonlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Mason")].love)>><</replace>><</link>> |
 <<link "<">><<npcincr Mason love -1>><<clamp>><<replace "#statsmasonlove">><<print Math.trunc($NPCName[$NPCNameList.indexOf("Mason")].love)>><</replace>><</link>> |

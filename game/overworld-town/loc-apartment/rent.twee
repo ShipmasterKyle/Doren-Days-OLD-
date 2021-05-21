@@ -1,11 +1,72 @@
 <!--Rent Stuff-->
-:: Mii Rent Pay
+:: Landlord Intro [nobr]
+<!-- Intro Event for Larry(Ace Attorney Reference but no one will notice lol)-->
+
+<<npc Larry>><<person1>> 
+You open the door and walk into a large room with several people walking in and out. The building looks complete from the outside but the inside still has some wooden frames. 
+<<if $pronoun is "m">>
+A man walks up to you. He wears an orange suit with a light blue tie which matches his brown hair. "Hello and welcome to my building! I'm Larry. How can I help you today?"
+<<else>>
+A woman walks up to you. She wears an yellow sundress with a light blue bow which somehow offsets her brown hair. "Hello and welcome to my building. I'm Lara. How can I help you today?"
+<</if>>
+<br>
+<<link[[Inquire about apartments (0:02)|Apartment Info]]>><<pass 2>><</link>>
+
+:: Apartment Info [nobr]
+<!-- Basically advertises Apartments to the player.-->
+"Well," <<he>> starts, "Its rather expensive. Its $500 a month and you have to pay first three months rent upfront. The apartments are extremely nice however. We offer many services
+such as a free membership to the Spa on Danube Street and the Gym on Cliff Street(coming soon). We also have a pool and we provide furniture. You bring your rent money to me <span class="blue"> at the end of the month. </span>
+Rent is a solid price of $500 and never changes. I think I've explained everything. Want to rent a place?"
+<br>
+<<if $money gte 150000>> <!-- Thats $1500-->
+<<link [[Get an Apartment|Apartment Buy]]>><<set $money -= 150000>><</link>>
+<br>
+<</if>>
+<<link[[Nevermind|Domus Street]]>><</link>>
+
+:: Apartment Buy [nobr]
+<<npc Larry>><<person1>> 
+<<set $home to "apartment">>
+<<if $pronoun is "m">>
+Larry carefully examines the money. "Thank you. Allow me to show you your room."
+<<else>>
+Lara carefully examines the money. "Thank you. Allow me to show you your room."
+<</if>>
+<br>
+<<if $robinromance is 1>>
+<<set $rentmoney to 2000>>
+<<else>>
+<<set $rentmoney to 0>>
+<</if>>
+<<set $homeinit to 1>>
+<<set $homerenttime to 30>>
+<<link [[Next|Living Room]]>><<pass 2>><</link>>
+
+:: Landlord Office [nobr]
+<!-- Main event for Larry. With high Submissiveness and allure you can skip out on rent payments.-->
+<<npc Larry>><<person1>> 
+<<if $pronoun is "m">>
+"Hello again. How can I help you?" Larry says.
+<<else>>
+"Hello again. How can I help you?" Lara says.
+<</if>>
+<br>
+<<if $homerenttime is 0>>
+<<link [[Pay Rent|Mii Rent Pay]]>><<pass 1>><</link>>
+<br>
+<<if $exhibitionism gte 75>>
+<<link [[Seduce|Mii Rent Showoff]]>><<exhibitionist5>><</link>>
+<</if>>
+<</if>>
+<<link [[Leave|Flat Enterance]]>><</link>>
+
+:: Mii Rent Pay [nobr]
 <<npc Larry>><<person1>>
 <<He>> nods approvingly counting the money. "Thanks." <<He>> waves you goodbye as you leave.
 <<link [[Next|Flat Enterance]]>><<pass 2>><</link>>
 
 
-:: Mii Rent Showoff
+:: Mii Rent Showoff [nobr]
 <<npc Larry>><<person1>>
 "II have something to show you." You say edging closer to <<if $pronoun is "m">> Larry <<else>> Lara <</if>>. <<He>> sits down allowing you to work your magic.
 You bend over and pull down your <<allBottoms>>. <<if $pronoun is "m">> Larry <<else>> Lara <</if>> gets an eyeful of your
@@ -23,7 +84,7 @@ You bend over and pull down your <<allBottoms>>. <<if $pronoun is "m">> Larry <<
 	<<exhibitionism2>>
 <</if>>
 <br><br>
-<<He>> smiles not realizing wht your trying to do.
+<<He>> smiles not realizing what your trying to do.
 "<<print either(
     "Want some?"
     "Ready?"
@@ -65,9 +126,30 @@ Placeholder event for when I write something better.
 	<<ejaculation>>
      <<if $pronoun is "m">> Larry <<else>> Lara <</if>> smiles. "I suppose your rent is payed." You nod.
 <<elseif $enemyhealth lte 0>>
-    "You're preety rough" <<if $pronoun is "m">> Larry <<else>> Lara <</if>> laughs.
+    "You're pretty rough" <<if $pronoun is "m">> Larry <<else>> Lara <</if>> laughs.
 <<else>>
     <<if $pronoun is "m">> Larry <<else>> Lara <</if>> smiles. "I suppose your rent is payed." You nod.
     <</if>>
 <</if>>
 <<link [[Next|Flat Enterance]]>><</link>>
+
+
+:: Flat Enterance [nobr]
+<!-- Serves as the main hall. When or if I add other unnamed npcs here Their rooms will be here.-->
+You stand in the main room of the building. There are randomly placed expensive items.
+<br>
+<<link [[Go to your apartment (0:02)|Living Room]]>><<pass 2>><</link>>
+<br><br>
+<<npc Larry>><<person1>> 
+<<if $pronoun is "m">>
+Larry's office is here.
+<br>
+<<link [[Go to his office|Landlord Office]]>><</link>>
+<br>
+<<else>>
+Lara's office is here.
+<br>
+<<link [[Go to her office|Landlord Office]]>><</link>>
+<br>
+<</if>>
+<<link [[Leave|Domus Street]]>><</link>>

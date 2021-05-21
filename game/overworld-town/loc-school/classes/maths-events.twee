@@ -474,7 +474,9 @@ You shift your chair away from the <<person>>, beyond the reach of their fondlin
 <<person1>>
 <<if $alarm is 1>><<set $rescued += 1>>
 You cry for help, causing River and the rest of the class turn to you. River fixes the <<person>> with a glare. "Assaulting another student? This is utterly unacceptable. You can sit alone," the <<person>> is moved to the other side of the room.
+<<if $cool lt 350>>
 <<status -10>><<lcool>>
+<</if>>
 
 <br><br>
 

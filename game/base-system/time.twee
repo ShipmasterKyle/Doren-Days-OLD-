@@ -9,6 +9,12 @@
 <<set $renttime -= 1>>
 <<else>>
 <<set $homerenttime -=1>>
+<<if $month is "february">>
+	<<set $miirentday to 28 >>
+<<esleif $month is "april" or $month is "june" or $month is "september" or $month is "november">>
+	<<set $miirentday to 30>>
+<<else>>
+	<<set $miirentday to 31>>
 <</if>>
 <<set $motherwake to 0>>
 <<if $gamemode isnot "hard">>
