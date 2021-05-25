@@ -134,10 +134,10 @@ There's a path leading down to the beach.
 			<<if $exposed lte 0>>
 				<<link [[Cafe (0:01)|Ocean Breeze]]>><<pass 1>><</link>>
 				<br>
-				<if $debug is 1>
+				<!--<if $debug is 1>
 				<<link [[Gym (0:01)|Gym]]>><<pass 1>><</link>>
 				<br>
-				<</if>>
+				<</if>>-->
 			<<else>>
 			<</if>>
 		<<elseif $hour is $closinghour>>
@@ -146,8 +146,8 @@ There's a path leading down to the beach.
 		<<else>>
 			<<link [[Cafe|Ocean Breeze Lock]]>><</link>>
 			<br>
-			<<link [[Gym (0:01)|Gym Lock]]>><<pass 1>><</link>>
-				<br>
+			<!--<<link [[Gym (0:01)|Gym Lock]]>><<pass 1>><</link>>
+				<br>-->
 		<</if>>
 		<br>
 		<<if $exposed gte 1 and $daystate isnot "night">>

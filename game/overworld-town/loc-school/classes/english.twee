@@ -197,7 +197,7 @@ a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blu
 	"Of course!" You say. You blush.
 <</if>>
 <br>
-<<link[Next|Doren Movies 1]>><<pass 120>><<npcincr Doren love 2>>
+<<link[Next|Doren Movies 1]>><<pass 120>><<npcincr Doren love 2>><</link>>
 
 :: Doren Movie Refuse
 <<if $submissive gte 1150>>
