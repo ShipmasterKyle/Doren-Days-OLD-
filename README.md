@@ -18,10 +18,17 @@
 4. `debug` is optional and will only effect new games.
 
 ### Compiling the html
+Windows
 
 1. Run `compile.bat` or `compile-watch.bat`.
 2. Open `Degrees of Lewdity VERSION.html`.
 
+Linux(only tested on Ubantu Xenial but should work on any linux distro)
+1. Extract the files to a folder that has no spaces in its name.
+2. use cd to redirect the terminal to the folder
+3. Run `./compile.sh` in the Tertminal
+4. Open `Degrees of Lewdity VERSION.html`.
+
 ### Build Android version (.apk)
 
-?
+Coming Soon
