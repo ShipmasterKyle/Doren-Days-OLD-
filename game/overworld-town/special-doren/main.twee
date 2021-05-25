@@ -131,7 +131,7 @@ You continue to jog through town, and end up back at Barb Street. You stop outsi
 <<link [[Say goodbye|Doren Shower Refuse]]>><</link>>
 <br>
 <<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
-<<link [[Invite Doren to take a shower with you (0:20)|Doren Shower Sex]]>><<pass 1>><</link>>
+<<link [[Invite Doren to take a shower with you (0:20)|Doren Shower Sex]]>><<pass 1>><<set $sexstart to 1>><</link>>
 <</if>>
 
 :: Doren Shower [nobr]
