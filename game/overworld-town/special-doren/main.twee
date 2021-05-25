@@ -132,6 +132,7 @@ You continue to jog through town, and end up back at Barb Street. You stop outsi
 <br>
 <<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
 <<link [[Invite Doren to take a shower with you (0:20)|Doren Shower Sex]]>><<pass 1>><</link>>
+<</if>>
 
 :: Doren Shower [nobr]
 
@@ -316,7 +317,7 @@ Doren smiles. "I hope you enjoyed that." <<He>> says.
 <span class = "blue">
 Silver Note:
 (Yeah I'm sorry I just reused some lines from Robin's code and changed it up a bit.)
-<</span>>
+</span>
 
 :: Doren Closet [nobr]
 <!-- Closet Sex Scene-->
