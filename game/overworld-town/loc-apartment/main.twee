@@ -134,6 +134,8 @@ You are in the bathroom.
 	<<passouthome>>
 <<else>>
 	<<link [[Have a bath (0:30)|Mii Bath]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
+	<br>
+	<<link [[Leave|My Bedroom]]>>
 <</if>>
 
 :: Mii Sleep [nobr]
@@ -178,7 +180,7 @@ You wash until you're squeaky clean.<<wash>>
 
 Your skin is still damp.
 <br><br>
-<<link [[Dress as you were|My Bathroom]]>><<clotheson>><</link>>
+<<link [[Dress as you were|Mii Bathroom]]>><<clotheson>><</link>>
 <br>
 <<link [[Wrap yourself in a towel|Bathroom]]>>
 	<<if $player.gender == "f" or $breastsize > 0>>

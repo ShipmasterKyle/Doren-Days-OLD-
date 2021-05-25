@@ -212,17 +212,23 @@ a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blu
 <br>
 <span class = "red">Doren can no longer be claimed as your love interest.</span>
 
-:: English Talk
+:: English Talk [nobr]
 <!-- Event for talking with Doren. Good for increasing love.-->
 "Need something?" Doren asks.
 <br><br>
-<<link [[Ask for help|English Doren Study]]>><</link>>
+<<link [[Ask for help(2:00)|English Doren Study]]>><<pass 1>><</link>>
 <br><br>
 <<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
 <<link [[Go somewhere|Doren Date Options]]>><</link>>
 <br><br>
 <</if>>
 <<link [[Nevermind|Hallways]]>><</link>>
+
+:: English Doren Study [nobr]
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+Doren reviews the work you did in class. You feel like you understand it more. <<englishskill>>
+<br>
+<<link [[Next|Domus Street]]>><</link>>
 
 :: English Classroom Apology [nobr]
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>

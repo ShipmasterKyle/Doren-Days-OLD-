@@ -38,10 +38,10 @@ You are on Nightingale Street. It is dominated by the civic hospital but there a
 		<br>
 		<<link [[Hospital (0:01)->Hospital front]]>><<pass 1>><</link>>
 		<br>
-		<<if $chef_state is 4 and $exposed lte 0>>
+		<<if $chef_state is 4 and $exposed lte 0 >>
 			<<link [[Photography Studio (3:00)|Photography Chef]]>><</link>>
 			<br>
-		<<else>>
+		<<elseif $debug is 1>>
 			<<link [[Empty Building|Photo Studio]]>><<pass 1>><</link>>
 			<br>
 		<</if>>
