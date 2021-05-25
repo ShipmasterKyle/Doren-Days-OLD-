@@ -92,7 +92,7 @@ You bend over and pull down your <<allBottoms>>. <<if $pronoun is "m">> Larry <<
     "Lets have some fun first."
     )>>"
 "Sure!" <<He>> looks elated. He leads you to a room in the back.
-<<link [[Next|Mii Rent Sex]]>><</link>>
+<<link [[Next|Mii Rent Sex]]>><<set $sexstart to 1>><</link>>
 
 :: Mii Sex [nobr]
 <<if $sexstart is 1>>
