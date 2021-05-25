@@ -10,6 +10,9 @@
 <<button "NPCs">>
 	<<replace #cheatsShown>><<cheats-npcs>><</replace>>
 <</button>>
+<<button "Teleport">>
+	<<replace #cheatsShown>><<cheats-teleport>><</replace>>
+<</button>>
 <<button "Other">>
 	<<replace #cheatsShown>><<cheats-other>><</replace>>
 <</button>>
@@ -2054,13 +2057,130 @@ Socialite: <span id="statsfamesocial"><<print Math.trunc($famesocial)>></span>
 
 <</nobr>><</widget>>
 
+<<widget "cheats-teleport">><<nobr>>
+<u>Places</u>
+Town:
+<br>
+[[Domus Street]] 
+<br>
+<ind>[[Orphanage]]</ind>
+<br>
+<ind>[[Flat Enterance]]</ind>
+<br>
+[[Barb Street]]
+<br>
+<ind><<link [[Doren's Flat|Doren Entrance]]>><</link>></ind>
+<br>
+<ind>[[Dance Studio]]</ind>
+<br>
+<ind>[[Police Station]]</ind>
+<br>
+<ind>[[Police Back Office]]</ind>
+<br>
+[[Danube Street]]
+<br>
+<ind>[[Spa]]</ind>
+<br>
+[[Wolf Street]]
+<br>
+<ind>[[Temple]]</ind>
+<br>
+<ind>[[Soup Kitchen]]</ind>
+<br>
+[[Connudatus Street]]
+<br>
+<ind>[[Strip Club]]</ind>
+<br>
+[[Nightingale Street]]
+<ind><<link [[Hospital|Hospital front]]>><</link>></ind>
+<br>
+<ind><<link [[Photography Studio|Photography Chef]]>><</link>></ind>
+<br>
+[[High Street]]
+<br>
+<ind>[[Shopping Centre]]</ind>
+<br>
+[[Elk Street]]
+<br>
+<ind><<link [[Landfill|Trash Gate Enter]]>><</link>></ind>
+<br>
+<ind>[[Elk Compound]]</ind>
+<br>
+[[Oxford Street]]
+<br>
+<ind>[[Museum]]</ind>
+<br>
+<ind>[[School Front Playground]]</ind>
+<br>
+[[Harvest Street]]
+<br>
+<ind>[[Brothel]]</ind>
+<br>
+<ind>[[Pub]]</ind>
+<br>
+<ind>[[Bus Station]]</ind>
+<br>
+[[Mer Street]]
+<br>
+<ind>[[Docks]]</ind>
+<br>
+[[Starfish Street]]
+<br>
+<ind>[[Beach]]</ind>
+<br>
+[[Cliff Street]]
+<br>
+<ind>[[Ocean Breeze]]</ind>
+<br>
+[[Commercial alleyways]]
+<br>
+[[Industrial alleyways]]
+<br>
+[[Residential alleyways]]
+<br><br>
+
+<u>Town Outskirts</u>
+<br>
+[[Forest]]
+<br>
+[[Farm Road 1]]
+<br><br>
+
+<u>Underground</u>
+<br>
+[[Industrial Drain]]
+<br>
+[[Commercial Drain]]
+<br>
+[[Residential Drain]]
+<br>
+<<link [[Drain ocean exit|Drain Exit]]>><</link>>
+<br>
+[[Sewers Residential]]
+<br>
+[[Sewers Commercial]]
+<br>
+[[Sewers Industrial]]
+<br>
+
+<</nobr>><</widget>>
+
+
 <<widget "cheats-other">><<nobr>>
 
 <u>Time</u>
 <br>
+<<link [[Forward 30 minutes|$passage]]>><<pass 30>><</link>>
+<br>
 <<link [[Forward 1 hour|$passage]]>><<pass 1 hour>><</link>>
 <br>
+<<link [[Forward 4 hour|$passage]]>><<pass 4 hour>><</link>>
+<br>
 <<link [[Forward 6 hours|$passage]]>><<pass 6 hours>><</link>>
+<br>
+<<link [[Forward 8 hour|$passage]]>><<pass 8 hour>><</link>>
+<br>
+<<link [[Forward 12 hour|$passage]]>><<pass 12 hour>><</link>>
 <br>
 <<link [[Forward 24 hours|$passage]]>><<pass 24 hours>><</link>>
 <br><br>

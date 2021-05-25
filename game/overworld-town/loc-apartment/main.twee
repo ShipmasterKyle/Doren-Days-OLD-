@@ -65,7 +65,7 @@ Your room is much larger than it was at the orphanage. Your bed faces your dress
 	<</if>>
 	You have school textbooks on a shelf.
 	<br>
-	<<link [[Study|Home Study]]>><</link>>
+	<<link [[Study|Home Study Menu]]>><</link>>
 	<br>
 	A radio sits on your dresser.
 	<br>

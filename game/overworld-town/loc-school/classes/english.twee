@@ -182,11 +182,11 @@
 You walk into the classroom unsure of your reason for being here. "Hello <<lass>>. Have a seat."
 You sit down at a desk in front of Doren. <<He>> closes the door and hands you a binder. It contains all of your school work for the year.
 "You're an excellent student. Your grades in my class are evidence of that. So I have something for you." <<He>> turns to the last page which contains two tickets to 
-a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blushes. <<He>> seems nice <<span class="red">> but you should be careful if you want to be popular. <</span>> 
+a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blushes. <<He>> seems nice <span class="red"> but you should be careful if you want to be popular. </span>
 <br><br>
-<<link[Go with Doren (0:05)|Doren Movies Intro]>><<pass 5>><<npcincr Doren love 2>><<set $doreninvite to 2>>
+<<link[Go with Doren (0:05)|Doren Movies Intro]>><<pass 5>><<npcincr Doren love 2>><<set $doreninvite to 2>><</link>>
 <br>
-<<link[Refuse|Doren Movie Refuse]>><<npcincr Doren love -10>>
+<<link[Refuse|Doren Movie Refuse]>><<npcincr Doren love -10>><</link>>
 
 :: Doren Movies Intro
 <<if $submissive gte 1150>>

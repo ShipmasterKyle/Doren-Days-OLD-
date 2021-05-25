@@ -50,6 +50,7 @@ You talk with Doren over a variety of topics. <<He>> soon takes over the convers
 	<br>
 	<<link [[Talk (1:00)|Doren Talk]]>><<trauma -6>><<stress -12>><<npcincr Doren love 1>><<pass 1 hour>><</link>><<ltrauma>><<lstress>>
 	<br>
+	<<link [[Go somewhere|Doren Date Options]]>><<npcincr Doren love 1>><<pass 1>><</link>>
 <<else>>
 	You climb to Doren's flat and knock on the door. There's no answer. <<npc Doren>><<person1>><<He>> said <<he>> would be home at four in the afternoon.
 	<br><br>
@@ -224,7 +225,7 @@ Doren smiles at you on the way out. "Come back tomorrow if you like."
 :: Doren Movies 1 [nobr]
 You and Doren leave the school.
 <<if $detention gte 1>>
-A guard stands at the gate <<span class="green">>but pays no mind to you as you leave.<</span>>
+A guard stands at the gate <span class="green">but pays no mind to you as you leave.</span>
 <br>
 You ride in Doren's car to the movie theatre. The movie is a blockbuster romance. You enjoy it. The main characters lean in for kiss.
 <<link[Kiss Doren|Doren Movie Kiss]>><</link>>
