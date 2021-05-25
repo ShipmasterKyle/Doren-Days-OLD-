@@ -63,6 +63,10 @@ Your room is much larger than it was at the orphanage. Your bed faces your dress
 		<<link [[Mirror|Mii Mirror]]>><</link>>
 		<br><br>
 	<</if>>
+	You have school textbooks on a shelf.
+	<br>
+	<<link [[Study|Home Study]]>><</link>>
+	<br>
 	A radio sits on your dresser.
 	<br>
 	<<link [[Radio|Watch TV]]>><<pass 1>><</link>>
@@ -135,7 +139,7 @@ You are in the bathroom.
 <<else>>
 	<<link [[Have a bath (0:30)|Mii Bath]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
 	<br>
-	<<link [[Leave|My Bedroom]]>>
+	<<link [[Leave|My Bedroom]]>><</link>>
 <</if>>
 
 :: Mii Sleep [nobr]
@@ -182,7 +186,7 @@ Your skin is still damp.
 <br><br>
 <<link [[Dress as you were|Mii Bathroom]]>><<clotheson>><</link>>
 <br>
-<<link [[Wrap yourself in a towel|Bathroom]]>>
+<<link [[Wrap yourself in a towel|Mii Bathroom]]>>
 	<<if $player.gender == "f" or $breastsize > 0>>
 		<<set $wear_upper = "large_towel">>
 	<<else>>
@@ -227,3 +231,29 @@ Coming Soon
 
 <<mirror>>
 <br><br>
+
+:: Home Study Menu [nobr]
+<<link [[Study science (0:20)|Home Study]]>><<pass 20>><<set $phase to 1>><</link>><<gscience>>
+<br>
+<<link [[Study maths (0:20)|Home Study]]>><<pass 20>><<set $phase to 2>><</link>><<gmaths>>
+<br>
+<<link [[Study English (0:20)|Home Study]]>><<pass 20>><<set $phase to 3>><</link>><<genglish>>
+<br>
+<<link [[Study history (0:20)|Home Study]]>><<pass 20>><<set $phase to 4>><</link>><<ghistory>>
+<br>
+<<link [[Put away the books|My Bedroom]]>><</link>>
+
+:: Home Study [nobr]
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $phase is 1>><<scienceskill>>
+You take the science textbook of the shelf and read through the material.
+<<elseif $phase is 2>><<mathsskill>>
+You take the math textbook of the shelf and read through the material.
+<<elseif $phase is 3>><<englishskill>>
+You take the emglish textbook of the shelf and read through the material.
+<<elseif $phase is 4>><<historyskill>>
+You take the history textbook of the shelf and read through the material.
+<</if>>
+<br><br>
+<<link [[Next|Home Study Menu]]>><</link>>
