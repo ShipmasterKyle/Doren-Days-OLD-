@@ -24,7 +24,7 @@ import android.os.SystemClock;
 import android.widget.Toast;
 import org.apache.cordova.*;
 
-import com.shipmasterKyle.DolDorenDaysMod;
+import com.shipmasterKyle.DolDorenDaysMod.R;
 
 public class MainActivity extends CordovaActivity {
 
