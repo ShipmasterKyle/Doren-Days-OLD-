@@ -263,7 +263,8 @@ You leave the theatre and Doren takes your hand. <<takeHandholdingVirginity "Dor
 <<link[Next|Domus Street]>><</link>>
 
 :: Doren Shower Sex [nobr]
-<<if $sexstart is 1>>
+<!--For some reason this doesn't work?
+	<<if $sexstart is 1>>
 <<set $sexstart to 0>>
 <<consensual>>
 <<set $consensual to 1>>
@@ -272,6 +273,27 @@ You leave the theatre and Doren takes your hand. <<takeHandholdingVirginity "Dor
 <<maninit>>
 <<set $enemytrust += 500>><<npcexpose>><<set $speechdisable to 1>>
 <<set $enemyarousalmax to 800>>
+
+<</if>>
+
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+-->
+
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral 1>>
+
+<<maninit>>
+<<set $enemytrust += 500>><<npcexpose>><<set $speechdisable to 1>>
+<<set $enemyarousalmax to 600>>
 
 <</if>>
 
@@ -313,12 +335,19 @@ Doren smiles. "I hope you enjoyed that." <<He>> says.
 <br><br>
 
 <</if>>
-<<link [[Next|]]>>
+<<link [[Next|Doren Sex Done]]>><<pass 1>><</link>>
 <<He>> gazes into your eyes. "I love you." <<He>> kisses you.
 <span class = "blue">
 Silver Note:
-(Yeah I'm sorry I just reused some lines from Robin's code and changed it up a bit.)
+(Yeah I'm sorry I just reused some lines from Robin's code and changed it up a bit. I'll probably write a better scene later.)
 </span>
+
+:: Doren Sex Done
+ <<wash>>
+Doren smiles at you on the way out. "Come back tomorrow if you like."
+<br><br>
+<<endevent>>
+<<link [[Next|Barb Street]]>><<clothesontowel>><</link>>
 
 :: Doren Closet [nobr]
 <!-- Closet Sex Scene-->
@@ -373,6 +402,7 @@ Doren nods and picks one up.
 <<link [[Next|Doren Date 1]]>><</link>>
 <<else>>
 <<link [[Next|Doren Date 1 End]]>><</link>>
+<</if>>
 
 :: Doren Service Station
 You walk into the service station. 
@@ -384,9 +414,12 @@ Doren buys you a milkshake.
 Doren buys you some hot chocolate.
 <<else>>
 Doren buys you some candy.
+<</if>>
+<<if $dorendatetime gte 1>>
 <<link [[Next|Doren Date 1]]>><</link>>
 <<else>>
 <<link [[Next|Doren Date 1 End]]>><</link>>
+<</if>>
 
 :: Doren Walk 1 [nobr]
 You and Doren walk around the park. What should you do next?
@@ -401,7 +434,7 @@ You and Doren walk around the park. What should you do next?
 
 :: Doren Date 1 End [nobr]
 <<npc Doren>><<person1>>
-Doren looks at <<his>> watch. "It looks like I need to go. I won't finish grading these papers if I don't." <<He>> says. <<He drives you back home.>>
+Doren looks at <<his>> watch. "It looks like I need to go. People are expecting me." <<He>> says. <<He>> drives you back home.
 <<link [[Next|Domus Street]]>><</link>>
 
 :: Doren Date 2 [nobr]
@@ -437,7 +470,7 @@ You tell Doren a joke. <<He>> laughs.
 :: Doren Date 2 Talk [nobr]
 <<set $rng to random(1,4)>>
 <<if $rng is 1>>
-You talk to Doren about a book you read.
+You talk to Doren about a book you read. 
 <<if $rng is 2>>
 You talk to Doren about your favorite food.
 <<if $rng is 3>>
@@ -445,6 +478,7 @@ You talk to Doren about your favorte song.
 <<else>>
 You talk to Doren.
 <</if>>
+<<npcincr Doren love 1>>
 <<if $dorendatetime lt 1>>
 <<link [[Next|Doren Date 2 End]]>><</link>>
 <<else>>
@@ -671,6 +705,7 @@ Bread
 :: Item Hide and Seek Done [nobr]
 <<npc Doren>><<person1>>
 You bring Doren the items. <<He>> seems pleased. "Thank you <<lass>>."
+<<npcincr Doren love 1>>
 <<if $dorendatetime lt 1>>
 <<link [[Next|Doren Date 2 End]]>><</link>>
 <<else>>
@@ -685,6 +720,7 @@ You bring Doren the items. <<He>> seems pleased. "Thank you <<lass>>."
 :: Doren Soup [nobr]
 <!-- Soup Kitchen Event with Doren. Suggested by Mild Macosist-->
 Coming Soon
+<br>
 <<link [[Back|Doren Date Options]]>><</link>>
 
 
@@ -693,13 +729,13 @@ Coming Soon
 <<npc Doren>><<person1>>
 You both walk to Doren's apartment. <<He>> sets <<his>> briefcase down on a nearby table.
 "So what do you want to do love?" <<He>> asks.
-<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
+<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 10>>
 <br>
 <<foresticon>><<link [[Go to the park|Doren Park]]>><</link>>
 <br>
-<<ind>><<link [[Go to the Soup Kitchen|Doren Soup]]>><</link>>
+<<link [[Go to the Soup Kitchen|Doren Soup]]>><</link>>
 <</if>>
-<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 10>>
+<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 15>>
 <br>
-<ind><<link [[Go Shopping|Doren Shopping]]>>
+<<link [[Go Shopping|Doren Shopping]]>><</link>>
 <</if>>

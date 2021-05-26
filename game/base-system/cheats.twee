@@ -2185,6 +2185,23 @@ Town:
 <<link [[Forward 24 hours|$passage]]>><<pass 24 hours>><</link>>
 <br><br>
 
+<u>Day</u>
+<br>
+<<link [[Sunday|$passage]]>><<set $weekday to 1>><</link>>
+<br>
+<<link [[Monday|$passage]]>><<set $weekday to 2>><</link>>
+<br>
+<<link [[Tuesday|$passage]]>><<set $weekday to 3>><</link>>
+<br>
+<<link [[Wednesday|$passage]]>><<set $weekday to 4>><</link>>
+<br>
+<<link [[Thursday|$passage]]>><<set $weekday to 5>><</link>>
+<br>
+<<link [[Friday|$passage]]>><<set $weekday to 6>><</link>>
+<br>
+<<link [[Saturday|$passage]]>><<set $weekday to 7>><</link>>
+<br><br>
+
 <u>Weather</u>
 <br>
 Current weather: $weather

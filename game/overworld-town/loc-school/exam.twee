@@ -552,7 +552,7 @@ Your marked booklet skids in front of you,
 <<if _exam_success is true>>
 	<<if $englishtrait gte 4>>
 		<<school_skill_up english>>
-		<<school_mark english>> printed and circled on the front, with <span class="green">"Distinction"</span> written beside it in green ink.<<ggcontrol>><<control 25>><<span class="gold">> Doren is proud of you. <</span>><<npcincr Doren love 1>>
+		<<school_mark english>> printed and circled on the front, with <span class="green">"Distinction"</span> written beside it in green ink.<<ggcontrol>><<control 25>><span class="gold">> Doren is proud of you. <</span>><<npcincr Doren love 1>>
 		<<distinction_stat>>
 	<<else>>
 		<<school_skill_up english>>

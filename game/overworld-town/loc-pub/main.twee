@@ -71,7 +71,7 @@
 	<br>
 	<<link [[Go with them|Pub Accost]]>><<set $phase to 1>><</link>>
 	<br>
-<<elseif $hour is 22 and $weekday is 6>>
+<<elseif $hour is 22 and $weekday is 6 and $debug is 1>>
 Doren sits at a table drinking some beer. He doesm't seem to be paying much attention to anything.
 <<link [[Talk to them|Doren Pub]]>><<pass 1>><</link>>
 <br>
