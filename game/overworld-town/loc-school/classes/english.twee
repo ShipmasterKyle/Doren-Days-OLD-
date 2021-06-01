@@ -197,7 +197,7 @@ a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blu
 	"Of course!" You say. You blush.
 <</if>>
 <br>
-<<link[Next|Doren Movies 1]>><<pass 120>><<npcincr Doren love 2>><</link>>
+<<link[[Next|Doren Movies 1]]>><<pass 120>><<npcincr Doren love 2>><</link>>
 
 :: Doren Movie Refuse
 <<if $submissive gte 1150>>
@@ -211,6 +211,8 @@ a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blu
 "Its ok. I understand." Doren says sadly.
 <br>
 <span class = "red">Doren can no longer be claimed as your love interest.</span>
+<br><br>
+<<link [[Next|Hallways]]>><<pass 1>><</link>>
 
 :: English Talk [nobr]
 <!-- Event for talking with Doren. Good for increasing love.-->
@@ -228,7 +230,7 @@ a popular movie. "Perhaps you'd like to come see this movie with me?" <<He>> blu
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 Doren reviews the work you did in class. You feel like you understand it more. <<englishskill>>
 <br>
-<<link [[Next|Domus Street]]>><</link>>
+<<link [[Next|Domus Street]]>><<pass 119>><</link>>
 
 :: English Classroom Apology [nobr]
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>

@@ -79,7 +79,7 @@ Infinite spray: <span id="statsinfinitespray">$infinitespray</span> |
 
 <u>Player Body:</u>
 <br>
-<<if ["Wardrobe","Changing Room","Eden Wardrobe","Asylum Wardrobe","Strip Club Dressing Room","Brothel Dressing Room","School Boy Wardrobe","School Girl Wardrobe"].includes($passage)>>
+<<if ["Wardrobe","Changing Room","Eden Wardrobe","Asylum Wardrobe","Strip Club Dressing Room","Brothel Dressing Room","School Boy Wardrobe","School Girl Wardrobe","My Wardrobe"].includes($passage)>>
 	/*passage change is intentional to allow the players to quickly see the visual differences*/
 	Current Gender: <<gender>>
 	<br>
@@ -2201,6 +2201,67 @@ Town:
 <br>
 <<link [[Saturday|$passage]]>><<set $weekday to 7>><</link>>
 <br><br>
+
+<u>Date</u>
+<br>
+<<link [[1st|$passage]]>><<set $monthday to 1>><</link>>
+<br>
+<<link [[2nd|$passage]]>><<set $monthday to 2>><</link>>
+<br>
+<<link [[3rd|$passage]]>><<set $monthday to 3>><</link>>
+<br>
+<<link [[4th|$passage]]>><<set $monthday to 4>><</link>>
+<br>
+<<link [[5th|$passage]]>><<set $monthday to 5>><</link>>
+<br>
+<<link [[6th|$passage]]>><<set $monthday to 6>><</link>>
+<br>
+<<link [[7th|$passage]]>><<set $monthday to 7>><</link>>
+<br>
+<<link [[8th|$passage]]>><<set $monthday to 8>><</link>>
+<br>
+<<link [[9th|$passage]]>><<set $monthday to 9>><</link>>
+<br>
+<<link [[10th|$passage]]>><<set $monthday to 10>><</link>>
+<br>
+<<link [[11th|$passage]]>><<set $monthday to 11>><</link>>
+<br>
+<<link [[12th|$passage]]>><<set $monthday to 12>><</link>>
+<br>
+<<link [[13th|$passage]]>><<set $monthday to 13>><</link>>
+<br>
+<<link [[14th|$passage]]>><<set $monthday to 14>><</link>>
+<br>
+<<link [[15th|$passage]]>><<set $monthday to 15>><</link>>
+<br>
+<<link [[16th|$passage]]>><<set $monthday to 16>><</link>>
+<br>
+<<link [[17th|$passage]]>><<set $monthday to 17>><</link>>
+<br>
+<<link [[18th|$passage]]>><<set $monthday to 18>><</link>>
+<br>
+<<link [[19th|$passage]]>><<set $monthday to 19>><</link>>
+<br>
+<<link [[20th|$passage]]>><<set $monthday to 20>><</link>>
+<br>
+<<link [[21st|$passage]]>><<set $monthday to 21>><</link>>
+<br>
+<<link [[22nd|$passage]]>><<set $monthday to 22>><</link>>
+<br>
+<<link [[23rd|$passage]]>><<set $monthday to 23>><</link>>
+<br>
+<<link [[24th|$passage]]>><<set $monthday to 24>><</link>>
+<br>
+<<link [[25th|$passage]]>><<set $monthday to 25>><</link>>
+<br>
+<<link [[26th|$passage]]>><<set $monthday to 26>><</link>>
+<br>
+<<link [[27th|$passage]]>><<set $monthday to 27>><</link>>
+<br>
+<<link [[28th|$phassage]]>><<set $monthday to 28>><</link>>
+<br><br>
+
+
 
 <u>Weather</u>
 <br>

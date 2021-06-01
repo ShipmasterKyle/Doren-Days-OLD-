@@ -130,10 +130,7 @@ You continue to jog through town, and end up back at Barb Street. You stop outsi
 <<link [[Shower (0:20)|Doren Shower]]>><<pass 20>><</link>>
 <br>
 <<link [[Say goodbye|Doren Shower Refuse]]>><</link>>
-<br>
-<<if $NPCName[$NPCNameList.indexOf("Doren")].love gte 5>>
-<<link [[Invite Doren to take a shower with you (0:20)|Doren Shower Sex]]>><<pass 1>><<set $sexstart to 1>><</link>>
-<</if>>
+
 
 :: Doren Shower [nobr]
 
@@ -235,11 +232,11 @@ You ride in Doren's car to the movie theatre. The movie is a blockbuster romance
 :: Doren Move Kiss [nobr]
 You lean in and plant a kiss on <<his>> lips. <<He>> kisses back. <<takeKissVirginity "Doren" "romantic">>
 <<promiscuity1>>
-<<link[Next|Doren Movie 3]>><</link>>
+<<link[[Next|Doren Movie 3]]>><</link>>
 
 :: Doren Movie 2 [nobr]
 <<He>> plants a kiss on your cheek and smiles. <<takeKissVirginity "Doren" "romantic">>
-<<link[Next|Doren Movie 3]>><</link>>
+<<link[[Next|Doren Movie 3]]>><</link>>
 
 :: Doren Movie 3 [nobr]
 You leave the theatre and Doren takes your hand. <<takeHandholdingVirginity "Doren" "romantic">>
@@ -260,7 +257,7 @@ You leave the theatre and Doren takes your hand. <<takeHandholdingVirginity "Dor
 <</if>>
 <br><br>
 <<He>> waves you goodbye before driving off.
-<<link[Next|Domus Street]>><</link>>
+<<link [[Next|Domus Street]]>><</link>>
 
 :: Doren Shower Sex [nobr]
 <!--For some reason this doesn't work?
