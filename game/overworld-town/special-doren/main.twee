@@ -223,11 +223,12 @@ Doren smiles at you on the way out. "Come back tomorrow if you like."
 You and Doren leave the school.
 <<if $detention gte 1>>
 A guard stands at the gate <span class="green">but pays no mind to you as you leave.</span>
+<</if>>
 <br>
 You ride in Doren's car to the movie theatre. The movie is a blockbuster romance. You enjoy it. The main characters lean in for kiss.
-<<link[Kiss Doren|Doren Movie Kiss]>><</link>>
+<<link [[Kiss Doren|Doren Movie Kiss]]>><</link>>
 <br>
-<<link[Stay Put|Doren Movie 2]>><</link>>
+<<link[[Stay Put|Doren Movie 2]]>><</link>>
 
 :: Doren Move Kiss [nobr]
 You lean in and plant a kiss on <<his>> lips. <<He>> kisses back. <<takeKissVirginity "Doren" "romantic">>
