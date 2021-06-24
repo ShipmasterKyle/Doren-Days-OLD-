@@ -26,7 +26,7 @@ You are at Remy's riding school. Stables surround a central courtyard. A small o
 <<if $stress gte 10000>>
 	<<passoutfarmroad>>
 <<elseif $hour is $closinghour>>
-	It's closing time. The horses are being herded into their stables, and the customers from the grounds. <<if $exposed gte 1>>You skulk away before anyone sees your <<lewdness>>.<</if>>
+	It's closing time. The horses are being herded into their stables, and the customers from the grounds. <<if $exposed gte 1 and $uncomfortable.nude is true>>You skulk away before anyone sees your <<lewdness>>.<</if>>
 	<br><br>
 
 	<<link [[Next|Farmland]]>><</link>>

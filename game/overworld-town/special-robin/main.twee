@@ -1056,6 +1056,25 @@ Robin</i>"
 <<link [[Next|Bedroom]]>><</link>>
 <br>
 
+:: Robin Home Note [nobr]
+<<set $outside to 0>><<set $location to "town">><<effects>>
+
+You read the note.
+<br><br>
+
+"<i>I've wanted to tell you this but whenever I try it won't come out. I know you're paying Bailey for me. I feel so relieved and ashamed.
+<br><br>
+
+I've started feeling butterflies in my tummy when you talk to me, and when we hug it feels like my body is melting (In a good way). Do you want to be my <<if $player.gender is "m">>boyfriend<<elseif $player.gender is "f">>girlfriend<<elseif $player.gender_appearance is "m">>boyfriend<<else>>girlfriend<</if>>? It's okay if you don't! If you don't though, pretend you never read this note or I'll die of embarrassment.
+<br><br>
+
+Thank you for looking after me,
+Robin</i>"
+<br><br>
+
+<<link [[Next|Bedroom]]>><</link>>
+<br>
+
 :: Robin Romance [nobr]
 <<set $outside to 0>><<set $location to "home">><<effects>>
 

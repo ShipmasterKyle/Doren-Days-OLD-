@@ -41,7 +41,7 @@ You are on Oxford Street. There's an eclectic mix of buildings, but most notable
 <</if>>
 <<streeteffects>>
 <br><br>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	<<exhibitionism "street">>
 <</if>>
 <<if $arousal gte 10000>>
@@ -96,7 +96,7 @@ You are on Oxford Street. There's an eclectic mix of buildings, but most notable
 			<br>
 		<</if>>
 		<<if $robindebtevent gte 1>>
-		<<elseif $robinmissing isnot 1 and $schoolday is 1 and $hour is 15 and $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $robinschoolafternoon isnot 1 and $exposed lte 0>>
+		<<elseif $robinmissing isnot 1 and $schoolday is 1 and $hour is 15 and $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $robinschoolafternoon isnot 1 and ($exposed lte 0 or $uncomfortable.nude is false)>>
 			You see Robin looking through shop windows.
 			<br><br>
 			<<if $NPCName[$NPCNameList.indexOf("Robin")].trauma gte 80>>
@@ -111,7 +111,7 @@ You are on Oxford Street. There's an eclectic mix of buildings, but most notable
 				<br><br>
 			<</if>>
 		<</if>>
-		<<if $schoolday is 1 and $hour is 15 and $exposed lte 0 and $weather isnot "rain" and $weather isnot "snow">>
+		<<if $schoolday is 1 and $hour is 15 and ($exposed lte 0 or $uncomfortable.nude is false) and $weather isnot "rain" and $weather isnot "snow">>
 			A group of students chat nearby. They say they're going to the lake.
 			<br><br>
 			<<link [[Join them (0:30)|Lake Journey]]>><<pass 30>><</link>>
@@ -127,17 +127,17 @@ You are on Oxford Street. There's an eclectic mix of buildings, but most notable
 			<br>
 		<</if>>
 		<<if $daystate is "day" and $weekday is 7 or $daystate is "day" and $weekday is 1>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<museumicon>><<link [[Museum (0:01)|Museum]]>><<pass 1>><</link>>
 				<br>
 			<</if>>
 		<<else>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<museumicon>><<link [[Museum|Museum Lock]]>><<pass 1>><</link>>
 				<br>
 			<</if>>
 		<</if>>
-		<<if $stimdealerknown is 1 and $mathsproject is "ongoing" and $exposed lte 0>>
+		<<if $stimdealerknown is 1 and $mathsproject is "ongoing" and ($exposed lte 0 or $uncomfortable.nude is false)>>
 			<<link [[Stimulant dealer|Stim Dealer]]>><</link>>
 			<br>
 		<</if>>
@@ -145,14 +145,14 @@ You are on Oxford Street. There's an eclectic mix of buildings, but most notable
 			[[Town Hall]]
 		<</if>>
 		<br><br>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $uncomfortable.nude is true and $daystate isnot "night">>
 		<<else>>
 		<<add_link "Travel<br>">><<hideDisplay>>
 			<<starfish>>
 			<<nightingale>>
 			<<mer>>
 			<<elk>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<buswait>>
 			<</if>>
 			<<loiter>>

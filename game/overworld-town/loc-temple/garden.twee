@@ -34,7 +34,7 @@ The garden looks <span class="red">wild,</span> barely a garden at all. The hedg
 <<if $stress gte $stressmax>>
 	<<passouttemple>>
 <<else>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide behind a hedge to protect your dignity.
 	<br><br>
 	<<link [[Search for something to cover with|Temple Garden Exposed]]>><</link>>

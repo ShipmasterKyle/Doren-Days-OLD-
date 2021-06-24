@@ -1,0 +1,10 @@
+:: Robin Life Invite [nobr]
+<<npc Robin>><<person1>>
+"Robin, you've been at my place a lot. Why don't you come live there with me?"
+<<He>> seems suprised. "Really?" <<He>> says quietly."I'd love to!"
+<<if $submissive lte 850>>
+"Grab you stuff, we're leaving now."
+<<else>>
+"We better get out of here before Bailey finds out."
+<</if>>
+<<link [[Next|Living Room]]>><<pass 10>><<set $phase to 1>><<set $roomates.pushUnique("Robin")>><<set $robinhome to "apartment">><</link>>

@@ -32,7 +32,7 @@ You are in the temple quarters on the second floor of the temple, where the monk
 <<if $stress gte $stressmax>>
 	<<passouttemple>>
 <<else>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		You hide beneath a bunk to protect your dignity.
 		<br><br>
 	<<else>>

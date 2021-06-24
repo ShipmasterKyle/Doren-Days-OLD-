@@ -123,7 +123,7 @@ You are in your bedroom.
 				<br><br>
 				<<link [[Bathroom (0:01)->Bathroom]]>><<pass 1>><</link>>
 				<br>
-				<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $exposed lte 0>>
+				<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $exposed lte 0 or $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $uncomfortable.nude is false>>
 					<<link [[Robin's room (0:01)|Robin's Room Entrance]]>><<pass 1>><</link>>
 					<br>
 				<</if>>
@@ -158,7 +158,7 @@ You are in your bedroom.
 				<br><br>
 				<<link [[Bathroom (0:01)->Bathroom]]>><<pass 1>><</link>>
 				<br>
-				<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $exposed lte 0>>
+				<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and ($exposed lte 0 or $uncomfortable.nude is true)>>
 					<<link [[Robin's room (0:01)|Robin's Room Entrance]]>><<pass 1>><</link>>
 					<br>
 				<</if>>
@@ -175,7 +175,7 @@ You are in your bedroom.
 		<<if $underwarningskip is 1>>
 			<<link [[Bathroom (0:01)->Bathroom]]>><<pass 1>><</link>>
 			<br>
-			<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $exposed lte 0>>
+			<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and ($exposed lte 0 or $uncomfortable.nude is false)>>
 				<<link [[Robin's room (0:01)|Robin's Room Entrance]]>><<pass 1>><</link>>
 				<br>
 			<</if>>
@@ -192,7 +192,7 @@ You are in your bedroom.
 	<<else>>
 		<<link [[Bathroom (0:01)->Bathroom]]>><<pass 1>><</link>>
 		<br>
-		<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $exposed lte 0>>
+		<<if $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and ($exposed lte 0 or $uncomfortable.nude is false)>>
 			<<link [[Robin's room (0:01)|Robin's Room Entrance]]>><<pass 1>><</link>>
 			<br>
 		<</if>>

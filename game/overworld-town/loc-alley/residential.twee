@@ -14,7 +14,7 @@ You are in an alleyway in the residential district.
 Your home is nearby.
 <<streeteffects>>
 <br><br>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	<<exhibitionism "alley">>
 <</if>>
 <<if $arousal gte 10000>>
@@ -33,7 +33,7 @@ Your home is nearby.
 		<</if>>
 		Places of interest
 		<br>
-		<<if $exposed gte 1>>
+		<<if $exposed gte 1 and $uncomfortable.nude is true>>
 			<<homeicon>><<link [[Go home (0:02)->Home Fence]]>><<if $fenceclimb isnot 1>><<set $fenceclimb to 1>><<transform cat 1>><</if>><<pass 2>><</link>>
 			<br>
 		<<else>>
@@ -58,7 +58,7 @@ Your home is nearby.
 			<</if>>
 		<</if>>
 		<br>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $daystate isnot "night" and $uncomfortable.nude is true>>
 		<<else>>
 			<<add_link "Travel<br>">><<hideDisplay>>
 			<<domus>>
@@ -68,7 +68,7 @@ Your home is nearby.
 			<<loiter>>
 		<</if>>
 		<<add_link "<br>Alternate routes<br>">><<hideDisplay>>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $daystate isnot "night" $uncomfortable.nude is true>>
 		<<else>>
 			<<commercial>>
 		<</if>>

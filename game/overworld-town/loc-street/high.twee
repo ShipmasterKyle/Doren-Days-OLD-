@@ -68,14 +68,14 @@ You are on the High Street, centre of the town's commercial activity. The shoppi
 			<br>
 		<</if>>
 		<br>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $uncomfortable.nude is true and $daystate isnot "night">>
 		<<else>>
 			<<add_link "Travel<br>">><<hideDisplay>>
 			<<cliff>>
 			<<wolf>>
 			<<starfish>>
 			<<nightingale>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<buswait>>
 			<</if>>
 			<<loiter>>

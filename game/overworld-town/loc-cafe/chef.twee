@@ -61,7 +61,7 @@ You whip up another bun, stuffed with extra cream. Sam arrives to collect and de
 	<<masturbationstart>>
 	<<set $timer to 40>>
 	<<set $masturbation_bowl to 1>>
-	<<set $mouth to "disabled">>
+	<<set $mouth to "disabled">> <!--whats this?-->
 <</if>>
 <<masturbationeffects>>
 <<masturbationactions>>

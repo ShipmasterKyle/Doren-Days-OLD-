@@ -49,7 +49,7 @@ You are swimming in the sea along the beach.
 	You spend some time swimming.
 	<<physique 3>><<swimmingskilluse>>
 <</if>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You keep your <<lewdness>> hidden beneath the surface of the water.
 	<<if $daystate isnot "night">>
 		You can't leave the water here, people would see you!
@@ -63,7 +63,7 @@ You are swimming in the sea along the beach.
 	<<if $danger gte (9900 - $allure) and $eventskip is 0>>
 		<<eventsseabeach>>
 	<<else>>
-		<<if $exposed lte 0 or $daystate is "night">>
+		<<if $exposed lte 0 or $daystate is "night" or $uncomfortable.nude is false>>
 			<<link [[Leave the water (0:02)|Beach]]>><<pass 2>><</link>>
 			<br>
 		<<elseif $exposed is 1 and $exhibitionism gte 15>>
@@ -112,7 +112,7 @@ You are swimming in the sea near some rocks, west of the beach.
 	You spend some time swimming.
 	<<physique 3>><<swimmingskilluse>>
 <</if>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You keep your <<lewdness>> hidden beneath the surface of the water.
 	<br><br>
 <</if>>
@@ -396,7 +396,7 @@ You are swimming in the sea near the docks, east of the beach.
 	You spend some time swimming.
 	<<physique 3>><<swimmingskilluse>>
 <</if>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You keep your <<lewdness>> hidden beneath the surface of the water.
 	<br><br>
 <</if>>
@@ -448,7 +448,7 @@ You are swimming in the sea at the base of some cliffs, east of the docks. A lar
 	You spend some time swimming.
 	<<physique 3>><<swimmingskilluse>>
 <</if>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You keep your <<lewdness>> hidden beneath the surface of the water.
 	<br><br>
 <</if>>

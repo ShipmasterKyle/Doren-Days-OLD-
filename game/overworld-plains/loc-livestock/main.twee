@@ -1522,7 +1522,7 @@ Satisfied, it turns back toward the farm. It dashes forward, disappearing behind
 <<effects>>
 <<earnFeat "Runaway Cattle">>
 <<set $hunger to 2000>>
-You're not in the clear yet. <<if $exposed gte 2>>You're still naked, for one thing.<<elseif $exposed gte 1>>You're still indecently dressed, for one thing.<</if>> Still, you feel hopeful as creep down the hill. You find a path running into the forest.
+You're not in the clear yet. <<if $exposed gte 2>>You're still naked, for one thing.<<elseif $exposed gte 1>>You're still indecently dressed, for one thing.<</if>><<if $$uncomfortable.nude is false>>Not that thats a problem for you.<</if>> Still, you feel hopeful as creep down the hill. You find a path running into the forest.
 <br><br>
 
 <<link [[Next|Forest]]>><<set $eventskip to 1>><<set $forest to 0>><</link>>

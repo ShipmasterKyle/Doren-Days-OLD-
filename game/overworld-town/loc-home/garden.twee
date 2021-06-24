@@ -60,7 +60,7 @@ You are in the garden behind the orphanage.
 <</if>>
 <<if $stress gte 10000>>
 	<<passouthome>>
-<<elseif $exposed gte 1 and $hour lt 22 and $hour gt 6>>
+<<elseif $exposed gte 1 and $hour lt 22 and $hour gt 6 and $uncomfortable.nude is true>>
 	<<exhibitionismgarden>>
 	You can't bear the thought of someone catching you like this. You hasten to your bedroom.
 	<br><br>
@@ -86,7 +86,7 @@ Some orphans are playing.
 <br>
 <</if>>
 
-<<if $exposed gte 2>>
+<<if $exposed gte 2 and $uncomfortable.nude is true>>
 	<<if $daystate is "night">>
 		<<if $exhibitionism gte 55>>
 			<<link [[Climb over the fence (0:05)|Garden Fence Naked Night]]>><<pass 5>><</link>><<if $ex_fence isnot 1>><<exhibitionist4>><</if>>
@@ -98,7 +98,7 @@ Some orphans are playing.
 			<br>
 		<</if>>
 	<</if>>
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 	<<if $daystate is "night">>
 		<<if $exhibitionism gte 15>>
 			<<link [[Climb over the fence (0:05)|Garden Fence Undies Night]]>><<pass 5>><</link>><<if $ex_fence isnot 1>><<exhibitionist2>><</if>>

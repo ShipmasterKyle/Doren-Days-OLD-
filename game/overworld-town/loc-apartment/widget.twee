@@ -1,13 +1,38 @@
-:: Widgets Robin [widget]
+:: Widgets Apartment [widget]
 
-<<widget "robinroom">><<nobr>>
-	<<npc Robin>><<person1>>
-	<<if $robineventnote is 1>>
-		<<set $robineventnote to 0>>
-		<i>As long as Robin has to pay Bailey, <<hes>> going to keep getting hurt and ending up like this. Maybe you should speak to Bailey about it.</i>
-		<br><br>
+<<widget "sleepover">> <<nobr>>
+<<if $NPCName[$NPCNameList.indexOf("Kylar")].love gte 50 and $hour lte 6>> 
+<span class="blue"> Kylar is sleeping on your couch. </span> 
+<<elseif $robinhouse is "sleep">> Robin is sleeping. 
+<<elseif $robinhouse is "yes">> Robin is eating dinner in the kitchen. 
+<</if>> 
+<</nobr>><</widget>>
+
+<<widget "roommate">><<nobr>>
+
+<</nobr>><</widget>>
+
+<!-- <<widget "bailey">> <<nobr>>
+<<set $rng to random(3)>>
+Your bedroom door is ajar. You peek through the gap. Nothing seems to be amiss, until you look in your wardrobe.
+
+<<for _i to 0; _i lt $wardrobe.under_lower.length; _i++>>
+	<<if $wardrobe.under_lower[_i].one_piece isnot 1>>
+	<<set _temp to _i>>
 	<</if>>
-	<<if $NPCName[$NPCNameList.indexOf("Robin")].trauma gte 95>>
+<</for>>
+
+<<if _temp>>
+Your $wardrobe.under_lower[_temp].name <<if $wardrobe.under_lower[_temp].plural is 1>>are<<else>>is<</if>> missing. You search the floor, but turn up nothing.
+<<set $wardrobe.under_lower.deleteAt(_temp)>><<gstress>><<stress 3>>
+<</nobr>><</widget>> -->
+
+<<widget "li_time">>
+<<set $robin_move += $robin_over>>
+<</widget>>
+
+<<widget "miirobinroom">> <<nobr>>
+<<if $NPCName[$NPCNameList.indexOf("Robin")].trauma gte 95>>
 		You knock on the door. There's a pause for a moment, then Robin opens it. <<He>> stares right through you, <<his>> eyes glazed.
 		<br><br>
 		<<He>> doesn't stop you entering and sitting on the bed. "Come sit with me," you say.
@@ -96,7 +121,7 @@
 			<<link [[Walk to school (0:20)|Robin Walk School]]>><<set $robinschoolmorning to 1>><<pass 20>><</link>>
 			<br>
 		<</if>>
-		<<link [[Leave|Orphanage]]>><<endevent>><</link>>
+		<<link [[Leave|Living Room]]>><<endevent>><</link>>
 		<br>
 	<<elseif $hour gte 23 or $hour lte 6>>
 		Robin looks at the clock on the wall. "It's past my bed time," <<he>> says. <<He>> hugs you. "Goodnight."
@@ -105,7 +130,7 @@
 			<<link [[Ask to stay|Robin Room Bed]]>><</link>>
 			<br>
 		<</if>>
-		<<link [[Leave|Orphanage]]>><<endevent>><</link>>
+		<<link [[Leave|Living Room]]>><<endevent>><</link>>
 		<br>
 	<<elseif $weekday is 7 and $hour gte 9 and $hour lte 16 or $weekday is 1 and $hour gte 9 and $hour lte 15>>
 		<<if $season is "winter">>
@@ -117,7 +142,7 @@
 				<<link [[Offer to help set up (0:30)|Robin Chocolate Set]]>><<pass 30>><<npcincr Robin love 1>><</link>><<glove>>
 			<</if>>
 			<br>
-			<<link [[Leave|Orphanage]]>><<endevent>><</link>>
+			<<link [[Leave|Living Room]]>><<endevent>><</link>>
 			<br>
 		<<else>>
 			"I need to get my lemonade stand set up," <<he>> says. "Come see me on the beach if you like."
@@ -128,7 +153,7 @@
 				<<link [[Offer to help set up (0:30)|Robin's Lemonade Set]]>><<pass 30>><<npcincr Robin love 1>><</link>><<glove>>
 			<</if>>
 			<br>
-			<<link [[Leave|Orphanage]]>><<endevent>><</link>>
+			<<link [[Leave|Living Room]]>><<endevent>><</link>>
 			<br>
 		<</if>>
 	<<elseif $robinbaileyhelp is 1>><<set $robinbaileyhelp to 2>>
@@ -242,7 +267,7 @@
 		<</if>>
 		<br>
 		<<robinbully>>
-		<<link [[Leave|Orphanage]]>><<set $robinhugging to 0>><<endevent>><</link>>
+		<<link [[Leave|Living Room]]>><<set $robinhugging to 0>><<endevent>><</link>>
 		<br>
 	<</if>>
 <</nobr>><</widget>>
@@ -315,7 +340,7 @@
 	<<elseif $halloween is 1 and $hour gte 16 and $hour lt 19 and $monthday is 31>>
 		<<set _robin_location to "halloween">>
 	<<else>>
-		<<set _robin_location to "orphanage">>
+		<<set _robin_location to "home">>
 	<</if>>
 <</if>>
 <</nobr>><</widget>>
@@ -331,7 +356,6 @@ You knock on the door. Robin throws it open and hugs you. "Come in," <<he>> says
 <<else>>
 	"<<print either(
 	"I hope this helps, at least a little.", 
-	"Bailey keeps reminding me that I'm dead weight now. I'm a little worried, but not scared. Not anymore.", 
 	"I wish I could make more, so I could help you more.", 
 	"How do you make so much? I want to be more useful to you.", 
 	"Maybe one day, I'll be paying for you instead!", 

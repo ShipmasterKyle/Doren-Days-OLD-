@@ -4,7 +4,7 @@
 <<set $wolfpackharmony = Math.clamp($wolfpackharmony, 0, 20)>>
 <<set $wolfpackferocity = Math.clamp($wolfpackferocity, 0, 20)>><<set $bus to "wolfcave">>
 You are in the wolf cave. The ceiling hangs low. There's a breeze blowing from the back.
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	The <<wolf_cave_plural>> don't care, but being exposed is embarrassing regardless.
 <</if>>
 <<storeon "wolfcave" "check">>
@@ -84,7 +84,7 @@ You are in the wolf cave. The ceiling hangs low. There's a breeze blowing from t
 <<set $wolfpackharmony = Math.clamp($wolfpackharmony, 0, 20)>>
 <<set $wolfpackferocity = Math.clamp($wolfpackferocity, 0, 20)>><<set $bus to "wolfcaveclearing">>
 You are in the clearing outside the wolf cave. A stream runs by.
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	The <<wolf_cave_plural>> don't care, but being exposed is embarrassing regardless.
 <</if>>
 

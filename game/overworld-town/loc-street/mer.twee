@@ -19,7 +19,7 @@ You are on Mer Street. The street is dominated by the docks and shipping industr
 <br><br>
 <<if $exposed gte 1>>
 	<<exhibitionism "street">>
-	<<if $exposed is 1 and $topless is 0>>
+	<<if $exposed is 1 and $topless is 0 and $uncomfortable.nude is true>>
 		<span class="lewd">This outfit might be fine on the nearby beach, but here it's too lewd!</span>
 		<br><br>
 	<</if>>
@@ -47,13 +47,13 @@ You are on Mer Street. The street is dominated by the docks and shipping industr
 			<br>
 		<</if>>
 		<br>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $uncomfortable.nude is true and $daystate isnot "night">>
 		<<else>>
 			<<add_link "Travel<br>">><<hideDisplay>>
 			<<starfish>>
 			<<oxford>>
 			<<harvest>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<buswait>>
 			<</if>>
 			<<loiter>>

@@ -255,6 +255,7 @@
 	<<set _settingsExitPassage to clone($settingsExitPassage)>>
 	<<unset $settingsExitPassage>>
 	<<run State.display(_settingsExitPassage)>>
+	//I'd hope this works. 
 	<<set $saveName to $saveName.replace(/[^a-zA-Z 0-9]+/g,"")>>
 	<<unset $importString>>
 <</nobr>><</widget>>

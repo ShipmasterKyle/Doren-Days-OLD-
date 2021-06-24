@@ -91,7 +91,7 @@ You've pushed yourself too much. You pass out.
 
 <<widget "hitchhike">><<nobr>>
 <<set $rng to random(1, 100)>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You hear a car approaching. <<covered>> You hide
 	<<if $rng gte 81>>
 		behind a bush

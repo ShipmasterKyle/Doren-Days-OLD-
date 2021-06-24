@@ -19,7 +19,7 @@
 	<<domusexposed>>
 	<<cliff>>
 	<<connudatus>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 and $uncomfortable.nude is true>>
 		<<buswait>>
 	<</if>>
 	<<loiter>>

@@ -161,7 +161,7 @@ Go towards town
 		<<generate1>><<person1>>
 		You see a <<person>> through the trees, leaning against a tree and smoking a cigarette.
 
-		<<if $exposed gte 1>>
+		<<if $exposed gte 1 and $uncomfortable.nude is true>>
 			You follow a different path, not wanting your <<lewdness>> seen.
 			<<gstress>><<stress 6>>
 		<<else>>
@@ -174,7 +174,7 @@ Go towards town
 		<<generate1>><<person1>>
 		You see a <<person>> through the trees, reaching into a bramble patch. <<He>> holds a basket full of berries in <<his>> other hand.
 
-		<<if $exposed gte 1>>
+		<<if $exposed gte 1 $uncomfortable.nude is true>>
 			You follow a deeper path, not wanting your <<lewdness>> seen.
 			<<gstress>><<stress 6>>
 		<<else>>
@@ -719,7 +719,7 @@ Two pairs of eyes stare out from the darkness between the trees.
 <<widget "forestcutter">><<nobr>>
 <<generate1>><<person1>>
 You hear a steady noise up ahead. As you get closer, you see a <<person>> chopping a tree.
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 You crouch behind a bush to conceal your <<nudity>>.
 <br><br>
 	<<if $exposed gte 2>>

@@ -29,10 +29,10 @@ The games and gambling machines lie silent.
 <<passoutarcade>>
 <<else>>
 	<<if $hour is 21>>
-	It's closing time. Security is herding everyone outside. <<if $exposed gte 1>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
+	It's closing time. Security is herding everyone outside. <<if $exposed gte 1 and $uncomfortable.nude is true>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
 	<br><br>
 
-		<<if $exposed lte 0>>
+		<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<link [[Go Outside|Starfish Street]]>><</link>>
 		<br>
 		<<else>>
@@ -43,15 +43,15 @@ The games and gambling machines lie silent.
 		<<if $daystate is "night" or $daystate is "dawn">>
 		You are alone in the darkness.
 		<br><br>
-		<<elseif $exposed gte 1>>
+		<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 		You hide beneath a pinball machine to protect your dignity.
 		<br><br>
 		<</if>>
-		<<if $money gte 500 and ($daystate is "day" or $daystate is "dusk") and $exposed lte 0>>
+		<<if $money gte 500 and ($daystate is "day" or $daystate is "dusk") and ($exposed lte 0 or $uncomfortable.nude is false)>>
 			<<link [[Play (£5 0:20)|Arcade Play]]>><<set $money -= 500>><<pass 20>><<stress -2>><</link>><<lstress>>
 			<br>
 		<</if>>
-		<<if $exposed lte 0 and $NPCName[$NPCNameList.indexOf("Kylar")].state is "active" and ($weather is "rain" or $weather is "snow") and $daystate is "day">>
+		<<if ($exposed lte 0 or $uncomfortable.nude is false) and $NPCName[$NPCNameList.indexOf("Kylar")].state is "active" and ($weather is "rain" or $weather is "snow") and $daystate is "day">>
 			<<if ($schoolday isnot 1 or $hour lte 8 or $hour gte 15) and ($daystate is "day" or $daystate is "night")>>
 				<br>
 				You see Kylar playing on one of the cabinets.

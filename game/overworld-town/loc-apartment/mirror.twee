@@ -13,7 +13,7 @@ The light takes shape and extends into the space in front of you. A single tenta
 :: Mii Eerie Mirror Stop [nobr]
 
 <<effects>>
-You pull away from the mirror. The light goes out at once.
+You look away from the mirror. The light goes out at once.
 <br><br>
 <<link [[Step away|My Bedroom]]>><<unset $mirrorMenu>><</link>>
 <<mirror>>

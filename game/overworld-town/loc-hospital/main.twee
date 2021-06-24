@@ -27,7 +27,7 @@ You are in front of the hospital. It is open at all hours.
 <<if $stress gte 10000>>
 <<passouthospital>>
 <<else>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 You are hiding in the bushes just outside the entrance. You should be able to enter without being seen if you time it right.
 <br><br>
 <</if>>
@@ -48,7 +48,7 @@ You are inside the hospital foyer. <<if $psych is 1>>You see a sign directing to
 <<if $stress gte 10000>>
 <<passouthospital>>
 <<else>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 You are hiding under a hospital bed, hoping no one spots you in this state of undress. You see a cart full of sheets not far away that you could use to cover yourself. You could wait until the coast looks clear then make a break for it. Alternatively, you could inch the bed closer to the cart to try to remain concealed from view.
 <br><br>
 
@@ -282,7 +282,7 @@ You are in the paediatric ward of the hospital. Several nurses go about their bu
 <<if $stress gte 10000>>
 <<passouthospital>>
 <<else>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 You are hiding under a hospital bed, hoping no one spots you in this state of undress. You see a cart full of sheets not far away that you could use to cover yourself. You could wait until the coast looks clear then make a break for it. Alternatively, you could inch the bed closer to the cart to try to remain concealed from view.
 <br><br>
 

@@ -26,7 +26,7 @@ You are in the tattoo parlour. The artists here can turn anything drawn on you i
 
 <<if $daystate is "night">>
 	You are alone in the darkness.
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide in a cupboard to protect your dignity.
 <<else>>
 
@@ -37,10 +37,10 @@ You are in the tattoo parlour. The artists here can turn anything drawn on you i
 	<<passoutshop>>
 <<else>>
 	<<if $hour is 21>>
-		It's closing time. Security is herding everyone outside. <<if $exposed gte 1>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
+		It's closing time. Security is herding everyone outside. <<if $exposed gte 1 and $uncomfortable.nude is true>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
 		<br><br>
 
-		<<if $exposed lte 0>>
+		<<if $exposed lte 0 or $uncomfortable.nude is false>>
 			<<link [[Go Outside|High Street]]>><</link>>
 			<br>
 		<<else>>

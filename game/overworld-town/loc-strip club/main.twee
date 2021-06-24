@@ -45,7 +45,21 @@ You are in the strip club on Connudatus Street. <<if $daystate isnot "day" and $
 		<br><br>
 		<<endevent>><<if $stripclubfailed isnot 0>><<set $stripclubfailed to 1>><</if>>
 	<<elseif $id is 1>>
+		<<set $rng to random(1,100)>>
+		<<if $rng lt 97>>
 		"I'm going to have to ask you for an ID." You hand <<him>> your fake ID. <<He>> examines it for a moment, then hands it back to you. "Welcome. Please enjoy yourself, but remember to keep your hands to yourself on the main floor. No second chances." <<He>> looks you up and down. "We're also hiring. Positions are open for bartenders and dancers."
+		<<set $stripclubintro to 1>>
+		<br><br>
+		<<endevent>>
+		<<else>>
+		"I'm going to have to ask you for an ID." You hand <<him>> your fake ID. <<He>> examines it for a moment, then hands it back to you. "I know a fake when I see one. Get a real one. Until then, no entry." <<He>> steers you firmly toward the door
+		<<set $stripclubintro to 1>>
+		<br><br>
+		<span class="gold"> Perhaps you should check the town hall. </span>
+		<<endevent>>
+		<</if>>
+	<<elseif $id is 2>>
+		"I'm going to have to ask you for an ID." You hand <<him>> the ID you got from the town hall. <<He>> examines it for a moment, then hands it back to you. "Welcome. Please enjoy yourself, but remember to keep your hands to yourself on the main floor. No second chances." <<He>> looks you up and down. "We're also hiring. Positions are open for bartenders and dancers."
 		<<set $stripclubintro to 1>>
 		<br><br>
 		<<endevent>>

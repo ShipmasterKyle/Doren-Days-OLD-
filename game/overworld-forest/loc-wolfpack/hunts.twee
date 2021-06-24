@@ -244,7 +244,7 @@ The pack seems uneasy. They wouldn't normally track a pack of humans unless the 
 A frontal attack would be very risky.
 <br><br>
 
-<<if $exposed gte 2>>
+<<if $exposed gte 2 and $uncomfortable.nude is true>>
 	<<if $exhibitionism gte 75>>
 	You feel more conscious of your <<lewdness>> now that you're faced with other people. It would be so embarrassing to stride into the middle of them like this. But it could work to your advantage.
 	<br><br>
@@ -257,7 +257,7 @@ A frontal attack would be very risky.
 	<br><br>
 
 	<</if>>
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 	<<if $exhibitionism gte 35>>
 	You feel more conscious of your <<lewdness>> now that you're faced with other people. It would be so embarrassing to stride into the middle of them like this. But it could work to your advantage.
 	<br><br>

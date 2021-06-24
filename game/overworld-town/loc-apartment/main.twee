@@ -1,7 +1,7 @@
 :: My Bedroom [nobr]
 
 <<bedclotheson>>
-<<set $outside to 0>><<set $location to "town">><<home_effects>><<effects>>
+<<set $outside to 0>><<set $location to "town">><<effects>>
 You are inside your room.
 <br><br>
 <!--WIP Stuff for when Robin can stay in the PC's rooom
@@ -28,7 +28,7 @@ You are inside your room.
 <<if $robinpaid is 1 and $robinnote isnot 1 and $NPCName[$NPCNameList.indexOf("Robin")].lust gte 10 and $NPCName[$NPCNameList.indexOf("Robin")].love gte 60 and $NPCName[$NPCNameList.indexOf("Robin")].trauma lt 10>>
 	<span class="gold">There's a note by the window.</span>
 	<br>
-	<<link [[Read it|Robin Note]]>><<set $robinnote to 1>><</link>>
+	<<link [[Read it|Robin Home Note]]>><<set $robinnote to 1>><</link>>
 	<br><br>
 <</if>>
 <!--<<projectoptions>> <- Project Stuff-->
@@ -37,7 +37,7 @@ Your room is much larger than it was at the orphanage. Your bed faces your dress
 		<br>
 		<<link [[Strip and get in bed|MyBed]]>><<undress "bed">><</link>>
 		<br>
-		<<listsleepoutfits>>
+		<<elistsleepoutfits>>
 	<<else>>
 		<br>
 		<span class="red">The slime wants you to <<print $slimeEvent>> before you can go to bed.</span>
@@ -53,6 +53,10 @@ Your room is much larger than it was at the orphanage. Your bed faces your dress
 	<br>
 	<<link [[Wardrobe|Mii Wardrobe]]>><</link>>
 	<br>
+	<<if $wardrobe.space is 40>>
+		<<link [[Upgrade Wardrobe|Upgrade Shop]]>><</link>>
+			<br>
+	<</if>>
 	<<if $hour is 3 and $hallucinations gte 2 and $mirrortentacles isnot 1 and $tentacledisable is "f">>
 		<br>
 		<span class="purple">An eerie light spills from your mirror.</span>
@@ -71,6 +75,10 @@ Your room is much larger than it was at the orphanage. Your bed faces your dress
 	<br>
 	<<link [[Radio|Watch TV]]>><<pass 1>><</link>>
 	<br><br>
+	Setttings
+	<br>
+	<<link [[Settings]]>><<set $settingsExitPassage to "My Bedroom">><</link>>
+	<br><br>
 The hallway outside connects to the rest of your apartment.
 <br><br>
 <<link [[Living Room (0:01)|Living Room]]>><</link>>
@@ -87,6 +95,8 @@ The hallway outside connects to the rest of your apartment.
 <<wearoutfit>>
 <<if $robinbed is 1>>
 You snuggle under the covers with Robin.
+<<elseif $robinhouse is "sleep">>
+Robin sleeps in the living room.
 <br><br>
 <<else>>
 	<<if $location is "town" and $corruption_slime gte ($willpower / 20) and random(0,100) lt 3 and ($daystate is "night" and ($hour gte 20 or $hour lte 1)) and $slimeSleepEvent is 0 and $slimeEvent is undefined>>
@@ -151,7 +161,7 @@ You are in the bathroom.
 <</if>>
 <<sleep>><<effects>>
 <<sleepeffects>>
-<<if $robindebtwake is 1>>
+<<if $robindebtwake is 1 and $homeknown.includes("Robin")>>
 	<<set $robindebtwake to 0>><<set $robindebtknown to 1>><<set $schoolwake to 0>>
 	<<npc Robin>><<person1>>You're awoken by a knock on your door. You tiptoe downstairs and look through the peephole. Its Robin.
     <br>
@@ -161,13 +171,14 @@ You are in the bathroom.
     <br>
     "I hope I didn't wake you," <<he>> says. "I'm frightened. Bailey makes me pay <<endevent>><<npc Bailey>><<him>>,<<endevent>><<npc Robin>><<person1>> but it's so much and it keeps getting higher." <<Hes>> on the verge of tears. You lean forward and hug <<him>>. "I don't know what to do."
     <br>
-    You hold <<him>> for a few minutes until <<he>> pulls away from you. "Sorry. I just needed to tell someone. Goodnight." <<he>> wipes <<his>> eyes with <<his>> sleeve. <<He>> walks out the door and quietly closes it. After locking up you head back to bed.
+    You hold <<him>> for a few minutes until <<he>> pulls away from you. "Sorry. I just needed to tell someone. Goodnight. <<He>> gets up to leave.
 	<br>
 	<<gstress>><<stress 6>>
 	<br>
-	<<endevent>>
+	<<link [[Let them stay|MyBed]]>><<set $robinhouse to "sleep">> <</link>>
+	<<br>>
 <</if>>
-	<<link [[Next|MyBed]]>><</link>>
+	<<link [[Next|MyBed]]>><<endevent>><</link>>
 	<br>
 <br>
 
@@ -198,7 +209,7 @@ Your skin is still damp.
 
 <<if $wardrobe.upper.findIndex(x => x.name == "bathrobe") >= 0 or $carried.upper.name == "bathrobe">>
 	<br>
-	<<link [[Put on a bathrobe|Bathroom]]>>
+	<<link [[Put on a bathrobe|Mii Bathroom]]>>
 		<<returnCarried>>
 		<<set $wear_upper = $wardrobe.upper.findIndex(x => x.name == "bathrobe")>>
 		<<wardrobewear>>
@@ -206,11 +217,23 @@ Your skin is still damp.
 <</if>>
 
 :: Living Room [nobr]
-You stand in your living room.
+You stand in your living room. 
+<<sleepover>>
+<!-- <<roommate>> Roomate interaction widget.-->
 <br>
 <<link [[Bedroom (0:01)|My Bedroom]]>><<pass 1>><</link>>
 <br>
 <<link [[Bathroom (0:01)|Mii Bathroom]]>><<pass 1>><</link>>
+<br>
+<<link [[Kitchen (0:01)|Kitchen]]>><<pass 1>><</link>>
+<br>
+<<if $robinhome is "apartment" and $debug is 1>>
+<<link [[Go to Robin's Room|Robin's Room]]>><</link>>
+<</if>>
+<!-- list is being buggy for some reason.
+<<if $roomates.includes("Kylar")>>
+<<link [[Go to Kylar's Room|Kylar's Room]]>><</link>>
+<</if>> -->
 <br>
 A TV sits on a table.
 <br>
@@ -218,6 +241,48 @@ A TV sits on a table.
 <br>
 <<link [[Leave|Flat Enterance]]>><<pass 1>><</link>>
 
+:: Kitchen [nobr]
+<!--Events-->
+Work in progress.
+<<if $hour gte 6 and $hour lt 9 and $robinhome is "apartment">>
+"Good morning! Robin says. "I made <<print either(
+    "pancakes.",
+    "toast.",
+    "eggs.",
+    "bacon."
+)>> I hope you like it!"
+<br>
+<<link [[Eat|Kitchen Eat]]>><<set $phase to 1>><</link>>
+<<elseif  $hour gte 18 and $hour lt 21  and $robinhome is "apartment">>
+"Ready for dinner? Robin asks.
+<br>
+<<link [[Eat|Kitchen Eat]]>><<set $phase to 2>><</link>>
+<</if>>
+<br><br>
+<!-- <<if $robinhouse is "yes" and $hour gte 22>>
+<<link [[Next|Living Room]]>><<set $robinhouse to "sleep">><</link>>
+<</if>> -->
+<<link [[Leave|Living Room]]>><</link>>
+
+:: Kitchen Eat [nobr]
+<<npc Robin>><<person1>><<npc Kylar>><<person2>>
+<<if $phase is 1>>
+You sit down to breakfast. <<if $roomates.includes("Kylar")>> Kylar is already quietly eating.<</if>> Robin takes your plate and washes it when you're done.
+<br>
+
+<<elseif $phase is 2>
+You sit down for dinner. <<if $roomates.includes("Kylar")>> Kylar sits down in his usual chair.<</if>> You make small talk. Robin takes your plate and washes it when you're done.
+<!-- This scene requires more reasearch on Kylar's character.
+ <<if $robinkylar_friendship gte 5>> <span class= "blue"> and thanks robin for dinner. </span> <</if>><</if>>
+<<if $robinkylar_friendship is 5>> 
+<br><br>
+"I see you two are getting along." You say.
+<br>
+Kylar picks at his food.
+<</if>> 
+-->
+<<link [[Next|Living Room]]>><<pass 45>><</link>>
+<</if>>
 :: Watch TV [nobr]
 Coming Soon
 <br><br>
@@ -257,3 +322,44 @@ You take the history textbook of the shelf and read through the material.
 <</if>>
 <br><br>
 <<link [[Next|Home Study Menu]]>><</link>>
+
+:: Robin's Room [nobr]
+<span class="red"> This is a heavy work in progress. Expect bugs.</span>
+<<if $schoolday is 1 and $hour gte 8 and $hour lte 15 and $robinschoolafternoon isnot 1 or $hour lte 15 and $robinschoolmorning is 1 and $robinschoolafternoon isnot 1>>
+	You go to Robin's room. There's a note on the door. "Gone to school!"
+	<br><br>
+	<<link [[Leave|Living Room]]>><</link>>
+	<br>
+<<elseif $hour gte 21 or $hour lte 6>>
+You go to Robin's room. There's a note on the door. "Sleeping!"
+<<elseif $weekday is 7 and $hour gte 9 and $hour lte 16 or $weekday is 1 and $hour gte 9 and $hour lte 16 and $NPCName[$NPCNameList.indexOf("Robin")].trauma lt 80>>
+	<<if $season is "winter">>
+		You go to Robin's room. There's a note on the door. "Out selling hot chocolate!"
+		<br><br>
+	<<else>>
+		You go to Robin's room. There's a note on the door. "Out selling lemonade!"
+		<br><br>
+	<</if>>
+	<<link [[Leave|Living Room]]>><</link>>
+	<br>
+<<elseif $halloween is 1 and $hour gte 16 and $hour lt 19 and $monthday is 31 and $robinmissing isnot 1>>
+	You go to Robin's room. There's a note on the door. "Out trick-or-treating!"
+	<br><br>
+	<<link [[Leave|Living Room]]>><</link>>
+	<br>
+<<else>>
+	<<miirobinroom>>
+<</if>>
+
+<br><br>
+<<link [[Next|Living Room]]>><</link>>
+
+:: Kylar's Room [nobr]
+Coming Soon
+<br><br>
+<<link [[Next|Living Room]]>><</link>>
+
+:: Upgrade Shop [nobr]
+You buy a better closet and have it installed. Your old one is moved to one of the extra rooms.
+<<set $wardrobe.space to 100>>
+<<link [[Next|My Bedroom]]>><</link>>

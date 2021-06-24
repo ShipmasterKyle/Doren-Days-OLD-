@@ -11,7 +11,7 @@ You are in an alleyway in the industrial district.
 There's a ladder to your right, you think it will take you to the rooftops. The rear of the school protrudes into this area, separated by a spiked fence.
 <<streeteffects>>
 <br><br>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	<<exhibitionism "alley">>
 <</if>>
 <<if $arousal gte 10000>>
@@ -36,7 +36,7 @@ There's a ladder to your right, you think it will take you to the rooftops. The 
 		<br>
 		<<link [[Climb over the fence into the school grounds (0:05)|School Rear Fence]]>><<pass 5>><</link>>
 		<br><br>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $daystate isnot "night" and $uncomfortable.nude is true>>
 		<<else>>
 			<<add_link "Travel<br>">><<hideDisplay>>
 			<<oxford>>
@@ -46,7 +46,7 @@ There's a ladder to your right, you think it will take you to the rooftops. The 
 			<<loiter>>
 		<</if>>
 		<<add_link "<br>Alternate routes<br>">><<hideDisplay>>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $daystate isnot "night" and $uncomfortable.nude is true>>
 		<<else>>
 			<<park>>
 		<</if>>

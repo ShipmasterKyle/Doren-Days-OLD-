@@ -35,7 +35,7 @@
 <</nobr>><</widget>>
 
 <<widget "schoolperiod">><<nobr>>
-<<if $exposed lte 0>>
+<<if $exposed lte 0 or $uncomfortable.nude is false>>
 <<if $schoolstate is "morning">>
 <<scienceicon>><<link [[Go to your science lesson (0:01)|Science Classroom]]>><<pass 1>><</link>>
 <br><br>
@@ -125,7 +125,7 @@ Your swimming lesson started at <<if $timestyle is "ampm">>2:00 pm<<else>>14:00<
 
 <<widget "changingrooms">><<nobr>>
 
-<<if $exposed gte 2>>
+<<if $exposed gte 2 and $uncomfortable.nude is true>>
   <<if $player.gender_appearance is "m">>
 	<<if $exhibitionism gte 75>>
 	<<femaleicon>><<link [[Girl's Changing Room|School Girl Changing Room]]>><</link>><<exhibitionist5>>

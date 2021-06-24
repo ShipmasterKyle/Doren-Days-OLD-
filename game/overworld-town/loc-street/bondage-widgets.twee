@@ -174,10 +174,10 @@
 			<br><br>
 		<</if>>
 	<</if>>
-
+	<<if $uncomfortable.nude is true>>
 	<<covered>> You just hope no one can see you.
 	<br><br>
-
+	<</if>>
 	<<destinationbondage>>
 
 <</if>>
@@ -200,7 +200,7 @@
 
 <<elseif $rng gte 16>>
 	<<generatey1>><<generatey2>><<generatey3>><<generatey4>><<generatey5>><<person1>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		You hear a gaggle of students up ahead. They burst into laughter.
 		<br><br>
 

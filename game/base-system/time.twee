@@ -9,6 +9,7 @@
 <<set $renttime -= 1>>
 <<else>>
 <<set $homerenttime -=1>>
+<</if>>
 <<if $month is "february">>
 	<<set $miirentday to 28 >>
 <<esleif $month is "april" or $month is "june" or $month is "september" or $month is "november">>

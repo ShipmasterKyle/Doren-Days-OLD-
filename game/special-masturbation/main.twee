@@ -1013,7 +1013,7 @@ The bell rings, signifying the end of the lesson. You leave the classroom.
 <<pass 1>>
 <</if>>
 
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 	<<maleicon>><<link [[Boy's Changing Room|School Boy Changing Room]]>><</link>>
 	<br>
 

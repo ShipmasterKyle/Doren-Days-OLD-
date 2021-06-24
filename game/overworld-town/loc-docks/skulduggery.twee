@@ -54,7 +54,7 @@ You are on the docks.
 	<br><br>
 	<<pass 5>>
 	You won't be able to steal anything in daylight.
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		You sneak back to the entrance, hoping to keep your <<lewdness>> concealed. You make it through the side gate without being spotted.
 	<<else>>
 		You walk back to the entrance. No one pays you much attention.
@@ -459,7 +459,7 @@ You're sat in the guardhouse beside the front gate. The <<person1>><<person>> wa
 :: Docks Caught Wait [nobr]
 <<effects>>
 
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You wait in the guardhouse, trying to ignore the <<person1>><<persons>> leering gaze. You hear a car pull up outside.
 <<else>>
 	You wait in the guardhouse, until you hear a car pull up outside.
@@ -487,7 +487,7 @@ You jump from your seat, and run for the door.
 	The <<person1>><<person>> tries to grab you, <span class="red">and manages to catch your waist with <<his>> arm.</span> <<He>> and the <<person2>><<person>> make sure you can't run again.
 	<br><br>
 	<<pass 10>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		You wait in the guardhouse, trying to ignore the <<person1>><<persons>> leering gaze. You hear a car pull up outside.
 	<<else>>
 		You wait in the guardhouse, until you hear a car pull up outside.
@@ -740,7 +740,7 @@ You wait around the corner, listening for the patter of feet.
 		
 		They grasp your arms, haul you to your feet, and drag you through the maze of containers.
 		<<if $exposed gte 1>>
-			You feel them ogle your <<nudity>>. <<covered>>
+			You feel them ogle your <<nudity>>.<<if $uncomfortable.nude is true>> <<covered>> <</if>>
 		<</if>>
 		<br><br>
 		<<link [[Next|Docks Caught]]>><<clotheson>><<unset $dock_dog>><</link>>
@@ -798,7 +798,7 @@ The <<person1>><<person>> hesitates, then reaches for <<his>> radio once more. "
 
 They grasp your arms, haul you to your feet, and drag you through the maze of containers.
 <<if $exposed gte 1>>
-	You feel them ogle your <<nudity>>. <<covered>>
+	You feel them ogle your <<nudity>>.<<if $uncomfortable.nude is true>> <<covered>> <</if>>
 <</if>>
 <br><br>
 <<link [[Next|Docks Caught]]>><<clotheson>><<unset $dock_dog>><</link>>

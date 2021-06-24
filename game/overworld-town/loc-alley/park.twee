@@ -28,7 +28,7 @@ Tulips grow in great patches near the riverbank.
 
 <<streeteffects>>
 <br><br>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	<<exhibitionismpark>>
 	<<if $daystate isnot "night">>
 		You can hear the commotion of the High Street, there's no way you'll be able to cross like this. However, there's a depot from which crates are being carried across the road, maybe you could hide in one of them.
@@ -100,7 +100,7 @@ Tulips grow in great patches near the riverbank.
 		<</if>>
 		Places of interest
 		<br>
-		<<if $scienceproject is "ongoing" and $sciencelichenknown is 1 and $sciencelichenpark is 0 and $exposed lte 0>>
+		<<if $scienceproject is "ongoing" and $sciencelichenknown is 1 and $sciencelichenpark is 0 and $exposed lte 0 or $uncomfortable.nude is false and $scienceproject is "ongoing" and $sciencelichenknown is 1 and $sciencelichenpark is 0>>
 			<<link [[Examine lichen for science project|Park Lichen]]>><</link>>
 			<br>
 		<</if>>

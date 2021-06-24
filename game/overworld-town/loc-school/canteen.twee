@@ -20,7 +20,7 @@ The room is empty.
 <br><br>
 <</if>>
 
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	<<if $schoolstate is "lunch">>
 	You hide beneath a counter to conceal your <<nudity>>. You hear the bustle of students mere feet away.
 	<br><br>
@@ -48,7 +48,7 @@ The room is empty.
 				<<endevent>>
 				<<link [[Eat with Robin (0:20)|Canteen Lunch Robin]]>><<stress -6>><<trauma -2>><<pass 20>><<set $luncheaten to 1>><<npcincr Robin love 1>><</link>><<ltrauma>><<lstress>>
 				<br>
-			<<elseif $robinmissing isnot 1 and $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $luncheaten isnot 1 and $exposed lte 0>>
+			<<elseif $robinmissing isnot 1 and $NPCName[$NPCNameList.indexOf("Robin")].init is 1 and $luncheaten isnot 1 and ($exposed lte 0 or $uncomfortable.nude is false)>>
 				<<set $rng to random(1, 100)>>
 				<<if $rng gte 96>>
 				<<npc Robin>><<person1>>You see Robin trying to eat <<his>> lunch while a group of delinquents harass <<him>>.<<endevent>>
@@ -67,13 +67,13 @@ The room is empty.
 				<br>
 				<</if>>
 			<</if>>
-			<<if $NPCName[$NPCNameList.indexOf("Kylar")].state is "active" and $luncheaten isnot 1 and $exposed lte 0>>
+			<<if $NPCName[$NPCNameList.indexOf("Kylar")].state is "active" and $luncheaten isnot 1 and ($exposed lte 0 or $uncomfortable.nude is false)>>
 			Kylar sits alone, stabbing food with a fork.
 			<br>
 			<<link [[Eat with Kylar (0:20)|Canteen Lunch Kylar]]>><<pass 20>><<set $luncheaten to 1>><<npcincr Kylar love 1>><<npcincr Kylar rage -1>><</link>><<glove>><<lksuspicion>>
 			<br><br>
 			<</if>>
-			<<if $luncheaten isnot 1 and $exposed lte 0>>
+			<<if $luncheaten isnot 1 and ($exposed lte 0 or $uncomfortable.nude is false)>>
 <<link [[Eat Lunch (0:10)|Canteen Lunch]]>><<pass 10>><<stress -6>><<set $luncheaten to 1>><</link>><<lstress>>
 <br>
 			<</if>>
@@ -90,7 +90,7 @@ The room is empty.
 
 	<</if>>
 
-	<<if $exposed gte 1 and $schoolstate is "lunch">>
+	<<if ($exposed gte 1 or $uncomfortable.nude is false) and $schoolstate is "lunch">>
 		<<if $leftarm isnot "bound" and $rightarm isnot "bound">>
 	<<link [[Cover yourself with a tray and try to leave|Canteen Tray]]>><</link>>
 	<br>

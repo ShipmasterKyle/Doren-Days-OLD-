@@ -40,6 +40,8 @@ Lara carefully examines the money. "Thank you. Allow me to show you your room."
 <</if>>
 <<set $homeinit to 1>>
 <<set $homerenttime to 30>>
+<<set $roomates to ()>>
+<<set $homeknown to ()>>
 <<link [[Next|Living Room]]>><<pass 2>><</link>>
 
 :: Landlord Office [nobr]

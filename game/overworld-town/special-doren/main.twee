@@ -230,7 +230,7 @@ You ride in Doren's car to the movie theatre. The movie is a blockbuster romance
 <br>
 <<link[[Stay Put|Doren Movie 2]]>><</link>>
 
-:: Doren Move Kiss [nobr]
+:: Doren Movie Kiss [nobr]
 You lean in and plant a kiss on <<his>> lips. <<He>> kisses back. <<takeKissVirginity "Doren" "romantic">>
 <<promiscuity1>>
 <<link[[Next|Doren Movie 3]]>><</link>>

@@ -15,7 +15,7 @@
 	You are in the school hallways. You hear speaking behind the various classroom doors.
 	<br><br>
 	<</if>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You dart between storerooms, hide beneath stairwells and avoid popular areas to keep your <<lewdness>> hidden.
 	<br><br>
 	<</if>>
@@ -64,7 +64,7 @@ The school hallways are empty.
 <<link [[Everything fades to black...|School Passout]]>><</link>>
 
 <<elseif $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $danger gte (9900 - $allure) and $eventskip is 0>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	<<eventschoolhallwaysexposed>>
 	<<else>>
 	<<eventsschoolhallways>>
@@ -73,7 +73,7 @@ The school hallways are empty.
 
 <<schoolperiod>>
 
-	<<if $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $exposed gte 1>>
+	<<if $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $exposed gte 1 and $uncomfortable.nude is true>>
 	<<link [[Sneak to rear playground (0:05)|School Rear Playground]]>><<pass 5>><</link>>
 	<br>
 	<<swimmingicon>><<link [[Sneak to pool (0:03)|School Pool Entrance]]>><<pass 3>><</link>>

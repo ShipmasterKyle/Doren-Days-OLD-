@@ -86,7 +86,7 @@ You'll earn <span class="gold">£<<print $farm.wage / 100>></span> for every hou
 	<br><br>
 	<<link [[Leave|Farmland]]>><</link>>
 	<br>
-<<elseif $exposed gte 2 and $farm_naked isnot 1>>
+<<elseif $exposed gte 2 and $farm_naked isnot 1 or $uncomfortable.nude is false and $farm_naked isnot 1>>
 	You hide behind a fence, concealing your <<lewdness>>.
 	<br><br>
 	<<if $exhibitionism gte 75>>

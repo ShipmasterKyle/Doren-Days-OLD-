@@ -75,6 +75,9 @@
 <<set $home to "none">>
 <<set $homeinit to 0>>
 <<set $homerenttime to 0>>
+<<set $robinhome to "none">>
+<<set $robin_over to 0>>
+<<set $robin_move to 0>>
 <<set $dancestudioanger to 0>>
 <<set $dancelocation to 0>>
 <<set $alarm to 0>>
@@ -256,6 +259,8 @@
 <<set $underupperwetstage to 0>>
 
 <<set $genderknown to ["Robin", "Bailey"]>>
+<<set $homeknown to ["Robin", "Bailey", "Kylar", "Mickey", "Avery"]>>
+<<set $roomates to ["Robin", "Mickey"]>> <!--Defualted to the other orphans-->
 
 <<set $vaginause to 0>>
 <<set $anususe to 0>>

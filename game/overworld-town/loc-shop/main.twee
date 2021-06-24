@@ -25,16 +25,16 @@
 		<<passoutshop>>
 	<<else>>
 		<<if $hour is 21>>
-			It's closing time. Security is herding everyone outside. <<if $exposed gte 1>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
+			It's closing time. Security is herding everyone outside. <<if $exposed gte 1 and $uncomfortable.nude is true>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
 			<br><br>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<link [[Go Outside|High Street]]>><</link>>
 				<br>
 			<<else>>
 				<<link [[Hide until it's over (1:00)|Shopping Centre Top]]>><<pass 1 hour>><</link>>
 			<</if>>
 		<<else>>
-			<<if $exposed gte 2>>
+			<<if $exposed gte 2 and $uncomfortable.nude is true>>
 				You feel so vulnerable with your privates exposed.
 				<<if $leftarm is "bound" and $rightarm is "bound">>
 					With your arms bound you can't even cover yourself.
@@ -64,7 +64,7 @@
 					<br>
 					<<link [[Roof (0:02)|Commercial rooftops]]>><<pass 2>><</link>>
 				<</if>>
-			<<elseif $exposed gte 1>>
+			<<elseif $exposed gte 1 $uncomfortable.nude is false>>
 				You are dressed really inappropriately for public!
 				<<if $leftarm is "bound" and $rightarm is "bound">>
 				With your arms bound you can't even cover yourself.
@@ -405,7 +405,7 @@ Their bodies shudder in unison as they reach orgasm.
 <</if>>
 <br><br>
 
-<<if $days is 0 and $NPCName[$NPCNameList.indexOf("Robin")].init is 0 and $exposed lte 0 and $hour gte 17 and $hour lte 19>>
+<<if $days is 0 and $NPCName[$NPCNameList.indexOf("Robin")].init is 0 and ($exposed lte 0 or $uncomfortable.nude is false) and $hour gte 17 and $hour lte 19>>
 		<<set $robindebt to 0>><<set $robindebtlimit to 5>>
 		<<npc Robin>><<initnpc Robin>><<person1>>
 		<br><br>
@@ -420,17 +420,17 @@ Their bodies shudder in unison as they reach orgasm.
 	<<passoutshop>>
 <<else>>
 	<<if $hour is 21>>
-		It's closing time. Security is herding everyone outside. <<if $exposed gte 1>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
+		It's closing time. Security is herding everyone outside. <<if $exposed gte 1 and $uncomfortable.nude is false>>Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.<</if>>
 		<br><br>
 
-		<<if $exposed lte 0>>
+		<<if $exposed lte 0 or $uncomfortable.nude is false>>
 			<<link [[Go Outside|High Street]]>><</link>>
 			<br>
 		<<else>>
 			<<link [[Hide until it's over (1:00)|Shopping Centre]]>><<pass 1 hour>><</link>>
 		<</if>>
 	<<else>>
-		<<if $exposed gte 2>>
+		<<if $exposed gte 2 and $uncomfortable.nude is true>>
 			You feel so vulnerable with your privates exposed.
 			<<if $leftarm is "bound" and $rightarm is "bound">>
 				With your arms bound you can't even cover yourself.
@@ -443,7 +443,7 @@ Their bodies shudder in unison as they reach orgasm.
 				Your face aflame with embarrassment, you run into the women's restroom.
 				<br><br>
 			<</if>>
-		<<elseif $exposed gte 1>>
+		<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 			You are dressed really inappropriately for public!
 			<<if $leftarm is "bound" and $rightarm is "bound">>
 				With your arms bound you can't even cover yourself.
@@ -473,7 +473,6 @@ Their bodies shudder in unison as they reach orgasm.
 			<br>
 			<<link [[Go outside (0:02)|Shopping Centre Entrance Sneak]]>><<pass 2>><</link>>
 			<br>
-		<<elseif $exposed gte 1>>
 			<<link [[Restroom|Shopping Centre Restroom]]>><</link>>
 			<br>
 		<<else>>

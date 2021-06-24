@@ -645,7 +645,7 @@ You join the others in sprinting the rest of the way to the lake. You don't know
 <<if $hour is 20>>
 	It's getting late, and the shadows of the forest are lengthening. People are preparing to return to town. No one wants to be left to travel alone.
 	<br><br>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<link [[Go with them (0:30)|Lake Return Journey]]>><<set $foresthunt to 0>><<pass 30>><</link>>
 		<br>
 	<</if>>

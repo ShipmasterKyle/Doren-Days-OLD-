@@ -63,7 +63,7 @@
 <<set $wardrobe.hands to []>>
 <<set $wardrobe.legs to []>>
 <<set $wardrobe.feet to []>>
-<<set $wardrobe.space to 40>>
+<<set $wardrobe.space to 40>> <!--Lets you have more clothes-->
 
 <<set $outfit to [
 

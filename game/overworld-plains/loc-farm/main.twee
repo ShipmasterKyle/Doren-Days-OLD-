@@ -54,7 +54,7 @@ You are in the farmlands.
 	<br><br>
 <</if>>
 
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide behind a hay bale to cover your indecency.
 	<br><br>
 <</if>>
@@ -63,10 +63,10 @@ You are in the farmlands.
 	<<passoutfarmroad>>
 <<else>>
 	<<if $daystate isnot "night">>
-		<<if $farm_stage is undefined and $exposed lte 0>>
+		<<if $farm_stage is undefined and $exposed lte 0 or $farm_stage is undefined and $uncomfortable.nude is false>>
 			<<link [[Ask about farm work (0:30)|Farm Intro]]>><<pass 30>><<set $farm_stage to 1>><</link>>
 			<br>
-		<<elseif $farm_stage is 1 and $exposed lte 0>>
+		<<elseif $farm_stage is 1 and $exposed lte 0 or $farm_stage and $uncomfortable.nude is false>>
 			<<link [[Accept farm work (0:05)|Farm Intro Accept 2]]>><<pass 5>><<set $farm_stage to 2>><</link>>
 			<br>
 		<</if>>

@@ -36,7 +36,7 @@ What makes you feel uncomfortable?
 <<if $exhibitionism gte 95 or $uncomfortable.nude is false>>
 	<label><<print '<<checkbox "$uncomfortable.nude" false true '+($uncomfortable.nude ? "checked" : "")+'>>'>> You're uncomfortable being nude in front of others.</label>
 <<else>>
-	<span class="black">You're uncomfortable being nude in front of others. <i>Requires higher exhibitionism.</i></span> 
+	<span class="black">You're uncomfortable being completely nude in front of others. <i>Requires higher exhibitionism.</i></span> 
 <</if>>
 <br>
 <<if $specialTransform is 1 or $physicalTransform is 1>>

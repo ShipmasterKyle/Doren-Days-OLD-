@@ -1,7 +1,7 @@
 :: Widgets Home [widget]
 <<widget "home_outside">><<nobr>>
 
-<<if $exposed gte 2>>
+<<if $exposed gte 2 and $uncomfortable.nude is true>>
 	<<if $daystate is "night">>
 		<<if $exhibitionism gte 55>>
 			<<link [[Sneak outside (0:02)|Home Leave Naked]]>><</link>><<if $ex_fence isnot 1>><<exhibitionist4>><</if>>
@@ -11,7 +11,7 @@
 			<<link [[Sneak outside (0:05)|Home Leave Naked Day]]>><</link>><<if $ex_fence isnot 1>><<exhibitionist5>><</if>>
 		<</if>>
 	<</if>>
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 	<<if $daystate is "night">>
 		<<if $exhibitionism gte 15>>
 			<<link [[Sneak outside (0:02)|Home Leave Undies]]>><</link>><<if $ex_fence isnot 1>><<exhibitionist2>><</if>>

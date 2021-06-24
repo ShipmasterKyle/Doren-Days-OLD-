@@ -26,7 +26,7 @@
 	You are in the playground in front of the school. It's mostly empty while class is in session.
 	<br><br>
 	<</if>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide behind a shed, keeping your <<lewdness>> hidden.
 	<br><br>
 	<</if>>
@@ -44,7 +44,7 @@ The front playground is empty.
 <<if $danger gte (9900 - $allure) and $eventskip is 0>>
 <<eventsplayground>>
 <<else>>
-	<<if $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $exposed gte 1>>
+	<<if $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $exposed gte 1 and $uncomfortable.nude is true>>
 		<<link [[Sneak behind the school (0:05)|School Rear Playground]]>><<pass 5>><</link>>
 		<br>
 	<<else>>
@@ -89,7 +89,7 @@ The front playground is empty.
 	You are in the playground behind the school. It's mostly empty while class is in session.
 	<br><br>
 	<</if>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide behind a shed, keeping your <<lewdness>> hidden.
 	<br><br>
 	<</if>>
@@ -108,7 +108,7 @@ The front playground is empty.
 		<<eventsplayground>>
 	<<else>>
 
-		<<if $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $exposed gte 1>>
+		<<if $schoolstate isnot "early" and $schoolstate isnot "late" and $schoolstate isnot "earlynoschool" and $schoolstate isnot "latenoschool" and $schoolstate isnot "daynoschool" and $exposed gte 1 and $uncomfortable.nude is true>>
 
 			<<link [[Sneak into the school (0:03)|Hallways]]>><<pass 3>><</link>>
 			<br>
@@ -125,7 +125,7 @@ The front playground is empty.
 				<<link [[Approach|Kylar Playground]]>><<set $kylar_text_trigger to true>><</link>>
 				<br><br>
 			<</if>>
-			<<if $exposed lte 0 and $schoolstate is "lunch">>
+			<<if ($exposed lte 0 or $uncomfortable.nude is false) and $schoolstate is "lunch">>
 				<<link [[Relax on a stump (0:10)|School Stump]]>><<stress -1>><<pass 10>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
 				<br>
 			<</if>>
@@ -337,7 +337,11 @@ You haul yourself over the fence and drop down on the other side.
 
 		<<else>>
 			<<if $exposed gte 1>>
+			<<if $uncomfortable.nude is false>>
+				<<fameexhibitionism 5>>
+				<<else>>
 				<<fameexhibitionism 1>>
+			<</if>>
 			<</if>>
 
 			<<if $headnodetention isnot 1>>
@@ -1702,8 +1706,10 @@ The <<person2>><<person>> tries to grab you again, but you bat <<his>> arm away.
 	<<endcombat>>
 
 	<<npc Sirris>><<person1>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		Sirris holds out a towel and looks away. You cover yourself as fast as you can.
+		<<elseif $exposed gte 1 and $uncomfortable.nude is false>>
+		Sirris holds out a towel and looks away. You take your sweet little time covering up.
 		<br><br>
 		<<towelup>>
 	<</if>>
@@ -1804,8 +1810,10 @@ The bullies share a worried glance, but do as they're told.
 <<endevent>>
 
 <<npc Sirris>><<person1>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	Sirris holds out a towel and looks away. You cover yourself as fast as you can.
+<<if $exposed gte 1 and $uncomfortable.nude is false>>
+	Sirris holds out a towel and looks away. You take your time putting on the towel.
 	<br><br>
 	<<towelup>>
 <</if>>

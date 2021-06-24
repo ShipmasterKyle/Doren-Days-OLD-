@@ -2258,10 +2258,35 @@ Town:
 <br>
 <<link [[27th|$passage]]>><<set $monthday to 27>><</link>>
 <br>
-<<link [[28th|$phassage]]>><<set $monthday to 28>><</link>>
+<<link [[28th|$passage]]>><<set $monthday to 28>><</link>>
 <br><br>
 
-
+<u> Month </u>
+<br>
+<<link [[January|$passage]]>><<set $month to "january">><</link>>
+<br>
+<<link [[Febuary|$passage]]>><<set $month to "febuary">><</link>>
+<br>
+<<link [[March|$passage]]>><<set $month to "march">><</link>>
+<br>
+<<link [[April|$passage]]>><<set $month to "april">><</link>>
+<br>
+<<link [[May|$passage]]>><<set $month to "may">><</link>>
+<br>
+<<link [[June|$passage]]>><<set $month to "june">><</link>>
+<br>
+<<link [[July|$passage]]>><<set $month to "july">><</link>>
+<br>
+<<link [[August|$passage]]>><<set $month to "august">><</link>>
+<br>
+<<link [[September|$passage]]>><<set $month to "september">><</link>>
+<br>
+<<link [[October|$passage]]>><<set $month to "october">><</link>>
+<br>
+<<link [[November|$passage]]>><<set $month to "november">><</link>>
+<br>
+<<link [[December|$passage]]>><<set $month to "december">><</link>>
+<br><br>
 
 <u>Weather</u>
 <br>

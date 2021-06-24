@@ -1,6 +1,24 @@
 <!--The following events will be used to start an event where the LIs can stay overnight. Each will have requirements and such-->
 
 :: Robin Invite [nobr]
+<<npc Robin>><<person1>>
+<<if $submissive gte 1150>>
+	"Robin, w-would you like to stay at my place?" You ask.
+<<elseif $submissive lte 850>>
+	"Hey Robin. Lets go to my place." You say.
+<<else>>
+	"Robin, why don't we go to my place for the night?" You ask.
+<</if>>
+<<if $homeknown.includes("Robin")>>
+Robin nods.
+<<else>>
+"Your place?" <<He>> asks.
+"I have an apartment not far from here. Come on its not far from here." You say.
+<<set $homeknown.pushUnique("Robin")>>
+<<set $robinhouse to "yes">>
+<<set $robin_over += 1>>
+<</if>>
+<<link [[Next|Apartment Robin]]>><</link>>
 
 :: Whitney Invite [nobr]
 

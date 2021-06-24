@@ -471,7 +471,7 @@ You shove the <<person1>><<person>> down the river bank, where <<he>> splashes i
 <<set $rescued += 1>><<if $exposed gte 1>><<fameexhibitionism 10>><</if>>
 Several people round the nearby hedge to investigate your scream. Others come running from the other side of the bridge. The <<person2>><<person>> notices first, and whacks <<his>> friend's arm. Both step away from you, and make a hurried escape.
 <br><br>
-<<tearful>> you dart down a nearby path. <<if $exposed gte 1>>Hopefully you weren't seen by too many people.<</if>>
+<<tearful>> you dart down a nearby path. <<if $exposed gte 1 and $uncomfortable.nude is true>>Hopefully you weren't seen by too many people.<</if>>
 <br><br>
 <<clotheson>>
 <<endcombat>>

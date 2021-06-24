@@ -39,8 +39,7 @@
 <<set _possibilities to [
 	"penis",
 	"dick",
-	"cock",
-	"willy"
+	"cock"
 ]>>
 <<print _possibilities.pluck()>>
 <</nobr>><</widget>>

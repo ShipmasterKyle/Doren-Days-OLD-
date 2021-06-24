@@ -23,6 +23,21 @@
 <</if>>
 <</nobr>><</widget>>
 
+<<widget "elistsleepoutfits">><<nobr>>
+<<if $alwaysSleepNaked isnot true>>
+	<<for _i to 0; _i lt $outfit.length; _i++>>
+		<<if $outfit[_i].type.includes("sleep")>>
+			<<print '<<link [["Wear "+$outfit[_i].name+($outfit[_i].colors is false? "" : " [C]") + " and climb in bed"|MyBed]]>><<set $wear_outfit to ' + _i + '>><</link>>'>>
+			<br>
+		<</if>>
+	<</for>>
+<<else>>
+	<span class="red">The slime is not allowing you to sleep with anything on.</span>
+	<br>
+<</if>>
+<</nobr>><</widget>>
+
+
 <<widget "listswimoutfits">><<nobr>>
 <<set $wardrobe_location to $args[0]>>
 <<for _i to 0; _i lt $outfit.length; _i++>>

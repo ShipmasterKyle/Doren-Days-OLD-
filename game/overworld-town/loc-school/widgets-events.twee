@@ -12,8 +12,13 @@
 			<<if _store_check is 1 and $malechance isnot "m">>
 				The voices suddenly stop. The <<person1>><<person>> breaks the silence. "Who would leave these clothes here? We should probably take them to lost and found." They have your clothes!
 				<br><br>
+				<<if $exposed gte 1 and $uncomfortable.nude is false>>
+				<<link [[Fluant|School Toilets Clothes]]>><<set $phase to 6>><</link>>
+				<br>
+				<<else>>
 				<<link [[Call out|School Toilets Clothes]]>><<set $phase to 2>><</link>>
 				<br>
+				<</if>>
 				<<link [[Remain Silent|School Toilets Clothes]]>><<set $phase to 1>><</link>>
 				<br>
 			<<else>>
@@ -33,6 +38,9 @@
 			<<if _store_check is 1 and $malechance isnot "f">>
 				The voices stop abruptly. The <<person1>><<person>> breaks the silence. "Who would leave these clothes here? We should probably take them to lost and found." They have your clothes!
 				<br><br>
+				<<if $exposed gte 1 and $uncomfortable.nude is false>>
+				<<link [[Fluant|School Toilets Clothes]]>><<set $phase to 6>><</link>>
+				<br>
 				<<link [[Call out|School Toilets Clothes]]>><<set $phase to 2>><</link>>
 				<br>
 				<<link [[Remain Silent|School Toilets Clothes]]>><<set $phase to 1>><</link>>

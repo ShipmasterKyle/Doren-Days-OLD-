@@ -476,11 +476,11 @@ Your clothes are stored beneath the sinks.
 		<</if>>
 		<<if _store_check isnot 1>>
 		<<link [[Leave|Park]]>><</link>>
-		<<elseif $exposed gte 2 and $exhibitionism gte 35>>
+		<<elseif $exposed gte 2 and $exhibitionism gte 35 and $uncomfortable.nude is true>>
 		<<link [[Sneak Out|Park Toilets Sneak]]>><<set $phase to 2>><</link>><<exhibitionist3>>
-		<<elseif $exposed is 1>>
+		<<elseif $exposed is 1 and $uncomfortable.nude is true>>
 		<<link [[Sneak Out|Park Toilets Sneak]]>><<set $phase to 1>><</link>><<exhibitionist1>>
-		<<elseif $exposed lte 0>>
+		<<elseif $exposed lte 0 or $uncomfortable.nude is false>>
 		<<link [[Leave|Park]]>><</link>>
 		<</if>>
 	<</if>>
@@ -560,11 +560,11 @@ Your clothes are stored beneath the sinks.
 		<</if>>
 		<<if _store_check isnot 1>>
 		<<link [[Leave|Park]]>><</link>>
-		<<elseif $exposed gte 2 and $exhibitionism gte 35>>
+		<<elseif $exposed gte 2 and $exhibitionism gte 35 and $uncomfortable.nude is true>>
 		<<link [[Sneak Out|Park Toilets Sneak]]>><<set $phase to 2>><</link>><<exhibitionist3>>
-		<<elseif $exposed is 1>>
+		<<elseif $exposed is 1 and $uncomfortable.nude is true>>
 		<<link [[Sneak Out|Park Toilets Sneak]]>><<set $phase to 1>><</link>><<exhibitionist1>>
-		<<elseif $exposed lte 0>>
+		<<elseif $exposed lte 0 or $uncomfortable.nude is false>>
 		<<link [[Leave|Park]]>><</link>>
 		<</if>>
 	<</if>>

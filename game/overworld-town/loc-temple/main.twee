@@ -8,7 +8,7 @@ You are in the main hall of the temple. Stone walls and pillars tower into darkn
 <<if $weekday is 1 and $hour is 12 and $massattended isnot 1>>
 	The seats are filled with worshippers, here the for Sunday mass.
 <</if>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide behind one of the pillars to conceal your <<nudity>>.
 <</if>>
 <br><br>

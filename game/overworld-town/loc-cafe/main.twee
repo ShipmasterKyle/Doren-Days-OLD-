@@ -17,7 +17,7 @@ You are in the Ocean Breeze Cafe.
 <<if $stress gte 10000>>
 	<<passoutshop>>
 
-<<elseif $openinghours is 1 and $exposed lt 1 and $bunstat gte 50 and $chef_state is 1>><<set $chef_state to 2>><<set $bun_value to 10000>>
+<<elseif $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false) and $bunstat gte 50 and $chef_state is 1>><<set $chef_state to 2>><<set $bun_value to 10000>>
 <<npc Sam>><<person1>>Sam approaches you, wiping <<his>> hands on a towel and beaming. "I've made a decision," <<he>> says. "I wanted to keep the buns affordable, but we've attracted interest." <<He>> holds out a holiday brochure, opened on a page that advertises the town. There's a picture of the cafe with a caption that describes the buns as "world-class."
 <br><br>
 
@@ -30,7 +30,7 @@ You are in the Ocean Breeze Cafe.
 <<link [[Next|Ocean Breeze]]>><</link>>
 <br>
 
-<<elseif $openinghours is 1 and $exposed lt 1 and $bunstat gte 200 and $chef_state is 2>><<set $chef_state to 3>>
+<<elseif $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false) and $bunstat gte 200 and $chef_state is 2>><<set $chef_state to 3>>
 <<npc Sam>><<person1>>
 Sam approaches you. "I was at a party," <<he>> says. "And I may have had one too many. Anyway, the topic of our buns came up. People were very curious about how they're made. When I told them I didn't know, that a young chef was responsible, they became even hungrier. I think a myth is building around you."
 <br><br>
@@ -44,7 +44,7 @@ Sam approaches you. "I was at a party," <<he>> says. "And I may have had one too
 <<link [[Next|Ocean Breeze]]>><</link>>
 <br>
 
-<<elseif $openinghours is 1 and $exposed lt 1 and $chef_state is 5>><<set $chef_state to 6>>
+<<elseif $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false) and $chef_state is 5>><<set $chef_state to 6>>
 <<npc Sam>>Sam approaches you. "The photographer sent the pictures over," <<he>> says. "They're fantastic! The new adverts are going to look great. You'll get <span class="gold">30%</span> of each bun sold from now on, as promised."
 <<set $bun_cut to 0.3>>
 <br><br>
@@ -56,7 +56,7 @@ Sam returns to work, humming some tune.
 <<link [[Next|Ocean Breeze]]>><</link>>
 <br><br>
 
-<<elseif $openinghours is 1 and $exposed lt 1 and $bunstat gte 400 and $chef_state is 6>><<set $chef_state to 7>><<set $chef_rework to 37>>
+<<elseif $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false) and $bunstat gte 400 and $chef_state is 6>><<set $chef_state to 7>><<set $chef_rework to 37>>
 <<npc Sam>><<person1>>
 Sam approaches you, looking more serious than normal. "I've made a decision," <<he>> says. "The buns are our flagship, but people are more interested than ever in our other dishes too. Even when people know the chef is not in the building, they still queue for a chance to eat here. You've probably noticed."
 <br><br>
@@ -75,18 +75,18 @@ Sam approaches you, looking more serious than normal. "I've made a decision," <<
 
 <<if $hour is $closinghour>>
 
-It's closing time. Sam is herding everyone outside.<<if $exposed gte 1>>You feel a twinge of panic as you realise how exposed you'll be should you be found in this state of dress.<</if>>
+It's closing time. Sam is herding everyone outside.<<if $exposed gte 1 and $uncomfortable.nude is true>>You feel a twinge of panic as you realise how exposed you'll be should you be found in this state of dress.<</if>>
 <br><br>
 
 <<elseif $openinghours is 0>>
 You are alone in the darkness.
 <br><br>
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 You are hiding beneath a table to protect your dignity.
 <br><br>
 <</if>>
 
-<<if $openinghours is 1 and $exposed lt 1 and $oceanbreezejob isnot 1>>
+<<if $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false) and $oceanbreezejob isnot 1>>
 	<<if $oceanbreezejoboffer is 1>>
 <<link [[Ask for work|Ocean Breeze Ask Again]]>><</link>>
 <br>
@@ -96,7 +96,7 @@ You are hiding beneath a table to protect your dignity.
 	<</if>>
 <</if>>
 
-<<if $openinghours is 1 and $exposed lt 1 and $oceanbreezejob is 1>>
+<<if $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false)  and $oceanbreezejob is 1>>
 	<<if $chef_state is 0>>
 	<<link [[Accept job offer|Chef Work Accept]]>><</link>>
 	<br>
@@ -117,7 +117,7 @@ You are hiding beneath a table to protect your dignity.
 	<</if>>
 <</if>>
 
-<<if $openinghours is 1 and $exposed lt 1 and $cafeeaten isnot 1>>
+<<if $openinghours is 1 and ($exposed lt 1 or $uncomfortable.nude is false) and $cafeeaten isnot 1>>
 
 	<<if $money gte 200>>
 	<<if $images is 1>><</if>><<link [[Buy Coffee (0:02 £2)|Cafe Coffee]]>><<set $cafeeaten to 1>><<set $money -= 200>><<stress -3>><<tiredness -4>><<pass 2>><</link>><<lstress>><<ltiredness>>

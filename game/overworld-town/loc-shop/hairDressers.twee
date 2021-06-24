@@ -20,7 +20,7 @@
 You are in the hairdressers. Here you can have your hair cut or dyed.
 <<if $daystate is "night">>
 	You are alone in the darkness.
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 	You hide in a cupboard to protect your dignity.
 <<else>>
 	There's a seat available.
@@ -31,11 +31,11 @@ You are in the hairdressers. Here you can have your hair cut or dyed.
 <<else>>
 	<<if $hour is 21>>
 		It's closing time. Security is herding everyone outside.
-		<<if $exposed gte 1>>
+		<<if $exposed gte 1 and $uncomfortable.nude is true>>
 			Panic swells within you as you realise how exposed you'll be should security find you in this state of dress.
 		<</if>>
 		<br><br>
-		<<if $exposed lte 0>>
+		<<if $exposed lte 0 or $uncomfortable.nude is false>>
 			<<link [[Go Outside|High Street]]>><</link>>
 			<br>
 		<<else>>
@@ -46,7 +46,7 @@ You are in the hairdressers. Here you can have your hair cut or dyed.
 			<<link [[Examine the cash register|Hairdressers Register]]>><</link>>
 			<br>
 		<</if>>
-		<<if $exposed lte 1 and $daystate isnot "night" and $hour isnot 21>>
+		<<if ($exposed lte 1 or $uncomfortable.nude is false) and $daystate isnot "night" and $hour isnot 21>>
 			[[Take a seat|Hairdressers Seat]]
 			<br><br>
 		<</if>>

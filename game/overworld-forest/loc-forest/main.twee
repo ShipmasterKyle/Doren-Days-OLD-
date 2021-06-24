@@ -51,7 +51,7 @@
 		<<elseif $eventskip gte 1>>
 			You are in the forest outskirts. You can make out the town between the trees.
 			<br><br>
-			<<if $exposed lte 1>>
+			<<if $exposed lte 1 or $uncomfortable.nude is false>>
 				<<if $forest_shop_intro is 1>>
 					<<forestshopicon>><<link [[Forest shop|Forest Shop]]>><</link>>
 					<br><br>

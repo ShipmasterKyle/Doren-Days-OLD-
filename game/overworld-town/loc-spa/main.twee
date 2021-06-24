@@ -32,7 +32,7 @@ per session. Price may change with the season."
 	<<passoutshop>>
 <<else>>
 	<<if $hour is $closinghour>>
-		It's closing time. The receptionist is herding everyone outside.<<if $exposed gte 1>>Panic swells within you as you realise how exposed you'll be should you be found in this state of dress.<</if>>
+		It's closing time. The receptionist is herding everyone outside.<<if $exposed gte 1 and $uncomfortable.nude is true>>Panic swells within you as you realise how exposed you'll be should you be found in this state of dress.<</if>>
 		<br>
 	<<elseif $openinghours is 0>>
 		You are alone in the darkness.

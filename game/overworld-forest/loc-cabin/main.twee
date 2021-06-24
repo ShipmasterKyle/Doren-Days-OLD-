@@ -3,13 +3,13 @@
 
 You are in Eden's cabin.
 
-<<if $exposed gte 2 and $exhibitionism lte 74>>
+<<if $exposed gte 2 and $exhibitionism lte 74 and $uncomfortable.nude is true>>
 You don't want to be seen like this! You rush to your clothes.
 <br><br>
 
 <<link [[Next|Eden Wardrobe]]>><<endevent>><</link>>
 <br><br>
-<<elseif $exhibitionism lte 54 and $exposed gte 1>>
+<<elseif $exhibitionism lte 54 and $exposed gte 1 and $uncomfortable.nude is true>>
 You don't want to be seen like this! You rush to your clothes.
 <br><br>
 
@@ -17,7 +17,7 @@ You don't want to be seen like this! You rush to your clothes.
 <br><br>
 <<else>>
 
-<<if $exposed is 1 and $exhibitionism gte 55>>
+<<if $exposed is 1 and $exhibitionism gte 55 and $uncomfortable.nude is false>>
 <span class="lewd">With your <<lewdness>> on display, you can't help but feel a primal thrill.</span>
 <br><br>
 <</if>>
@@ -508,13 +508,13 @@ You are in the clearing outside Eden's cabin. The surrounding trees are so huge 
 <<set $foresthunt to 0>>
 <</if>>
 
-<<if $exposed gte 2 and $exhibitionism lte 74>>
+<<if $exposed gte 2 and $exhibitionism lte 74 and $uncomfortable.nude is true>>
 You don't want to be seen like this! You rush to your clothes.
 <br><br>
 
 <<link [[Next|Eden Wardrobe]]>><<endevent>><</link>>
 <br><br>
-<<elseif $exhibitionism lte 54 and $exposed gte 1>>
+<<elseif $exhibitionism lte 54 and $exposed gte 1 and $uncomfortable.nude is true>>
 You don't want to be seen like this! You rush to your clothes.
 <br><br>
 
@@ -522,7 +522,7 @@ You don't want to be seen like this! You rush to your clothes.
 <br><br>
 <<else>>
 
-<<if $exposed is 1 and $exhibitionism gte 55>>
+<<if $exposed is 1 and $exhibitionism gte 55 and $uncomfortable.nude is false>>
 <span class="lewd">With your <<lewdness>> on display, you can't help but feel a primal thrill.</span>
 <br><br>
 <</if>>

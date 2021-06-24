@@ -1198,7 +1198,13 @@
 				<<elseif $NPCList[_nn].penis is "mouth">>
 					<<switch $NPCList[_nn].penissize>>
 					<<case 4>>
-						<<He>> grasps your hair and thrusts down your throat, gagging you with <<his>> $NPCList[_nn].penisdesc as <<he>> cums. <span class="pink">You whimper as semen streams down your throat.</span> "I bet you enjoy being face fucked."
+					<<if $oralejacstat gte 45>>
+						<<He>> grasps your hair and thrusts down your throat, gagging you with <<his>> $NPCList[_nn].penisdesc as <<he>> cums. <span class="pink">You moan as semen streams down your throat.</span> "I bet you enjoy being face fucked." <<Hes>> not wrong.
+						<<oralejacstat>><<ejacstat>><<set $hunger -= 200>><<set $thirst -= 200>><<set $mouthsemen += 1>>
+						<<gstress>><<gtrauma>><<gpain>><<violence 3>><<bruise neck>><<hitstat>>
+						<br><br>
+					<<else>>
+					<<He>> grasps your hair and thrusts down your throat, gagging you with <<his>> $NPCList[_nn].penisdesc as <<he>> cums. <span class="pink">You whimper as semen streams down your throat.</span> "I bet you enjoy being face fucked."
 						<<oralejacstat>><<ejacstat>><<set $hunger -= 200>><<set $thirst -= 200>><<set $mouthsemen += 1>>
 						<<gstress>><<gtrauma>><<gpain>><<violence 3>><<bruise neck>><<hitstat>>
 						<br><br>

@@ -43,7 +43,7 @@
 <</if>>
 <br><br>
 
-<<if $exposed gte 1 and $laketeenspresent is 1>>
+<<if $exposed gte 1 and $laketeenspresent is 1 or $uncomfortable.nude is true>>
 You keep low and stay among the trees to keep your <<lewdness>>.
 <br><br>
 <</if>>
@@ -63,7 +63,7 @@ There's a rocky alcove where you could store your clothes.
 <br>
 <<lakeclothes>>
 
-	<<if $laketeenspresent is 1 and $exposed lte 0 and $hour isnot 20 and $season isnot "winter">>
+	<<if $laketeenspresent is 1 and $exposed lte 0 and $hour isnot 20 and $season isnot "winter" or $laketeenspresent and $uncomfortable.nude is false and $hour isnot 20 and $season isnot "winter">>
 		<<link [[Hang out (0:30)|Lake Hang]]>><<pass 30>><<stress -6>><<status 1>><</link>><<gcool>><<lstress>>
 		<br>
 	<</if>>
@@ -75,7 +75,7 @@ There's a rocky alcove where you could store your clothes.
 		<br>
 	<</if>>
 	<<if $season isnot "winter">>
-		<<if $exposed gte 2>>
+		<<if $exposed gte 2 and $uncomfortable.nude is true>>
 			<<if $exhibitionism gte 75 and $laketeenspresent is 1>>
 				<<link [[Take a stroll (1:00)|Lake Stroll]]>><<pass 60>><<stress -6>><<arousal 1000>><<set $rng to random(1, 100)>><<set $phase to 2>><</link>><<exhibitionist5>><<garousal>><<lstress>>
 				<br>
@@ -130,7 +130,7 @@ There's a rocky alcove where you could store your clothes.
 	<</if>>
 <</if>>
 <br><br>
-<<if $exposed gte 1 and $laketeenspresent is 1>>
+<<if $exposed gte 1 and $laketeenspresent is 1 and $uncomfortable.nude is true>>
 	<<if $exhibitionism gte 75>>
 	You keep low and stay among the trees. You really wish to show your <<lewdness>>, but you restrain yourself from doing so.
 	<<else>>
@@ -203,9 +203,9 @@ There's a rocky alcove where you could store your clothes.
 <</if>>
 <br><br>
 <<if $exposed gte 1 and $laketeenspresent is 1>>
-		<<if $exhibitionism gte 75>>
+		<<if $exhibitionism gte 75 and $uncomfortable.nude is true>>
 	You keep low and stay among the trees. You really wish to show your <<lewdness>>, but you restrain yourself from doing so.
-	<<else>>
+	<<elseif $uncomfortable.nude is true>>
 	You keep low and stay among the trees to keep your <<lewdness>> from being seen.
 	<</if>>
 	<br><br>
@@ -275,9 +275,9 @@ There's a rocky alcove where you could store your clothes.
 <</if>>
 <br><br>
 <<if $exposed gte 1 and $laketeenspresent is 1 or $laketeensfire is 1>>
-	<<if $exhibitionism gte 75>>
+	<<if $exhibitionism gte 75 and $uncomfortable.nude is true>>
 	You keep low and stay among the trees. You really wish to show your <<lewdness>>, but you restrain yourself from doing so.
-	<<else>>
+	<<elseif $uncomfortable.nude is true>>
 	You keep low and stay among the trees to keep your <<lewdness>> from being seen.
 	<</if>>
 	<br><br>
@@ -333,7 +333,7 @@ There's a rocky alcove where you could store your clothes.
 	<</if>>
 	<br><br>
 <</if>>
-<<if $weather isnot "rain" and $weather isnot "snow" and $hour gte 18 and $exposed gte 1 and $lakecouple isnot 1>>
+<<if $weather isnot "rain" and $weather isnot "snow" and $hour gte 18 and $exposed gte 1 and $lakecouple isnot 1 and $uncomfortable.nude is true>>
 	<<if $exhibitionism gte 75>>
 	You keep low and stay among the trees. You really wish to show your <<lewdness>>, but you restrain yourself from doing so.
 	<<else>>
@@ -350,7 +350,7 @@ There's a rocky alcove where you could store your clothes.
 	<<eventlake>>
 <<else>>
 	<<lakereturnjourney>>
-	<<if $weather isnot "rain" and $weather isnot "snow" and $hour gte 18 and $exposed lte 0 and $lakecouple isnot 1>>
+	<<if $weather isnot "rain" and $weather isnot "snow" and $hour gte 18 and $exposed lte 0 and $lakecouple isnot 1 and $uncomfortable.nude is true>>
 		<<link [[Approach the couple|Lake Couple]]>><</link>>
 		<br>
 	<</if>>
@@ -380,7 +380,7 @@ There's a rocky alcove where you could store your clothes.
 	Lotus flowers float along the shore.
 <</if>>
 <br><br>
-<<if $laketeenspresent is 1 and $exposed gte 1>>
+<<if $laketeenspresent is 1 and $exposed gte 1 and $uncomfortable.nude is true>>
 
 	<<if $exhibitionism gte 75>>
 	You keep low beneath the water. You really wish to show your <<lewdness>>, but you restrain yourself from doing so and probably should find something to cover yourself with.
@@ -539,7 +539,7 @@ There's a rocky alcove where you could store your clothes.
 	You see lotus flowers trapped within the ice.
 <</if>>
 <br><br>
-<<if $laketeenspresent is 1 and $exposed gte 1>>
+<<if $laketeenspresent is 1 and $exposed gte 1 and $uncomfortable.nude is true>>
 	There's nowhere to hide. <<covered>>
 	<br><br>
 <</if>>
@@ -602,7 +602,7 @@ You free the lotus flowers from the ice, gathering the seeds.  <span class="gold
 	<span class="lblue">Mason swims nearby.</span>
 <</if>>
 <br><br>
-<<if $laketeenspresent is 1 and $exposed gte 1>>
+<<if $laketeenspresent is 1 and $exposed gte 1 $uncomfortable.nude is true>>
 	<<if $exhibitionism gte 75>>
 	You keep low beneath the water. You really wish to show your <<lewdness>>, but you restrain yourself from doing so and probably should find something to cover yourself with.
 	<<else>>
@@ -740,7 +740,7 @@ You free the lotus flowers from the ice, gathering the seeds.  <span class="gold
 		<br><br>
 	<</if>>
 <</if>>
-<<if $exposed gte 1>>
+<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		<<covered>> There's nowhere to hide out here.
 		<br><br>
 	<</if>>

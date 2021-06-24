@@ -301,7 +301,7 @@
 
 <<widget "orgasmstreet">><<nobr>>
 	<<orgasmpassage>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		<<if $daystate isnot "night">>
 			You steady yourself as your spasms subside, feeling exposed and hoping the noise hasn't given away your hiding place.
 		<<else>>

@@ -79,7 +79,7 @@ The _tentacle.desc tentacle writhes between your feet.
 	and up into your mouth where it spurts a sweet fluid down your throat at the apex of each thrust.
 	<br>
 	<<purity -1>><<internalejac>><<sex 5>>
-	<<set $drugged += 3>><<set $mouthgoo += 1>>
+	<<set $drugged += 10>><<set $mouthgoo += 1>>
 	<<set _tentacle.tentaclehealth -= 1>>
 <</if>>
 

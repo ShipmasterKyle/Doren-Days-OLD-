@@ -8,7 +8,7 @@ You are in the dance studio. Here you can pay for lessons to improve your dancin
 	<<passoutshop>>
 <<else>>
 	<<if $hour is $closinghour>>
-		It's closing time. The receptionist is herding everyone outside.<<if $exposed gte 1>>Panic swells within you as you realise how exposed you'll be should you be found in this state of dress.<</if>>
+		It's closing time. The receptionist is herding everyone outside.<<if $exposed gte 1 and $uncomfortable.nude is true>>Panic swells within you as you realise how exposed you'll be should you be found in this state of dress.<</if>>
 		<br>
 		<<storeon "dance_studio" "check">>
 			<<if _store_check is 1>>
@@ -30,13 +30,13 @@ You are in the dance studio. Here you can pay for lessons to improve your dancin
 		<</if>>
 		<br><br>
 	<</if>>
-	<<if $openinghours is 1 and $exposed lt 1>>
-		<<if $money gte 1200 and $exposed lt 1>>
+	<<if $openinghours is 1 and $exposed lt 1 or $uncomfortable.nude is false>>
+		<<if $money gte 1200 and $exposed lt 1 or $uncomfortable.nude is false>>
 			<<link [[Take a dance lesson (£12 1:00)|Dancing Lesson]]>><<set $phase to 0>><<set $money -= 1200>><<set $dancestage to 0>><</link>><<gtiredness>> | <span class="green">+ + Dancing Skill</span>
 			<br>
 		<</if>>
 		<<if ($weekday is 3 or $weekday is 5) and $worn.feet.type.includes("heels")>>
-			<<if $money gte 1200 and $exposed lt 1>>
+			<<if $money gte 1200 and $exposed lt 1 or $uncomfortable.nude is false>>
 				<<link [[Take high heel lesson (£12 0:30)|Heel Lesson]]>><<set $phase to 0>><<set $money -= 1200>><<pass 30>><</link>><<gtiredness>> | <span class="green">+ Feet Skill</span>
 				<br>
 			<</if>>

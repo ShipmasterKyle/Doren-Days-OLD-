@@ -458,7 +458,7 @@ After several minutes the bus stop and the <<person2>><<person>> pokes the <<per
 		<<set $stealtextskip to 1>>
 		<<stealclothes>>
 	<</if>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is true>>
 		<<clotheson>>
 		<<endcombat>>
 		<<tearful>> you sink into your seat to avoid being seen.
@@ -626,7 +626,7 @@ There's not much to do but cover up and leave the bus.
 	<<else>>
 		They kept your clothes.
 	<</if>>
-	<<if $exposed gte 1>>
+	<<if $exposed gte 1 and $uncomfortable.nude is false>>
 		<<tearful>> you hide behind a car before you're seen.
 		<br><br>
 	<<else>>

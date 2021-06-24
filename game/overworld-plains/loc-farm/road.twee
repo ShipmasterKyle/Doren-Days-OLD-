@@ -30,7 +30,7 @@
 		<<hitchhike>>
 	<</if>>
 <<else>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<ind>><<link [[Hitchhike (0:15)|Farm Hitchhike]]>><<pass 15>><</link>>
 		<br>
 	<</if>>
@@ -69,7 +69,7 @@
 		<<hitchhike>>
 	<</if>>
 <<else>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<ind>><<link [[Hitchhike (0:15)|Farm Hitchhike]]>><<pass 15>><</link>>
 		<br>
 	<</if>>
@@ -108,7 +108,7 @@
 		<<hitchhike>>
 	<</if>>
 <<else>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<ind>><<link [[Hitchhike (0:15)|Farm Hitchhike]]>><<pass 15>><</link>>
 		<br>
 	<</if>>
@@ -158,7 +158,7 @@
 		<<hitchhike>>
 	<</if>>
 <<else>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<ind>><<link [[Hitchhike (0:15)|Farm Hitchhike]]>><<pass 15>><</link>>
 		<br>
 	<</if>>
@@ -197,7 +197,7 @@
 		<<hitchhike>>
 	<</if>>
 <<else>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<ind>><<link [[Hitchhike (0:15)|Farm Hitchhike]]>><<pass 15>><</link>>
 		<br>
 	<</if>>
@@ -251,7 +251,7 @@
 		<<hitchhike>>
 	<</if>>
 <<else>>
-	<<if $exposed lte 0>>
+	<<if $exposed lte 0 or $uncomfortable.nude is false>>
 		<<ind>><<link [[Hitchhike (0:15)|Farm Hitchhike]]>><<pass 15>><</link>>
 		<br>
 	<</if>>

@@ -762,14 +762,14 @@ The <<person1>><<person>> doesn't look impressed, but the <<person2>><<person>> 
 The <<person1>><<person>> grumbles, but is convinced. They clear a space for you in the ship interior, open some drinks, and sit on a bench opposite. The <<person3>><<person>> turns on an old radio, and fiddles with the signal until <<he>> finds music.<<person1>>
 <br><br>
 
-<<if $exposed gte 2>>
+<<if $exposed gte 2 and $uncomfortable.nude is true>>
 	You're conscious of your <<nudity>>. It'll be difficult to dance without exposing yourself further. There's no way they'll give you towels before they're entertained.
 	<br><br>
 
 	<<link [[Stay covered|Sea Boat Dance 2]]>><<set $phase to 2>><</link>><<dancedifficulty 1 1000>>
 	<br>
 	<<link [[Expose yourself to make dancing easier|Sea Boat Dance 2]]>><<set $phase to 1>><<fameexhibitionism 3>><<trauma 6>><<stress 6>><</link>><<dancedifficulty 1 600>><<gtrauma>><<gstress>>
-<<elseif $exposed gte 1>>
+<<elseif $exposed gte 1 and $uncomfortable.nude is true>>
 	You're conscious of your <<nudity>>. It'll be difficult to dance without exposing yourself further. There's no way they'll give you towels before they're entertained.
 	<br><br>
 

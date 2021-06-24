@@ -31,7 +31,7 @@ There's a path leading down to the beach.
 <br><br>
 <<if $exposed gte 1>>
 	<<exhibitionism "street">>
-	<<if $exposed is 1 and $topless is 0>>
+	<<if $exposed is 1 and $topless is 0 and $uncomfortable.nude is true>>
 		<span class="lewd">This outfit might be fine on the nearby beach, but here it's too lewd!</span>
 		<br><br>
 	<</if>>
@@ -117,6 +117,9 @@ There's a path leading down to the beach.
 		<<if $pillory_tenant.exists is 1 and $exposed lte 0>>
 			<<link [[Watch Pillory (0:10)|Cliff Street Pillory]]>><<pass 10>><</link>>
 			<br>
+		<!-- <<elseif $pillory_tenant.exists is 1 and $exposed gte 2 and $uncomfortable.nude is false>>
+			<<link [[Get behind the pillory|Event]]>><<pass 1>><</link>> 
+		-->
 		<</if>>
 		<<link [[Beach (0:05)|Beach]]>><<pass 5>><</link>>
 		<br>
@@ -126,12 +129,12 @@ There's a path leading down to the beach.
 		<<elseif $chef_state is 7 and $chef_rework gte 1 and $chef_rework lte 30>>
 
 		<<elseif $chef_state is 7 and $chef_rework lte 0>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<link [[Cafe (0:01)|Ocean Breeze Rework]]>><<pass 1>><</link>>
 				<br>
 			<</if>>
 		<<elseif $openinghours is 1>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is true>>
 				<<link [[Cafe (0:01)|Ocean Breeze]]>><<pass 1>><</link>>
 				<br>
 			<<else>>
@@ -144,14 +147,14 @@ There's a path leading down to the beach.
 			<br>
 		<</if>>
 		<br>
-		<<if $exposed gte 1 and $daystate isnot "night">>
+		<<if $exposed gte 1 and $daystate isnot "night" and $uncomfortable.nude is true>>
 		<<else>>
 			<<add_link "Travel<br>">><<hideDisplay>>
 			<<barb>>
 			<<starfish>>
 			<<connudatus>>
 			<<high>>
-			<<if $exposed lte 0>>
+			<<if $exposed lte 0 or $uncomfortable.nude is false>>
 				<<buswait>>
 			<</if>>
 			<<loiter>>
@@ -204,6 +207,11 @@ When the decent people are all in bed - you might dare do lewder things.
 		<<link [[Expose prisoner|Cliff Street Prisoner]]>><<pass 2>><<set $phase to 3>><</link>><<llstress>>
 		<br>
 	<</if>>
+	<!-- Allows the player to fuck the pillory people. For another update.
+		<<if $pillory_tenant.lowerexposed lte 1 or (($pronoun is "m" and $pillory_tenant.upperexposed lte 1) or ($pronoun is "f" and $pillory_tenant.upperexposed lte 2)) and $stress gte 7000 and $trauma gte (($traumamax / 5) * 2)>>
+		<<link [[ prisoner|Cliff Street Prisoner]]>><<pass 2>><<set $phase to 3>><</link>><<llstress>>
+		<br>
+	<</if>> -->
 <<else>>
 	<<if $stress gte 4000>>
 		<<if $pillory_tenant.fruitstock gte 1>>
