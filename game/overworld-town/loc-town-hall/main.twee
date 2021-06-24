@@ -1,4 +1,17 @@
 :: Town Hall [nobr]
-The building is still under construction.
+The building is still under construction. They have opened some parts to the public.
+<br><br>
+<<if $money gte 50000>>
+<<link [[Get an ID ($500)|ID]]>><<pass 1>><<set $money -= 50000>><</link>>
+<<else>>
+You could get an ID for $500 but you don't have enough money.
+<</if>>
 <br>
 <<link [[Leave|Oxford Street]]>><<pass 3>><</link>>
+
+:: ID [nobr]
+You fill out paperwork and pay the fees. Soon enough you have you ID. 
+<br>
+<<link [[Next|Oxford Street]]>><<set $id to 2>><<pass 3>><</link>>
+<br><br>
+<span class="blue">Silver Note: There will be more content here soon.</span>
